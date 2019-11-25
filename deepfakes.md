@@ -43,6 +43,7 @@ destinado a la manipulación y propaganda política.
 <center>
 <iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/embed/9Yq67CjDqvw" width="480"></iframe>
 </center>
+<br>
 
 Estos vídeos tienen una gran capacidad para distorsionar la realidad
 (presente y pasada). Otro vídeo sintético falso presentado recientemente
@@ -50,6 +51,11 @@ muestra a Nixon comunicando la muerte de la tripulación de la primera
 misión a la Luna. Un vídeo similar creado con intenciones maliciosas
 puede potenciar enormemente ciertas teorías de la conspiración y
 falsear la historia real.
+
+<center>
+<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/yaq4sWFvnAY" width="560"></iframe>
+</center>
+<br>
 
 Algunos autores [4] opinan que los Deep Fakes suponen un gran riesgo
 para la sociedad, el sistema y la seguridad nacional porque pueden crear
