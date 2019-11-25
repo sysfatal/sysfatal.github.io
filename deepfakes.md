@@ -7,7 +7,7 @@
 </div>
 <br>
 
-
+![max headroom image](figs/max-headroom.jpg "Max Headroom en el famoso hackeo de la señal de TV en Chicago, 1987.")
 
 En los últimos años se han estado aplicando distintas técnicas de
 inteligencia artificial con distintos fines y en múltiples contextos. Una
@@ -56,6 +56,7 @@ falsear la historia real.
 <iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/embed/yaq4sWFvnAY" width="480"></iframe>
 </center>
 <br>
+
 
 Algunos autores [4] opinan que los Deep Fakes suponen un gran riesgo
 para la sociedad, el sistema y la seguridad nacional porque pueden crear
