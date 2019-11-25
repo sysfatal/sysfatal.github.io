@@ -7,7 +7,8 @@
 </div>
 <br>
 
-![max headroom image](figs/max-headroom.jpg "max headroom image")
+![max headroom image](figs/max-headroom.jpg)
+
 *Max Headroom en el famoso hackeo de la señal de TV en Chicago, 1987.*
 
 
