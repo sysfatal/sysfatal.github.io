@@ -388,8 +388,8 @@ Technology Review, Aug. 2019. <a href="https://www.technologyreview.com/s/614083
 </div>
 
 <sub><sup>
-    <p><b>(cc) Enrique Soriano-Salvador</b>
-    <p>Algunos derechos reservados. Este trabajo se entrega bajo la licencia
+    <b>(cc) Enrique Soriano-Salvador</b>
+    Algunos derechos reservados. Este trabajo se entrega bajo la licencia
     Creative Commons Reconocimiento - NoComercial - SinObraDerivada (by-nc-nd).
     Creative Commons, 559 Nathan Abbott Way, Stanford,
     California 94305, USA.
