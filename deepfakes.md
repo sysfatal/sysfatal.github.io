@@ -3,6 +3,17 @@
 
 <a href="https://twitter.com/share?ref_src={{site.url}}{{page.url}}" class="twitter-share-button" data-show-count="false">Tweet this!</a> 
 
+
+
+
+<div class="share-page">
+    Share this on &rarr;
+    <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter">Twitter</a>
+    <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook">Facebook</a>
+</div>
+
+
+
 <a href="https://twitter.com/e__soriano?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @e__soriano on Twitter</a>
 
 En los últimos años se han estado aplicando distintas técnicas de
