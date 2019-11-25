@@ -6,3 +6,7 @@ En este blog iré metiendo entradas sobre las cosas que me interesan, como la se
 
 In this blog I'll write about stuff I like: security, operating systems, the internet and so on, in Spanish and/or English, whatever I please :)
  
+## Deep Fakes vs. Democracia
+
+En los últimos años se han estado aplicando distintas técnicas de inteligencia artificial con distintos fines y en múltiples contextos. Una de sus aplicaciones es la creación de vídeos y voces sintéticas... [(continua...)](deepfakes.html)
+
