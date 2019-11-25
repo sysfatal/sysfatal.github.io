@@ -1,7 +1,7 @@
 ## Deep Fakes vs. Democracia
 *Mon Nov 25 11:55:38 CET 2019*
 
-<a href="https://twitter.com/share?ref_src={{site.url}}{{page.url}}" class="twitter-share-button" data-show-count="false">Tweet</a> 
+<a href="https://twitter.com/share?ref_src={{site.url}}{{page.url}}" class="twitter-share-button" data-show-count="false">Tweet this!</a> 
 
 <a href="https://twitter.com/e__soriano?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @e__soriano on Twitter</a>
 
