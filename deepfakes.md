@@ -7,10 +7,10 @@
 </div>
 <br>
 
-![max headroom image](figs/max-headroom.jpg)
-
-*Max Headroom en el famoso hackeo de la señal de TV en Chicago, 1987.*
-
+<figure class="image">
+  <img src="figs/max-headroom.jpg" alt="{{max headroom image}}">
+  <figcaption>Max Headroom en el famoso hackeo de la señal de TV en Chicago, 1987.</figcaption>
+</figure>
 
 En los últimos años se han estado aplicando distintas técnicas de
 inteligencia artificial con distintos fines y en múltiples contextos. Una
