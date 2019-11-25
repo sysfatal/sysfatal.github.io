@@ -7,10 +7,12 @@
 </div>
 <br>
 
+<center>
 <figure class="image">
   <img src="figs/max-headroom.jpg" alt="{{max headroom image}}">
   <figcaption>Max Headroom: hackeo de la señal de TV, Chicago, 1987.</figcaption>
 </figure>
+</center>
 
 En los últimos años se han estado aplicando distintas técnicas de
 inteligencia artificial con distintos fines y en múltiples contextos. Una
