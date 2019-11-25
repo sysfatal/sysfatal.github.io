@@ -2,6 +2,7 @@
 *Mon Nov 25 11:55:38 CET 2019*
 
 <div class="fb-share-button" data-href="{{site.url}}{{page.url}}" data-layout="button_count" style="position: relative; top: -8px; left: 33px;"></div>
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a> 
 
 <a href="https://twitter.com/e__soriano?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @e__soriano on Twitter</a>
 
