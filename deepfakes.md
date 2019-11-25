@@ -7,7 +7,7 @@
 </div>
 <br>
 
----
+
 
 En los últimos años se han estado aplicando distintas técnicas de
 inteligencia artificial con distintos fines y en múltiples contextos. Una
@@ -39,6 +39,10 @@ usando una red neuronal recurrente con el fin de adaptar el audio falso
 a las formas de la boca y labios del presidente [3]. Resulta imposible
 calcular el impacto que tendría la distribución de un video similar
 destinado a la manipulación y propaganda política.
+
+<center>
+<iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/embed/9Yq67CjDqvw" width="480"></iframe>
+</center>
 
 Estos vídeos tienen una gran capacidad para distorsionar la realidad
 (presente y pasada). Otro vídeo sintético falso presentado recientemente
