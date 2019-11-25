@@ -6,6 +6,7 @@
     [<a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook">Facebook</a>]
 </div>
 
+
 ---
 
 En los últimos años se han estado aplicando distintas técnicas de
