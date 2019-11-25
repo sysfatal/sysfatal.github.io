@@ -386,3 +386,5 @@ Technology Review, Sept. 2019. <a href="https://www.technologyreview.com/f/61442
 Technology Review, Aug. 2019. <a href="https://www.technologyreview.com/s/614083/the-worlds-top-deepfake-artist-is-wrestling-with-the-monster-he-created/">Link</a>.<br />
 <br /></div>
 </div>
+
+(c) Enrique Soriano-Salvador
