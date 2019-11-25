@@ -13,3 +13,8 @@ a {
   color:#cc00cc;
   text-decoration:none;
 }
+
+a:hover, a:focus {
+  color:#660066;
+  font-weight: bold;
+}
