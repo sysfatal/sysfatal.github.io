@@ -11,5 +11,5 @@ In this blog I'll write about stuff I like: security, operating systems, the int
 ## Deep Fakes vs. Democracia
 *Mon Nov 25 11:55:38 CET 2019*
 
-En los últimos años se han estado aplicando distintas técnicas de inteligencia artificial con distintos fines y en múltiples contextos. Una de sus aplicaciones es la creación de vídeos y voces sintéticas... [(continua...)](deepfakes.html)
+En los últimos años se han estado aplicando distintas técnicas de inteligencia artificial con distintos fines y en múltiples contextos. Una de sus aplicaciones es la creación de vídeos y voces sintéticas... [(continua)](deepfakes.html)
 
