@@ -53,7 +53,7 @@ puede potenciar enormemente ciertas teorías de la conspiración y
 falsear la historia real.
 
 <center>
-<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/yaq4sWFvnAY" width="560"></iframe>
+<iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/embed/yaq4sWFvnAY" width="480"></iframe>
 </center>
 <br>
 
