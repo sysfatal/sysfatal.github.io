@@ -303,6 +303,19 @@ en este gitlab:
 
 [https://gitlab.etsit.urjc.es/esoriano/padding-oracle](https://gitlab.etsit.urjc.es/esoriano/padding-oracle)
 
+Puedes bajarlo así:
+
+```
+go get -d -v gitlab.etsit.urjc.es/esoriano/padding-oracle.git
+```
+
+Y para ejecutarlo:
+
+```
+$> go run server.go &
+$> go run client.go
+$> go run attack.go
+```
 
 ### Contramedidas:
 
