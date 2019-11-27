@@ -351,19 +351,21 @@ contramedidas:
 ### Historia
 
 Este ataque fue publicado en 2002 por Serge Vaudenay [1],
-y se encontraro vulnerabilidades en JavaServer Faces, Ruby on Rails,
+y se encontraron vulnerabilidades en JavaServer Faces, Ruby on Rails,
 ASP.NET, Steam y otros.
+
 En 2013, se descubrió que OpenSSL y GnuTLS eran
 vulnerables a una variante llamada
 Lucky Thirteen [2]. OpenSSL no fue parcheado hasta 2016.
+
 En 2014, se descubrió que TLS era
 vulnerable a una variante llamada
 POODLE (Padding Oracle On Downgraded Legacy Encryption) [3].
 
 
-_"Attacks only get better, they never get worse"_, Bruce Schneier.
+**_"Attacks only get better, they never get worse"_, Bruce Schneier.**
 
-_"Attack names do get worse"_, Matthew Green.
+**_"Attack names do get worse"_, Matthew Green.**
 
 
 ### Referencias
