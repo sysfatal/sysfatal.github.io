@@ -370,14 +370,14 @@ POODLE (Padding Oracle On Downgraded Legacy Encryption) [3].
 
 ### Referencias
 
-[1]  Serge Vaudenay (2002). Security Flaws Induced by CBC Padding Applications
+[1]  Serge Vaudenay. Security Flaws Induced by CBC Padding Applications
 to SSL, IPSEC, WTLS. EUROCRYPT 2002.
 
-[2]  Nadhem J. AlFardan and Kenneth G. Paterson (4 February 2013).
+[2]  Nadhem J. AlFardan and Kenneth G. Paterson.
 "Lucky Thirteen: Breaking the TLS and DTLS Record Protocols".
 Royal Holloway, University of London. Retrieved 21 June 2013.
 
-[3]  Matthew Green (14 October 2014). "Attack of the week: POODLE".
+[3]  Matthew Green. "Attack of the week: POODLE".
 [Link](https://www.poodle.io).
 
 
