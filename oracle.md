@@ -223,8 +223,8 @@ Llamemos _C[i]_ al bloque del mensaje cifrado _C_ que queremos
 descifrar. La idea principal es esta:
 
 1. Usaremos _C[i]_ como *último* bloque de un mensaje espurio
-que llamaremos _fake_. Esto es, el bloque en el que tendría que
-estar el padding.
+que llamaremos _fake_. Esto es, se usará como el bloque en el 
+que tendría que estar el padding.
 
 2. Modificaremos repetidamente el penúltimo bloque del mensaje
 	espurio, _fake[j]_, para descubrir
