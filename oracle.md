@@ -300,8 +300,9 @@ Después, para descifrar el penúltimo byte, _C[i][last-1]_:
 
 Para descifrar el primer bloque _C[0]_, debemos
 usar el vector de inicialización.
-La esperanza es descifrar el mensaje entero en _128 * len(M)_
-peticiones al servidor.
+
+**La esperanza es descifrar el mensaje entero en _128 * len(M)_
+peticiones al servidor.**
 
 ### Implementación del ejemplo
 
