@@ -318,7 +318,10 @@ $> go run client.go
 $> go run attack.go
 ```
 
-### Contramedidas:
+### Contramedidas
+
+Para evitar este tipo de ataques, podemos implementar ciertas
+contramedidas:
 
 1. Usar un modo de operación no maleable / modos de operación
 	autenticados (p. ej. GCM).
@@ -326,10 +329,13 @@ $> go run attack.go
 2. No dar detalles sobre los errores internos del servidor.
 
 3. Intentar responder en un tiempo constante, independientemente del error
-	que se produzca (evitar timing side-channels).
+	que se produzca (evitar timing side-channels). Existen bibliotecas
+	con operaciones con tiempo constante para diferentes operaciones
+	(p. ej. [https://golang.org/pkg/crypto/subtle/](subtle) en Golang).
 
-4. Monitorizar y limitar el número de peticiones inválidas
-		de los clientes (espera exponencial, baneo de clientes,
+4. Limitar el número de peticiones inválidas
+		de los clientes (espera exponencial, listas negras
+		de clientes,
 		etc.).
 
 
