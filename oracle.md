@@ -238,14 +238,7 @@ que tendría que estar el padding.
 
 5. Esto lo haremos por cada bloque de _C_ hasta conseguir el
 	mensaje en claro original completo, _M_.
-
-<center>
-<figure class="image">
-  <img src="figs/padding-attack1.png">
- </figure>
-</center>
-<br>
-
+	
 Veamos cómo descifrar un único byte del último bloque del
 mensaje en claro (el bloque de la posición _last_).
 
@@ -267,6 +260,12 @@ while val <=  255 and not found
     end if
 end while
 ```
+<center>
+<figure class="image">
+  <img src="figs/padding-attack1.png">
+ </figure>
+</center>
+<br>
 
 Obtenemos el valor intermedio correspondiente a dicho byte:
 
