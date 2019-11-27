@@ -30,10 +30,10 @@ Ahora mira:
 </center>
 <br>
 
-Ok. El único fallo que tiene el servidor es el siguiente: hace
-visible al cliente cuando hay un error porque el padding de un
-mensaje es incorrecto y cuando el error es por otro motivo.
-Simplemente eso.
+Ok. El único fallo que tiene el servidor es el siguiente: cuando hay 
+un error en el mensaje, hace
+visible al cliente si se trata de un error en el padding del 
+mensaje o no. Simplemente eso.
 
 Un ataque de oráculo es un ataque de _side-channel_.
 En general, un ataque de oráculo es cuando el protocolo o sistema
@@ -74,7 +74,7 @@ otros modos, pero CBC sigue en uso y no se considera inseguro (siempre
 que se tomen precauciones).
 
 Para cifrar un mensaje largo, se parte en
-trozos del tamaño de bloque del algoritmo (128 bits en AES/Rijdael).
+trozos del tamaño de bloque del algoritmo (128 bits en AES/Rijndael).
 Cada trozo se cifra con AES usando la clave indicada. El modo de
 operación establece cómo se cifran los distintos trozos.
 
@@ -116,17 +116,9 @@ anterior, se usa el _vector de inicialización_, que se debe proporcionar
 junto con la clave a la hora de cifrar/descifrar el mensaje con AES en
 modo CBC (y debe ser aleatorio, no predecible y no se debe reusar).
 
-Un problema grave del modo CBC es que es **maleable**. Esto significa que
+Un problema importante del modo CBC es que es **maleable**. Esto significa que
 el atacante puede modificar el mensaje cifrado para provocar cambios en
 el mensaje descifrado.
-
-<center>
-<figure class="image">
-  <img src="figs/cbc-maleable.png">
-  <figcaption>Modificación de un bit del texto cifrado en modo CBC.</figcaption>
-</figure>
-</center>
-<br>
 
 En CBC, el cambio del bit _i_ del bloque _N_ del mensaje cifrado supone
 dos cambios en el mensaje descifrado:
@@ -140,6 +132,14 @@ Mucha gente piensa que una modificación en un mensaje cifrado en modo
 CBC destroza el mensaje descifrado desde el bloque modificado hasta
 el final del mensaje. **No es así**. El bloque _N+2_, y los siguientes,
 no se ven afectados por esa modificación del mensaje cifrado.
+
+<center>
+<figure class="image">
+  <img src="figs/cbc-maleable.png">
+  <figcaption>Modificación de un bit del texto cifrado en modo CBC.</figcaption>
+</figure>
+</center>
+<br>
 
 ### Padding
 
