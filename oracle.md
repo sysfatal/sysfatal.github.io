@@ -32,7 +32,10 @@ cifrado que envía el atacante tiene bien formado el padding o no.
 
 Esto lo puede saber si el servidor devuelve un error
 que permite diferenciar si hay un error de padding o si el error
-es de otro tipo. El atacante puede sacar partido de esto para
+es de otro tipo. También se podría saber midiendo el tiempo que
+tarda el servidor en responder a una petición, etc.  
+
+El atacante puede sacar partido de esto para
 descifrar cualquier mensaje sin tener la clave AES de 256 bits.
 Esto se hace explotando un efecto del modo de operación CBC, que
 vemos a continuación.
@@ -40,7 +43,8 @@ vemos a continuación.
 ### CBC
 
 Cuando queremos usar un cifrador de bloques como AES para cifrar
-una mensaje más largo que un bloque (128 bits en el caso de AES),
+una mensaje en claro (_M_ a partir de ahora)
+más largo que un bloque (128 bits en el caso de AES),
 necesitamos usar un **modo de operación**. Hasta hace poco, el modo
 de operación estándar era CBC. En la actualidad se recomiendan
 otros modos, pero CBC sigue en uso y no se considera inseguro (siempre
@@ -52,6 +56,7 @@ Cada trozo se cifra con AES usando la clave indicada. El modo indica cómo
 se cifran los distintos trozos.
 
 Si se cifran tal cual (modo llamado ECB), los bloques del mensaje cifrado
+(_C_ a partir de ahora)
 pueden terminar con patrones derivados del mensaje en claro. Piensa en
 esto: si estás cifrando un pixmap y tienes la mala suerte de que cada
 pixel ocupa un bloque completo, el pixmap cifrado será otro pixmap en el
@@ -69,9 +74,9 @@ Esto es importante, aparecerá más tarde.
 
 Por tanto, en CBC un bloque _i_ se cifra así (siendo K la clave):
 
-
-C<sub>i</sub> = AES<sub>K</sub>(Mi ⊕ C<sub>i-1</sub>)
-
+<center>
+C[i] = AES<sub>K</sub>(M[i] ⊕ C[i-1])
+</center>
 
 Para el primer bloque del mensaje, que no tiene
 anterior, se usa el _vector de inicialización_, que se debe proporcionar
@@ -152,10 +157,11 @@ Para ello:
 	otro tipo de error).
 
 5. Si eso pasa en N-ésimo byte del penúltimo bloque, ya sabemos que el 	
-	mensaje original tiene una longitud en bytes de:
+	mensaje original tiene una longitud en bytes de (siendo _NBLOCKS_
+	el número total de bloques del mensaje cifrado _C_):
 
 <center>
-	_LEN(M) = BLOCKSIZE * (NBLOCKS - 1) + N_
+	LEN(M) = BLOCKSIZE * (NBLOCKS - 1) + N
 </center>
 
 #### Ataque II: descifrar un mensaje interceptado previamente
@@ -182,7 +188,11 @@ que llamaremos _fake_.
 5. Esto lo haremos por cada bloque de _C_ hasta conseguir el
 	mensaje en claro _M_.
 
-Por ejemplo, para descifrar un único byte:
+Por ejemplo, para descifrar un único byte (el de la posición _last_).
+
+Así encontramos el valor _val_ que hace que el último
+byte al descifrar _C[i]_ sea _0x01_ (lo que hace que
+sea un padding PKCS7 correcto de 1 byte):
 
 ```
 val := 0
@@ -200,17 +210,89 @@ end while
 
 Obtenemos el valor intermedio correspondiente a dicho byte:
 
-```
- $I := val ⊕ 0x01$
-```
+<center>
+ I := val ⊕ 0x01
+</center>
 
-\item Obtenemos el valor del byte en el texto claro, $M[i][last]$,
-\textbf{usando el bloque cifrado anterior del mensaje original},
-$C[i-1][last]$:
+Después obtenemos el valor del byte en el texto claro, _M[i][last]_,
+**usando el bloque cifrado anterior del mensaje original**,
+_C[i-1][last]_:
 
-~\\
- $M[i][last] := C[i-1][last] \oplus I $
-~\\
+<center>
+ M[i][last] := C[i-1][last] ⊕ I
+</center>
+
+Después, para descifrar el penúltimo byte, _C[i][last-1]_:
+
+1. Hacemos lo mismo, pero teniendo en cuenta que el
+		padding correcto ahora debe ser _0x02,0x02_.
+
+2. No hay problema, dado que ya sabemos el valor
+		de _M[i][last]_.
+
+3. Podemos calcular el valor
+	de _fake[j][last]_ para que al descifrar el último byte del
+	mensaje espurio descifrado sea _0x02_.
+
+**Y así con el resto de bytes del bloque _i_.**
+
+Para el primer bloque _C[0]_, debemos usar el vector de inicialización.
+La esperanza es descifrar el mensaje entero en _128 * len(M)_
+peticiones al servidor.
+
+### Implementación del ejemplo
+
+Puedes encontrar el código de la demostración implementado en Go
+en este gitlab:
+
+[https://gitlab.etsit.urjc.es/esoriano/padding-oracle](https://gitlab.etsit.urjc.es/esoriano/padding-oracle)
+
+
+### Contramedidas:
+
+1. Usar un modo de operación no maleable / modos de operación
+	autenticados (p. ej. GCM).
+
+2. No dar detalles sobre los errores internos del servidor.
+
+3. Intentar responder en un tiempo constante, independientemente del error
+	que se produzca (evitar timing side-channels).
+
+4. Monitorizar y limitar el número de peticiones inválidas
+		de los clientes (espera exponencial, baneo de clientes,
+		etc.).
+
+
+### Historia
+
+Este ataque fue publicado en 2002 por Serge Vaudenay [1],
+y se encontraro vulnerabilidades en JavaServer Faces, Ruby on Rails,
+ASP.NET, Steam y otros.
+En 2013, se descubrió que OpenSSL y GnuTLS eran
+vulnerables a una variante llamada
+Lucky Thirteen [2]. OpenSSL no fue parcheado hasta 2016.
+En 2014, se descubrió que TLS era
+vulnerable a una variante llamada
+POODLE (Padding Oracle On Downgraded Legacy Encryption) [3].
+
+
+	_"Attacks only get better, they never get worse"_, Bruce Schneier.
+
+	_"Attack names do get worse"_, Matthew Green.
+
+
+### Referencias
+
+[1]  Serge Vaudenay (2002). Security Flaws Induced by CBC Padding Applications
+to SSL, IPSEC, WTLS. EUROCRYPT 2002.
+
+[2]  Nadhem J. AlFardan and Kenneth G. Paterson (4 February 2013).
+"Lucky Thirteen: Breaking the TLS and DTLS Record Protocols".
+Royal Holloway, University of London. Retrieved 21 June 2013.
+
+[3]  Matthew Green (14 October 2014). "Attack of the week: POODLE".
+[Link](https://www.poodle.io).
+
 
 
 <sub><sup>
