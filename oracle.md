@@ -85,6 +85,7 @@ Por tanto, en CBC un bloque _i_ se cifra así (siendo K la clave):
 <center>
 C[i] = AES<sub>K</sub>(M[i] ⊕ C[i-1])
 </center>
+<br>
 
 Para el primer bloque del mensaje, que no tiene
 anterior, se usa el _vector de inicialización_, que se debe proporcionar
