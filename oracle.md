@@ -331,10 +331,11 @@ $> go run attack.go
 Para evitar este tipo de ataques, podemos implementar ciertas
 contramedidas:
 
-1. Usar un modo de operación no maleable / modos de operación
-	autenticados (p. ej. GCM).
+1. Usar un modo de operación no maleable o un modo de operación
+	autenticado (p. ej. GCM).
 
-2. No dar detalles sobre los errores internos del servidor.
+2. No dar detalles a los clientes sobre los errores internos del servidor
+	que tienen que ver con la seguridad.
 
 3. Intentar responder en un tiempo constante, independientemente del error
 	que se produzca (evitar timing side-channels). Existen bibliotecas
