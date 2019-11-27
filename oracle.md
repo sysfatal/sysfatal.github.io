@@ -116,8 +116,8 @@ el último bloque del mensaje se tiene que _rellenar_, ya que al
 cifrador hay que darle bloques completos.
 
 Hay varias formas
-de hacer esto. Para este ejemplo, estamos usando el estándar de
-padding PKCS7 que consiste en rellenar con todos los bytes puestos al
+de hacer esto. Para este ejemplo estamos usando el estándar de
+padding PKCS7, que consiste en rellenar con todos los bytes puestos al
 número de bytes del padding:
 
  ```
@@ -130,7 +130,8 @@ número de bytes del padding:
 ```
 
 Por ejemplo, si en el último bloque tienes que rellenar con 7 bytes,
-se pondrían con un valor _0x07_. Si el mensaje es múltiplo del tamaño
+se pondrían los siete con un valor _0x07_. 
+Si el mensaje es múltiplo del tamaño
 de bloque, se debe meter un bloque completo de padding.
 
 ### Ataque
@@ -172,36 +173,38 @@ Para ello:
 <center>
 	LEN(M) = BLOCKSIZE * (NBLOCKS - 1) + N
 </center>
+<br>
 
 #### Ataque II: descifrar un mensaje interceptado previamente
 
-Ahora el objetivo es *descifrar un mensaje del cliente*, que
-mucho más interesante.
+Ahora el objetivo es **descifrar un mensaje de un cliente legítimo**
+capturado previamente, que mucho más interesante.
 
-Llamemos _C[i]_ al bloque del mensaje cifrado _C_  
-que queremos descifrar.
-
-Idea:
+Llamemos _C[i]_ al bloque del mensaje cifrado _C_ que queremos
+descifrar. La idea principal es esta:
 
 1. Usaremos _C[i]_ como *último* bloque de un mensaje espurio
 que llamaremos _fake_.
 
-2. Modificaremos el penúltimo bloque del mensaje
+2. Modificaremos repetidamente el penúltimo bloque del mensaje
 	espurio, _fake[j]_, para descubrir
 	cuándo el servidor *no* retorna un error de padding.
 
 3. Así descubriremos el **valor intermedio** de cada byte de _C[i]_.
 
-4. Con el valor intermedio, reconstruimos cada byte de _M[i]_.
+4. Con el valor intermedio, reconstruiremos cada byte del correspondiente
+	bloque del mensaje en claro original, _M[i]_.
 
 5. Esto lo haremos por cada bloque de _C_ hasta conseguir el
-	mensaje en claro _M_.
+	mensaje en claro original completo, _M_.
 
-Por ejemplo, para descifrar un único byte (el de la posición _last_).
+Veamos cómo descifrar un único byte del último bloque del
+mensaje en claro (el bloque de la posición _last_).
 
 Así encontramos el valor _val_ que hace que el último
-byte al descifrar _C[i]_ sea _0x01_ (lo que hace que
-sea un padding PKCS7 correcto de 1 byte):
+byte al descifrar _C[i]_ sea _0x01_, **que hace que
+sea un padding PKCS7 correcto de 1 byte** (y en ese caso el servidor
+devolverá un error distinto a padding incorrecto):
 
 ```
 val := 0
