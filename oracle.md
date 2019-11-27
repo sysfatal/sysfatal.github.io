@@ -98,7 +98,7 @@ C[i] = AES<sub>K</sub>(M[i] ⊕ C[i-1])
 
 <center>
 <figure class="image">
-  <img src="figs/aes-decrypt.png">
+  <img src="figs/cbc-decrypt.png">
   <figcaption>Descifrado en el modo CBC.</figcaption>
 </figure>
 </center>
@@ -115,7 +115,7 @@ el mensaje descifrado.
 
 <center>
 <figure class="image">
-  <img src="figs/aes-maleable.png">
+  <img src="figs/cbc-maleable.png">
   <figcaption>Modificación de un bit del texto cifrado en modo CBC.</figcaption>
 </figure>
 </center>
