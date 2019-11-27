@@ -6,18 +6,22 @@ un mensaje cifrado con AES-256 en modo CBC y padding PKCS7.
 
 Recordemos que AES es seguro. El tiempo para romper por 
 fuerza bruta una clave AES-256
-en un supercomputador actual es de aproximadamente **10<sup>52</sup>** años.
-Con  1000000000 GPUs de 2 Gigaflops, *60^25* años.
+en un supercomputador actual es de aproximadamente 
+**10<sup>52</sup> años**.
+Con  1000000000 GPUs de 2 Gigaflops, **60<sup>25</sup> años**.
 Además, necesitarías 150 Gigavatios para alimentarlas, esto es,
 150 reactores nucleares.
 
-Tanto el **cliente como el servidor son correctos**: no tienen
-bugs explotables, usan correctamente las herramientas criptográficas,
-etc. 
+En esta demostración, **tanto el cliente como el servidor son correctos**: 
+no tienen bugs explotables, usan correctamente las herramientas 
+criptográficas, etc. 
 
 Ahora mira:
 
-// screencast
+<center>
+<iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/embed/9Yq67CjDqvw" width="480"></iframe>
+</center>
+<br>
 
 Ok. El único fallo que tiene el servidor es el siguiente: hace
 visible al cliente cuando hay un error porque el padding de un
@@ -26,8 +30,8 @@ Simplemente eso.
 
 Un ataque de oráculo es un ataque de _side-channel_.
 En general, un ataque de oráculo es cuando el protocolo o sistema
-tiene un canal lateral que nos deja saber si ocurre o no una
-cosa, dejando al adversario saber si está cerca o no de conseguir
+tiene un canal lateral que permite deducir si ocurre o no ocurre una
+cosa, permitiendo al adversario saber si está cerca o no de conseguir
 un objetivo.
 
 En este caso, el _side-channel_ consiste en saber si un mensaje
