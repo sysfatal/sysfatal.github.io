@@ -181,9 +181,9 @@ Para realizar el ataque, el adversario necesita:
 
 2. Poder enviar peticiones espurias al servidor.
 
-3. Diferenciar entre los fallos provocados por un padding incorrecto del
-	resto de fallos. **Esta es la fuga de información necesaria
-	para realizar este ataque de side-channel.**
+3. Diferenciar los fallos provocados por un padding incorrecto del
+	resto de fallos. Esta es la fuga de información necesaria
+	para realizar este ataque de side-channel.
 
 
 #### Ataque I: conocer el tamaño del mensaje cifrado
@@ -223,7 +223,8 @@ Llamemos _C[i]_ al bloque del mensaje cifrado _C_ que queremos
 descifrar. La idea principal es esta:
 
 1. Usaremos _C[i]_ como *último* bloque de un mensaje espurio
-que llamaremos _fake_.
+que llamaremos _fake_. Esto es, el bloque en el que tendría que
+estar el padding.
 
 2. Modificaremos repetidamente el penúltimo bloque del mensaje
 	espurio, _fake[j]_, para descubrir
