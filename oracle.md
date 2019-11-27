@@ -4,17 +4,17 @@ Comencemos con una demostración. El siguiente video muestra
 cómo un programa ejecutando en mi portátil es capaz de descifrar
 un mensaje cifrado con AES-256 en modo CBC y padding PKCS7.
 
-Recordemos que AES es seguro. El tiempo para romper por 
+Recordemos que AES es seguro. El tiempo para romper por
 fuerza bruta una clave AES-256
-en un supercomputador actual es de aproximadamente 
+en un supercomputador actual es de aproximadamente
 **10<sup>52</sup> años**.
 Con  1000000000 GPUs de 2 Gigaflops, **60<sup>25</sup> años**.
 Además, necesitarías 150 Gigavatios para alimentarlas, esto es,
 150 reactores nucleares.
 
-En esta demostración, **tanto el cliente como el servidor son correctos**: 
-no tienen bugs explotables, usan correctamente las herramientas 
-criptográficas, etc. 
+En esta demostración, **tanto el cliente como el servidor son correctos**:
+no tienen bugs explotables, usan correctamente las herramientas
+criptográficas, etc.
 
 Ahora mira:
 
@@ -96,6 +96,14 @@ C[i] = AES<sub>K</sub>(M[i] ⊕ C[i-1])
 </center>
 <br>
 
+<center>
+<figure class="image">
+  <img src="figs/aes-decrypt.png">
+  <figcaption>Descifrado en el modo CBC.</figcaption>
+</figure>
+</center>
+<br>
+
 Para el primer bloque del mensaje, que no tiene
 anterior, se usa el _vector de inicialización_, que se debe proporcionar
 junto con la clave a la hora de cifrar/descifrar el mensaje con AES en
@@ -104,6 +112,14 @@ modo CBC (y debe ser aleatorio, no predecible y no se debe reusar).
 Un problema grave del modo CBC es que es **maleable**. Esto significa que
 el atacante puede modificar el mensaje cifrado para provocar cambios en
 el mensaje descifrado.
+
+<center>
+<figure class="image">
+  <img src="figs/aes-maleable.png">
+  <figcaption>Modificación de un bit del texto cifrado en modo CBC.</figcaption>
+</figure>
+</center>
+<br>
 
 En CBC, el cambio del bit _i_ del bloque _N_ del mensaje cifrado supone
 dos cambios en el mensaje descifrado:
@@ -124,6 +140,13 @@ Cuando tenemos un mensaje que no es múltiplo del tamaño del bloque,
 el último bloque del mensaje se tiene que _rellenar_, ya que al
 cifrador hay que darle bloques completos.
 
+<center>
+<figure class="image">
+  <img src="figs/padding.png">
+ </figure>
+</center>
+<br>
+
 Hay varias formas
 de hacer esto. Para este ejemplo estamos usando el estándar de
 padding PKCS7, que consiste en rellenar con todos los bytes puestos al
@@ -139,7 +162,7 @@ número de bytes del padding:
 ```
 
 Por ejemplo, si en el último bloque tienes que rellenar con 7 bytes,
-se pondrían los siete con un valor _0x07_. 
+se pondrían los siete con un valor _0x07_.
 Si el mensaje es múltiplo del tamaño
 de bloque, se debe meter un bloque completo de padding.
 
@@ -207,6 +230,13 @@ que llamaremos _fake_.
 
 5. Esto lo haremos por cada bloque de _C_ hasta conseguir el
 	mensaje en claro original completo, _M_.
+
+<center>
+<figure class="image">
+  <img src="figs/padding-attack1.png">
+ </figure>
+</center>
+<br>
 
 Veamos cómo descifrar un único byte del último bloque del
 mensaje en claro (el bloque de la posición _last_).
