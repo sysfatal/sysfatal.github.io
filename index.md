@@ -7,9 +7,16 @@ In this blog I'll write about stuff I like: security, operating systems, the int
 En este blog iré metiendo entradas sobre las cosas que me interesan, como la seguridad, sistemas operativos, internet, criptografía, etc. Algunas cosas estarán en castellano y otras en inglés, según me dé  :)
 
 ---
+
+## [Qué es un ataque Padding Oracle y cómo funciona](oracle.html)
+_Wed Nov 27 16:38:16 CET 2019_
+
+Comencemos con una demostración. El siguiente video muestra cómo un programa ejecutando en mi portátil es capaz de descifrar un mensaje cifrado con AES-256 en modo CBC y padding PKCS7... [(continúa)](oracle.html)
+
+---
  
 ## [Deep Fakes vs. Democracia](deepfakes.html)
-*Mon Nov 25 11:55:38 CET 2019*
+_Mon Nov 25 11:55:38 CET 2019_
 
 En los últimos años se han estado aplicando distintas técnicas de inteligencia artificial con distintos fines y en múltiples contextos. Una de sus aplicaciones es la creación de vídeos y voces sintéticas... [(continúa)](deepfakes.html)
 
