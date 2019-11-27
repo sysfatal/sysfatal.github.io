@@ -3,18 +3,21 @@
 Comencemos con una demostración. El siguiente video muestra
 cómo un programa ejecutando en mi portátil es capaz de descifrar
 un mensaje cifrado con AES-256 en modo CBC y padding PKCS7.
-Tanto el cliente como el servidor son _correctos_: no tienen
-bug explotables, usan correctamente las herramientas criptográficas,
-etc. El tiempo para romper por fuerza bruta una clave AES-256
-en un supercomputador actual es de aproximadamente *10^52* años.
+
+Recordemos que AES es seguro. El tiempo para romper por 
+fuerza bruta una clave AES-256
+en un supercomputador actual es de aproximadamente **10<sup>52</sup>** años.
 Con  1000000000 GPUs de 2 Gigaflops, *60^25* años.
 Además, necesitarías 150 Gigavatios para alimentarlas, esto es,
 150 reactores nucleares.
 
+Tanto el **cliente como el servidor son correctos**: no tienen
+bugs explotables, usan correctamente las herramientas criptográficas,
+etc. 
+
 Ahora mira:
 
 // screencast
-
 
 Ok. El único fallo que tiene el servidor es el siguiente: hace
 visible al cliente cuando hay un error porque el padding de un
