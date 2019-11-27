@@ -19,7 +19,7 @@ criptográficas, etc.
 Ahora mira:
 
 <center>
-<iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/watch?v=LS_3_6dIIqA" width="480"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LS_3_6dIIqA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 <br>
 
