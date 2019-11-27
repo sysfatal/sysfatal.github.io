@@ -265,6 +265,7 @@ Obtenemos el valor intermedio correspondiente a dicho byte:
 <center>
  I := val ⊕ 0x01
 </center>
+<br>
 
 Después obtenemos el valor del byte en el texto claro, _M[i][last]_,
 **usando el bloque cifrado anterior del mensaje original**,
@@ -273,6 +274,8 @@ _C[i-1][last]_:
 <center>
  M[i][last] := C[i-1][last] ⊕ I
 </center>
+<br>
+
 
 Después, para descifrar el penúltimo byte, _C[i][last-1]_:
 
@@ -288,7 +291,8 @@ Después, para descifrar el penúltimo byte, _C[i][last-1]_:
 
 **Y así con el resto de bytes del bloque _i_.**
 
-Para el primer bloque _C[0]_, debemos usar el vector de inicialización.
+Para descifrar el primer bloque _C[0]_, debemos
+usar el vector de inicialización.
 La esperanza es descifrar el mensaje entero en _128 * len(M)_
 peticiones al servidor.
 
@@ -328,9 +332,9 @@ vulnerable a una variante llamada
 POODLE (Padding Oracle On Downgraded Legacy Encryption) [3].
 
 
-	_"Attacks only get better, they never get worse"_, Bruce Schneier.
+_"Attacks only get better, they never get worse"_, Bruce Schneier.
 
-	_"Attack names do get worse"_, Matthew Green.
+_"Attack names do get worse"_, Matthew Green.
 
 
 ### Referencias
