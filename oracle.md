@@ -19,7 +19,7 @@ criptográficas, etc.
 Ahora mira:
 
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LS_3_6dIIqA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LS_3_6dIIqA" frameborder="0" allowfullscreen></iframe>
 </center>
 <br>
 
@@ -58,11 +58,12 @@ otros modos, pero CBC sigue en uso y no se considera inseguro (siempre
 que se tomen precauciones).
 
 Para cifrar un mensaje largo, se parte en
-trozos del tamaño de bloque del algoritmo (128 bits para este ejemplo).
-Cada trozo se cifra con AES usando la clave indicada. El modo indica cómo
-se cifran los distintos trozos.
+trozos del tamaño de bloque del algoritmo (128 bits en AES/Rijdael).
+Cada trozo se cifra con AES usando la clave indicada. El modo de
+operación establece cómo se cifran los distintos trozos.
 
-Si se cifran tal cual (modo llamado ECB), los bloques del mensaje cifrado
+Si se cifran todos los bloques tal cual
+(modo llamado ECB), los bloques del mensaje cifrado
 (_C_ a partir de ahora)
 pueden terminar con patrones derivados del mensaje en claro. Piensa en
 esto: si estás cifrando un pixmap y tienes la mala suerte de que cada
