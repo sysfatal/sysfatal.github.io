@@ -49,6 +49,15 @@ vemos a continuación.
 
 ### CBC
 
+AES es un cifrador de bloques, funciona así:
+
+<center>
+<figure class="image">
+  <img src="figs/aes.png">
+  <figcaption>Crifrador de bloques</figcaption>
+</figure>
+</center>
+
 Cuando queremos usar un cifrador de bloques como AES para cifrar
 una mensaje en claro (_M_ a partir de ahora)
 más largo que un bloque (128 bits en el caso de AES),
@@ -189,8 +198,9 @@ que llamaremos _fake_.
 2. Modificaremos repetidamente el penúltimo bloque del mensaje
 	espurio, _fake[j]_, para descubrir
 	cuándo el servidor *no* retorna un error de padding.
+	Cuando no retorne error de padding, paramos.
 
-3. Así descubriremos el **valor intermedio** de cada byte de _C[i]_.
+3. Ya tenemos el **valor intermedio** de cada byte de _C[i]_.
 
 4. Con el valor intermedio, reconstruiremos cada byte del correspondiente
 	bloque del mensaje en claro original, _M[i]_.
