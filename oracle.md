@@ -70,7 +70,7 @@ Esto es importante, aparecerá más tarde.
 Por tanto, en CBC un bloque _i_ se cifra así (siendo K la clave):
 
 
-	_C<sub>i</sub> = AES<sub>K</sub>(Mi ⊕ C<sub>i-1</sub>)_
+C<sub>i</sub> = AES<sub>K</sub>(Mi ⊕ C<sub>i-1</sub>)
 
 
 Para el primer bloque del mensaje, que no tiene
