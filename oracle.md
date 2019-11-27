@@ -1,4 +1,11 @@
 ##  Qué es un ataque Padding Oracle y cómo funciona
+_Wed Nov 27 16:38:16 CET 2019_
+<div class="share-page">
+    Share this on &rarr;
+    [<a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via=e__soriano&related=e__soriano" rel="nofollow" target="_blank" title="Share on Twitter">Twitter</a>] 
+    [<a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook">Facebook</a>]
+</div>
+<br>
 
 Comencemos con una demostración. El siguiente video muestra
 cómo un programa ejecutando en mi portátil es capaz de descifrar
