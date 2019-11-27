@@ -331,7 +331,7 @@ contramedidas:
 3. Intentar responder en un tiempo constante, independientemente del error
 	que se produzca (evitar timing side-channels). Existen bibliotecas
 	con operaciones con tiempo constante para diferentes operaciones
-	(p. ej. [https://golang.org/pkg/crypto/subtle/](subtle) en Golang).
+	(p. ej. [subtle](https://golang.org/pkg/crypto/subtle/) en Golang).
 
 4. Limitar el número de peticiones inválidas
 		de los clientes (espera exponencial, listas negras
