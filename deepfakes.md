@@ -7,7 +7,7 @@ thumbnail:  padding oracle
 image:      https://github.com/sysfatal/figs/max-headroom.jpg
 layout:     post
 thumbnail:  deepfakes
-author:     esoriano
+author:     e__soriano
 tags:
  - deepfakes
  - fakenews

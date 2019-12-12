@@ -7,7 +7,7 @@ thumbnail:  padding oracle
 image:      https://github.com/sysfatal/figs/cbc-maleable.png
 layout:     post
 thumbnail:  padding oracle
-author:     esoriano
+author:     e__soriano
 tags:
  - side-channel
  - oracle

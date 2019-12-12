@@ -7,7 +7,7 @@ thumbnail:  passwords
 image:      /figs/postit.jpg
 layout:     post
 thumbnail:  passwords
-author:     esoriano
+author:     e__soriano
 tags:
  - passwords
  - contraseñas
