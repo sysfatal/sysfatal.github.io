@@ -1,3 +1,12 @@
+---
+title:      La próxima vez que te pregunten cada cuánto se cambian las contraseñas...
+summary:    People, Pictures, and Code
+categories: blog
+thumbnail:  passwords
+image:      /figs/postit.jpg
+---
+
+
 ##  La próxima vez que te pregunten cada cuánto se cambian las contraseñas...
 _Thu Dec 12 11:15:55 CET 2019_
 <div class="share-page">
