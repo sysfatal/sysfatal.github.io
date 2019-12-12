@@ -1,9 +1,15 @@
 ---
 title:      La próxima vez que te pregunten cada cuánto se cambian las contraseñas...
-summary:    People, Pictures, and Code
+summary:    Frequent Password Changes Is a Bad Security Idea.
 categories: blog
 thumbnail:  passwords
 image:      /figs/postit.jpg
+layout:     post
+thumbnail:  passwords
+author:     esoriano
+tags:
+ - passwords
+ - contraseñas
 ---
 
 
