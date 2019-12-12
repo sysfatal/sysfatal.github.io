@@ -38,27 +38,26 @@ _2017 NIST Special Publication 800-63B, Authentication and Lifecycle Management_
 > Do not require that memorized secrets be changed arbitrarily (e.g., periodically)
 > unless there is a user request or evidence of authenticator compromise.
 
- 
-Aquí tenéis más argumentos que dar a esos _expertos_ cuando os repitan
-frases como la de arriba:
+
+Por si todavía necesitáis convencer a esos _expertos_ o a vuestros jefes:
 
 * _"Frequent Password Changes Is a Bad Security Idea. I've been saying for
 years that it's bad security advice, that it encourages poor passwords."_
-[Bruce Scheneier](https://www.schneier.com/blog/archives/2016/08/frequent_passwo.html)
+[Bruce Scheneier](https://www.schneier.com/blog/archives/2016/08/frequent_passwo.html).
 
 * _"One of the most pervasive and persistent design errors has been forcing users to change
 passwords regularly. Indeed, this has almost become a religious war between security researchers and auditors."_
-[Ross Anderson](https://www.cl.cam.ac.uk/~rja14/book.html)
+[Ross Anderson](https://www.cl.cam.ac.uk/~rja14/book.html).
 
 * _"Why is it that the FTC is going around telling everyone to change their
 passwords? Frequent password changes are the enemy of security"_
-[Lorrie Cranor](https://www.ftc.gov/news-events/blogs/techftc/2016/03/time-rethink-mandatory-password-changes), Federal Trade Commission Chief Tech., Carnegie Mellon University
+[Lorrie Cranor](https://www.ftc.gov/news-events/blogs/techftc/2016/03/time-rethink-mandatory-password-changes), Federal Trade Commission Chief Tech., Carnegie Mellon University.
 
 * _"We quantify the security advantage of a password expiration policy, finding that the optimal benefit is relatively minor at best and questionable in light of overall cost"_
 [Chiasson et al.](https://t.co/ek3UM6TWRp?amp=1), Quantifying the Security Advantage of Password Expiration Policies
 
 * _"Password expiration is a dying concept: OUTDATED THREAT MODEL + BEHAVIORAL COST + INCREASING RISK"_
-[Lance Spitzner](https://www.sans.org/security-awareness-training/blog/time-password-expiration-die), Director, SANS Security
+[Lance Spitzner](https://www.sans.org/security-awareness-training/blog/time-password-expiration-die), Director, SANS Security.
 
 * _"Password Expiration Considered Harmful"_ [Rick Smith](https://cryptosmith.com/password-sanity/exp-harmful/)
 
@@ -68,16 +67,19 @@ passwords? Frequent password changes are the enemy of security"_
 Si os quedan dudas sobre el asunto, [aquí](https://littlemaninmyhead.wordpress.com/2019/07/28/collection-of-references-on-why-password-policies-need-to-change/amp/)
 podéis encontrar más información.
 
-En el [Esquema Nacional de Seguridad](https://t.co/HkghesyoUj?amp=1)
-la cosa no queda bien definida, parece que no se han querido mojar:
+En el [Esquema Nacional de Seguridad](https://t.co/HkghesyoUj?amp=1) se dice:
 
 >"Las contraseñas se cambiarán con una cierta periodicidad. Un año parece un tiempo razonable para su sustitución."
 
-Por un lado, para los _creyentes_  del cambio periódico, un año sería una barbaridad (he escuchado casos en los que obligaban a cambiar **¡cada mes!**).
-Por otro, el NIST dice que no hay que cambiarlas de forma periódica, que sólo hay
-que cambiarlas si hay problemas.
+Parece que no se han querido mojar mucho. ¿_Parece razonable_ en qué contexto y para qué
+credenciales?
+Por un lado, para los _creyentes_  del cambio periódico, un año sería una
+barbaridad (he escuchado casos en los que obligaban a cambiar **¡cada mes!**).
+Por otro, como hemos visto, el NIST dice que no hay que cambiarlas de forma
+periódica.
 
-Parece que el sentido común se está imponiendo, y hasta Microsoft [ha cambiado su política este mismo año](https://arstechnica.com/information-technology/2019/06/microsoft-says-mandatory-password-changing-is-ancient-and-obsolete/):
+Parece que el sentido común se está imponiendo, y
+hasta Microsoft [ha cambiado su política este mismo año](https://arstechnica.com/information-technology/2019/06/microsoft-says-mandatory-password-changing-is-ancient-and-obsolete/):
 
 > There’s no question that the state of password security is problematic and has been for a long time. When humans pick their own passwords, too often they are easy to guess or predict. When humans are assigned or forced to create passwords that are hard to remember, too often they’ll write them down where others can see them. When humans are forced to change their passwords, too often they’ll make a small and predictable alteration to their existing passwords and/or forget their new passwords. When passwords or their corresponding hashes are stolen, it can be difficult at best to detect or restrict their unauthorized use.
 >
