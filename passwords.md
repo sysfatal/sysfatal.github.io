@@ -56,7 +56,7 @@ passwords regularly. Indeed, this has almost become a religious war between secu
 
 * _"Why is it that the FTC is going around telling everyone to change their
 passwords? Frequent password changes are the enemy of security"_
-[Federal Trade Commission Chief Tech. Lorrie Cranor.](https://www.ftc.gov/news-events/blogs/techftc/2016/03/time-rethink-mandatory-password-changes), Carnegie Mellon University
+[Lorrie Cranor](https://www.ftc.gov/news-events/blogs/techftc/2016/03/time-rethink-mandatory-password-changes), Federal Trade Commission Chief Tech., Carnegie Mellon University
 
 * _"We quantify the security advantage of a password expiration policy, finding that the optimal benefit is relatively minor at best and questionable in light of overall cost"_
 [Chiasson et al.](https://t.co/ek3UM6TWRp?amp=1), Quantifying the Security Advantage of Password Expiration Policies
