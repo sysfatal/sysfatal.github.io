@@ -4,7 +4,7 @@ summary:    Frequent Password Changes Is a Bad Security Idea.
 categories: blog
 date:       Thu Dec 12 11:15:55 CET 2019
 thumbnail:  passwords
-image:      /figs/postit.jpg
+image:      https://github.com/sysfatal/figs/postit.jpg
 layout:     post
 thumbnail:  passwords
 author:     esoriano
@@ -13,9 +13,6 @@ tags:
  - contraseñas
 ---
 
-
-##  La próxima vez que te pregunten cada cuánto se cambian las contraseñas...
-_Thu Dec 12 11:15:55 CET 2019_
 <div class="share-page">
     Share this on &rarr;
     [<a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via=e__soriano&related=e__soriano" rel="nofollow" target="_blank" title="Share on Twitter">Twitter</a>]
