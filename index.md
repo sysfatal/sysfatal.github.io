@@ -8,7 +8,7 @@ En este blog iré metiendo entradas sobre las cosas que me interesan, como la se
 
 ---
 
-## [La próxima vez que te pregunten cada cuánto cambias tu contraseña...](passwords.html)
+## [La próxima vez que te pregunten cada cuánto se cambian las contraseñas...](passwords.html)
 _Thu Dec 12 11:15:55 CET 2019_
 
 Hay muchos _consultores de seguridad_ y _expertos_ que siguen repitiendo como un loro algo parecido a esto, que os sonará... [(continúa)](passwords.html)
