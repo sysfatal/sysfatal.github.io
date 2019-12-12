@@ -32,38 +32,42 @@ Esto no lo digo yo (bueno, sí, pero otros también). Desde hace mucho tiempo,
 autores como Bruce Schneier y Ross Anderson consideran que es una mala política.
 
 El propio NIST recomienda no cambiar las credenciales si no hay indicios de que
-hayan sido comprometidas:
+hayan sido comprometidas, lo hace en
+_2017 NIST Special Publication 800-63B, Authentication and Lifecycle Management_:
 
-> "Do not require that memorized secrets be changed arbitrarily (e.g., periodically)
-> unless there is a user request or evidence of authenticator compromise."
+> Do not require that memorized secrets be changed arbitrarily (e.g., periodically)
+> unless there is a user request or evidence of authenticator compromise.
 
-> 2017 NIST Special Publication 800-63B, Authentication and Lifecycle Management.
+Según el NIST Special Publication 800-63B, del 2018:
+
+> Do not require that memorized secrets be changed arbitrarily (e.g., periodically)
+> unless there is a user request or evidence of authenticator compromise
 
 Aquí tenéis más argumentos que dar a esos _expertos_ cuando os repitan
 frases como la de arriba:
 
 * _"Frequent Password Changes Is a Bad Security Idea. I've been saying for
 years that it's bad security advice, that it encourages poor passwords."_
-[**Bruce Scheneier**](https://www.schneier.com/blog/archives/2016/08/frequent_passwo.html)
+[Bruce Scheneier](https://www.schneier.com/blog/archives/2016/08/frequent_passwo.html)
 
 * _"One of the most pervasive and persistent design errors has been forcing users to change
 passwords regularly. Indeed, this has almost become a religious war between security researchers and auditors."_
-[**Ross Anderson**](https://www.cl.cam.ac.uk/~rja14/book.html)
+[Ross Anderson](https://www.cl.cam.ac.uk/~rja14/book.html)
 
 * _"Why is it that the FTC is going around telling everyone to change their
 passwords? Frequent password changes are the enemy of security"_
-[**Federal Trade Commission Chief Tech. Lorrie Cranor**.](https://www.ftc.gov/news-events/blogs/techftc/2016/03/time-rethink-mandatory-password-changes), Carnegie Mellon University
+[Federal Trade Commission Chief Tech. Lorrie Cranor.](https://www.ftc.gov/news-events/blogs/techftc/2016/03/time-rethink-mandatory-password-changes), Carnegie Mellon University
 
 * _"We quantify the security advantage of a password expiration policy, finding that the optimal benefit is relatively minor at best and questionable in light of overall cost"_
-[**Chiasson et al.**](https://t.co/ek3UM6TWRp?amp=1), Quantifying the Security Advantage of Password Expiration Policies
+[Chiasson et al.](https://t.co/ek3UM6TWRp?amp=1), Quantifying the Security Advantage of Password Expiration Policies
 
 * _"Password expiration is a dying concept: OUTDATED THREAT MODEL + BEHAVIORAL COST + INCREASING RISK"_
-[**Lance Spitzner**](https://www.sans.org/security-awareness-training/blog/time-password-expiration-die), Director, SANS Security
+[Lance Spitzner](https://www.sans.org/security-awareness-training/blog/time-password-expiration-die), Director, SANS Security
 
-* _"Password Expiration Considered Harmful"_ [**Rick Smith**](https://cryptosmith.com/password-sanity/exp-harmful/)
+* _"Password Expiration Considered Harmful"_ [Rick Smith](https://cryptosmith.com/password-sanity/exp-harmful/)
 
 * _“The more often users are forced to change passwords, the greater the overall vulnerability to attack”_
-[**Ciaran Martin**](https://www.maytech.net/blog/why-regularly-changing-password-puts-you-at-risk-of-attack/), Head of the National Cyber Security Centre (NCSC), UK.
+[Ciaran Martin](https://www.maytech.net/blog/why-regularly-changing-password-puts-you-at-risk-of-attack/), Head of the National Cyber Security Centre (NCSC), UK.
 
 Si os quedan dudas sobre el asunto, [aquí](https://littlemaninmyhead.wordpress.com/2019/07/28/collection-of-references-on-why-password-policies-need-to-change/amp/)
 podéis encontrar más información.
@@ -83,4 +87,12 @@ Parece que el sentido común se está imponiendo, y hasta Microsoft [ha cambiado
 >
 > Recent scientific research calls into question the value of many long-standing password-security practices, such as password expiration policies, and points instead to better alternatives such as enforcing banned-password lists (a great example being Azure AD password protection) and multi-factor authentication. While we recommend these alternatives, they cannot be expressed or enforced with our recommended security configuration baselines, which are built on Windows’ built-in Group Policy settings and cannot include customer-specific values.
 
-Seguro que en un mes lo vuelvo a escuchar :_)
+Seguro que en un mes lo vuelvo a escuchar XD
+
+<sub><sup>
+    <b>(cc) Enrique Soriano-Salvador</b>
+    Algunos derechos reservados. Este trabajo se entrega bajo la licencia
+    Creative Commons Reconocimiento - NoComercial - SinObraDerivada (by-nc-nd).
+    Creative Commons, 559 Nathan Abbott Way, Stanford,
+    California 94305, USA.
+</sup></sub>
