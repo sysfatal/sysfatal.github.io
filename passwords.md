@@ -20,8 +20,8 @@ un loro algo parecido a esto, que os sonará:
 >Hay que cambiar las contraseñas cada N meses, y es obligatorio
 >establecer políticas que fuercen a los usuarios a ello.
 
-No pasa un mes sin que alguien me diga que un _experto_ le ha obligado o
-recomendado esta práctica **obsoleta** y **dañina** en general.
+No pasa un mes sin que alguien me diga que un _experto_ le ha obligado a seguir
+esta política **obsoleta** y **dañina**.
 
 Como siempre, todo depende del tipo de entorno y de los bienes que se intenten
 asegurar. En la mayoría de los casos, esta práctica es muy poco recomendable:
