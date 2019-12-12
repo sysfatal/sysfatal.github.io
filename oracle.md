@@ -1,8 +1,21 @@
-##  Qué es un ataque Padding Oracle y cómo funciona
-_Wed Nov 27 16:38:16 CET 2019_
+---
+title:      Qué es un ataque Padding Oracle y cómo funciona
+summary:    Padding Oracle para AES-CBC
+categories: blog
+date:       Wed Nov 27 16:38:16 CET 2019
+thumbnail:  padding oracle
+image:      https://github.com/sysfatal/figs/cbc-maleable.png
+layout:     post
+thumbnail:  padding oracle
+author:     esoriano
+tags:
+ - side-channel
+ - oracle
+---
+
 <div class="share-page">
     Share this on &rarr;
-    [<a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via=e__soriano&related=e__soriano" rel="nofollow" target="_blank" title="Share on Twitter">Twitter</a>] 
+    [<a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via=e__soriano&related=e__soriano" rel="nofollow" target="_blank" title="Share on Twitter">Twitter</a>]
     [<a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook">Facebook</a>]
 </div>
 <br>
@@ -30,9 +43,9 @@ Ahora mira:
 </center>
 <br>
 
-Ok. El único fallo que tiene el servidor es el siguiente: cuando hay 
+Ok. El único fallo que tiene el servidor es el siguiente: cuando hay
 un error en el mensaje, hace
-visible al cliente si se trata de un error en el padding del 
+visible al cliente si se trata de un error en el padding del
 mensaje o no. Simplemente eso.
 
 Un ataque de oráculo es un ataque de _side-channel_.
@@ -223,7 +236,7 @@ Llamemos _C[i]_ al bloque del mensaje cifrado _C_ que queremos
 descifrar. La idea principal es esta:
 
 1. Usaremos _C[i]_ como *último* bloque de un mensaje espurio
-que llamaremos _fake_. Esto es, se usará como el bloque en el 
+que llamaremos _fake_. Esto es, se usará como el bloque en el
 que tendría que estar el padding.
 
 2. Modificaremos repetidamente el penúltimo bloque del mensaje
@@ -238,7 +251,7 @@ que tendría que estar el padding.
 
 5. Esto lo haremos por cada bloque de _C_ hasta conseguir el
 	mensaje en claro original completo, _M_.
-	
+
 Veamos cómo descifrar un único byte del último bloque del
 mensaje en claro (el bloque de la posición _last_).
 

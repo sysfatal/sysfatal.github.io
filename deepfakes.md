@@ -1,8 +1,21 @@
-## Deep Fakes vs. Democracia
-*Mon Nov 25 11:55:38 CET 2019*
+---
+title:      Deep Fakes vs. Democracia
+summary:    Deep Fakes vs. Democracia
+categories: blog
+date:       Mon Nov 25 11:55:38 CET 2019
+thumbnail:  padding oracle
+image:      https://github.com/sysfatal/figs/max-headroom.jpg
+layout:     post
+thumbnail:  deepfakes
+author:     esoriano
+tags:
+ - deepfakes
+ - fakenews
+---
+
 <div class="share-page">
     Share this on &rarr;
-    [<a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via=e__soriano&related=e__soriano" rel="nofollow" target="_blank" title="Share on Twitter">Twitter</a>] 
+    [<a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via=e__soriano&related=e__soriano" rel="nofollow" target="_blank" title="Share on Twitter">Twitter</a>]
     [<a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook">Facebook</a>]
 </div>
 <br>
