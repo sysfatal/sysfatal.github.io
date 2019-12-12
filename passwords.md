@@ -38,11 +38,7 @@ _2017 NIST Special Publication 800-63B, Authentication and Lifecycle Management_
 > Do not require that memorized secrets be changed arbitrarily (e.g., periodically)
 > unless there is a user request or evidence of authenticator compromise.
 
-Según el NIST Special Publication 800-63B, del 2018:
-
-> Do not require that memorized secrets be changed arbitrarily (e.g., periodically)
-> unless there is a user request or evidence of authenticator compromise
-
+ 
 Aquí tenéis más argumentos que dar a esos _expertos_ cuando os repitan
 frases como la de arriba:
 
