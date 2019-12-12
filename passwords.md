@@ -5,6 +5,7 @@ categories: blog
 date:       Thu Dec 12 11:15:55 CET 2019
 thumbnail:  passwords
 image:      https://github.com/sysfatal/figs/postit.jpg
+twitter:image: https://github.com/sysfatal/figs/postit.jpg
 layout:     post
 thumbnail:  passwords
 author:     esoriano
