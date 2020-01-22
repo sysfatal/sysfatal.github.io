@@ -8,6 +8,15 @@ En este blog iré metiendo entradas sobre las cosas que me interesan, como la se
 
 ---
 
+## [No basta con cifrar](maleable.html)
+_Wed Jan 22 22:02:40 CET 2020_
+
+Muchos programadores siguen pensando que cifrar los datos
+es suficiente para mantenerlos _seguros_. En general, el
+cifrado proporciona confidencialidad...
+
+---
+
 ## [La próxima vez que te pregunten cada cuánto se cambian las contraseñas...](passwords.html)
 _Thu Dec 12 11:15:55 CET 2019_
 
