@@ -324,7 +324,7 @@ readtrans(char *path)
 	if(fd < 0)
 		err(EXIT_FAILURE, "open error");
 	if(read(fd, &t, sizeof(Transfer)) != sizeof(Transfer))
-		err(EXIT_FAILURE, "read error or short read");
+		errx(EXIT_FAILURE, "read error or short read");
 	printf("Transfer read:\n");
 	printtrans(&t);
 	close(fd);
