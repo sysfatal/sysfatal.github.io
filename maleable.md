@@ -103,7 +103,7 @@ Pensemos en este record en C (suponiendo que
 se preserva el orden de los campos y el tamaño del record es la suma
 de los tamaños de los campos, que no siempre ocurre por temas de alineación):
 
-```
+```c
 struct Transferencia {
 	uint64_t    cuenta_origen;
 	uint64_t    cuenta_destino;
@@ -253,7 +253,7 @@ más elevado que la original.
 Hagamos el experimento. Tenemos este programa _regs.c_ que
 lee/escribe un registro de un fichero:
 
-```
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -347,7 +347,7 @@ El programa _flip.c_ introduce un cambio en el bit de la posición
 indicada (empezando en 0) de un fichero. Este es su fuente:
 
 
-```
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <err.h>
