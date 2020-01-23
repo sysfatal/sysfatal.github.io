@@ -29,11 +29,11 @@ la integridad o autenticidad de los datos.
 
 Es común pensar que cualquier modificación de los
 datos cifrados (a partir de ahora, _mensaje o texto cifrado_)
-provoca errores
+provocará errores
 a la hora de descifrar o inconsistencias
-en los datos (en su formato o su significado) que
-alarmarán a los usuarios (humanos o programas) se detectará
-que los datos cifrados han sido manipulados.
+en los datos (en su formato o significado/semántica) que
+alarmarán a los usuarios (ya sea humanos o programas),
+y por tanto se detectarán las manipulaciones.
 Nada más lejos de la realidad.
 
 Se dice que un algoritmo de cifrado es **maleable** cuando
