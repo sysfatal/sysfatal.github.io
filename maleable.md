@@ -264,6 +264,10 @@ lee/escribe un registro de un fichero:
 #include <fcntl.h>
 #include <inttypes.h>
 
+/*
+	gcc -o regs -Wall regs.c
+*/
+
 struct Transfer {
     uint64_t    from;
     uint64_t    to;
@@ -437,7 +441,7 @@ TO: 222222
 DETAILS: movies
 DATE: 1579769963
 AMOUNT: 72057594037927946 euros
-$> 
+$>
 ```
 
 El **modo CFB** es  parecido al anterior.
