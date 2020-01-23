@@ -100,12 +100,11 @@ Veamos un ejemplo. Supongamos que Alice está enviando a Bob transferencias
 bancarias representadas por records
 cifrados con AES-ECB usando la misma clave K (que sería lo normal).
 Pensemos en este record en C (suponiendo que
-el orden de los campos se conserva y el tamaño del record es la suma
+se preserva el orden de los campos y el tamaño del record es la suma
 de los tamaños de los campos, que no siempre ocurre por temas de alineación):
 
 ```
 struct Transferencia {
-
 	uint64_t    cuenta_origen;
 	uint64_t    cuenta_destino;
 	char        concepto[32];
@@ -113,6 +112,7 @@ struct Transferencia {
 	uint64_t    importe;
 };
 ```
+
 Si Mallory (la atacante) es capaz de capturar esos mensajes,
 eliminarlos de la red, modificarlos e inyectarlos, podría
 forjar una transacción cifrada falsa a partir de dos transacciones
@@ -210,11 +210,12 @@ el comando _openssl_ y puedes usar cualquier editor hexadecimal, en
 el ejemplo uso _bless_):
 
 ```
-openssl aes-256-cbc -nosalt -in clear.tiff -out data.aes
-bless  data.aes  ## cambia un 1 por un 0 en cualquier byte de la mitad del fichero.
-openssl aes-256-cbc -d -nosalt  -in data.aes -out result.tiff
+$> openssl aes-256-cbc -nosalt -in clear.tiff -out data.aes -pass pass:pass
+$> ## cambia un 1 por un 0 en cualquier byte de la mitad del fichero con un editor hexa
+$> bless  data.aes  
+$> openssl aes-256-cbc -d -nosalt  -in data.aes -out result.tiff -pass pass:pass
 ```
-Se puede observar que el cabio de un único bit del texto cifrado ha corrompido
+Se puede observar que el cambio de un único bit del texto cifrado ha corrompido
 únicamente unos cuantos píxeles del fichero TIFF.
 
 La cuestión es que esto es peligroso. Imagina que podemos modificar un mensaje
@@ -248,6 +249,201 @@ _little endian_, esto supone la modificación de uno de los
 Por tanto, para Bob, la transacción tiene sentido, pero ahora
 se trata de una transacción de un importe mucho (*muchísimo*)
 más elevado que la original.
+
+Hagamos el experimento. Tenemos este programa _regs.c_ que
+lee/escribe un registro de un fichero:
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <err.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <inttypes.h>
+
+/*
+	gcc -o regs -Wall regs.c
+*/
+
+struct Transfer {
+    uint64_t    from;
+    uint64_t    to;
+    char        details[32];
+    uint64_t    date;
+    uint64_t    amount;
+};
+typedef struct Transfer Transfer;
+
+void
+usage(void)
+{
+	fprintf(stderr, "uso: regs [-w] file\n");
+	exit(EXIT_FAILURE);
+}
+
+void
+printtrans(Transfer *t)
+{
+	printf("FROM: %" PRIu64 "\n", t->from);
+	printf("TO: %" PRIu64 "\n", t->to);
+	printf("DETAILS: %s\n", t->details);
+	printf("DATE: %" PRIu64 "\n", t->date);
+	printf("AMOUNT: %" PRIu64 " euros\n", t->amount);
+}
+
+void
+readtrans(char *path)
+{
+	int fd;
+	Transfer t;
+
+	fd = open(path, O_WRONLY|O_CREAT|O_TRUNC, 0660);
+	if(fd < 0)
+		err(EXIT_FAILURE, "open error");
+	if(write(fd, &t, sizeof(Transfer)) != sizeof(Transfer))
+		err(EXIT_FAILURE, "write error");
+	printf("Transfer written:\n");
+	printtrans(&t);
+	close(fd);
+}
+
+void
+writetrans(char *path)
+{
+	int fd;
+	Transfer t = {111111,
+		222222,
+		{'m','o','v','i','e','s','\0'},
+		1579769963,
+		10};
+
+	fd = open(path, O_RDONLY);
+	if(fd < 0)
+		err(EXIT_FAILURE, "open error");
+	if(read(fd, &t, sizeof(Transfer)) != sizeof(Transfer))
+		err(EXIT_FAILURE, "read error or short read");
+	printf("Transfer read:\n");
+	printtrans(&t);
+	close(fd);
+}
+
+int
+main(int argc, char *argv[])
+{
+	if(argc == 3 && strcmp(argv[1], "-w") == 0)
+		writetrans(argv[2]);
+	else if(argc == 2)
+	 	readtrans(argv[1]);
+	else
+		usage();
+	exit(EXIT_SUCCESS);
+}
+```
+
+El programa _flip.c_ introduce un cambio en el bit de la posición
+indicada (empezando en 0) de un fichero. Este es su fuente:
+
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <err.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+/*
+	flip the bit in the position (starting at 0)
+	of the file.
+
+	gcc -o flip -Wall flip.c
+*/
+
+void
+usage(void)
+{
+	fprintf(stderr, "usage: flip bit-position file\n");
+	exit(EXIT_FAILURE);
+}
+
+int
+main(int argc, char *argv[])
+{
+	int fd;
+	unsigned char c;
+	unsigned int byte;
+	unsigned int bit;
+	int pos;
+
+	if(argc != 3)
+		usage();
+	pos = atoi(argv[1]);
+	if(pos < 0)
+		usage();
+	fd = open(argv[2], O_RDWR);
+	if(fd < 0)
+		err(EXIT_FAILURE, "open error");
+	byte = pos/8;
+	bit = -(pos%8 - 7);
+	if(pread(fd, &c, 1, byte) != 1)
+		errx(EXIT_FAILURE, "can't read byte");
+	c ^= 1<<bit;
+	if(pwrite(fd, &c, 1, byte) != 1)
+		errx(EXIT_FAILURE, "can't write byte");
+	close(fd);
+	exit(EXIT_SUCCESS);
+}
+```
+
+Veamos qué pasa:
+
+```
+$> ./regs -w original.reg
+Transfer read:
+FROM: 111111
+TO: 222222
+DETAILS: movies
+DATE: 1579769963
+AMOUNT: 10 euros
+$> openssl aes-256-cbc -nosalt -in original.reg -out data.aes -pass pass:somepassword
+$> xxd -b -c 8 data.aes
+00000000: 11000100 01110010 11101100 11011101 11001011 11100001 01011011 10001010  .r....[.
+00000008: 11010110 00101011 01100011 00111010 01111000 00110101 00100101 00110011  .+c:x5%3
+00000010: 00101000 10110110 01100111 11011001 10010011 10000011 10101101 11100101  (.g.....
+00000018: 11101011 00101001 10100011 10001000 11100101 00000100 11010001 10100000  .)......
+00000020: 01011111 01011011 10101110 01001010 00111100 10101000 10111000 11100001  _[.J<...
+00000028: 00010011 11100001 11001001 10100010 10011100 00010100 10100011 00001000  ........
+00000030: 10110101 00000011 00000110 11000010 00111111 11010110 10011000 11101110  ....?...
+00000038: 01101110 00000010 01000110 01110010 00001110 00110100 10001001 11111010  n.Fr.4..
+00000040: 00011000 00001101 01011001 11001010 10011000 00011011 01011001 01101100  ..Y...Yl
+00000048: 11001101 01110110 10100111 01101100 11110101 01100010 01110000 11101010  .v.l.bp.
+$> ./flip $((128*3-1)) data.aes
+$> xxd -b -c 8 data.aes
+00000000: 11000100 01110010 11101100 11011101 11001011 11100001 01011011 10001010  .r....[.
+00000008: 11010110 00101011 01100011 00111010 01111000 00110101 00100101 00110011  .+c:x5%3
+00000010: 00101000 10110110 01100111 11011001 10010011 10000011 10101101 11100101  (.g.....
+00000018: 11101011 00101001 10100011 10001000 11100101 00000100 11010001 10100000  .)......
+00000020: 01011111 01011011 10101110 01001010 00111100 10101000 10111000 11100001  _[.J<...
+00000028: 00010011 11100001 11001001 10100010 10011100 00010100 10100011 00001001  ........
+00000030: 10110101 00000011 00000110 11000010 00111111 11010110 10011000 11101110  ....?...
+00000038: 01101110 00000010 01000110 01110010 00001110 00110100 10001001 11111010  n.Fr.4..
+00000040: 00011000 00001101 01011001 11001010 10011000 00011011 01011001 01101100  ..Y...Yl
+00000048: 11001101 01110110 10100111 01101100 11110101 01100010 01110000 11101010  .v.l.bp.
+$> openssl aes-256-cbc -d -nosalt -in data.aes -out modified.reg -pass pass:somepassword
+$> ./regs modified.reg
+Transfer written:
+FROM: 0
+TO: 1970169159
+DETAILS: 	
+DATE: 1
+AMOUNT: 94181557697773 euros
+$>
+
+```
 
 El **modo CFB** es  parecido al anterior.
 Aquí se cifra el bloque cifrado anterior, y se calcula el XOR entre
@@ -301,14 +497,17 @@ por un importe bajo:
 ##### ¿Qué pasaría con ECB?
 
 ```
-# ciframos los dos pagos
-openssl  aes-256-ecb  -nosalt -in pago1.bmp -out pago1.ecb
-openssl  aes-256-ecb  -nosalt -in pago2.bmp -out pago2.ecb
-# creamos el pago falso (esto es lo que haría Mallory)
-cp pago2.ecb fake.ecb
-dd if=pago1.ecb of=fake.ecb count=197388 bs=16 conv=notrunc
-# desciframos el pago falso
-openssl  aes-256-ecb  -d -nosalt -in fake.ecb -out fake.bmp
+$> # ciframos los dos pagos
+$> openssl  aes-256-ecb  -nosalt -in pago1.bmp -out pago1.ecb -pass pass:pass
+$> openssl  aes-256-ecb  -nosalt -in pago2.bmp -out pago2.ecb -pass pass:pass
+$> # creamos el pago falso (esto es lo que haría Mallory)
+$> cp pago2.ecb fake.ecb
+$> dd if=pago1.ecb of=fake.ecb count=197388 bs=16 conv=notrunc
+197388+0 records in
+197388+0 records out
+3158208 bytes (3.2 MB, 3.0 MiB) copied, 0.244689 s, 12.9 MB/s
+$> # desciframos el pago falso
+$> openssl  aes-256-ecb  -d -nosalt -in fake.ecb -out fake.bmp -pass pass:pass
 ```
 
 Bob recibiría esta orden de pago:
@@ -325,14 +524,18 @@ Como se puede observar, la imagen falsa es perfecta.
 ##### ¿Qué pasaría con CBC?
 
 ```
-# ciframos los dos pagos
-openssl  aes-256-cbc  -nosalt -iv 111 -in pago1.bmp -out pago1.cbc
-openssl  aes-256-cbc  -nosalt -iv 222 -in pago2.bmp -out pago2.cbc
-# creamos el pago falso (esto es lo que haría Mallory)
-cp pago2.cbc fake.cbc
-dd if=pago1.cbc of=fake.cbc count=197388 bs=16 conv=notrunc
-# desciframos el pago falso
-openssl  aes-256-cbc  -d -nosalt -iv 111 -in fake.cbc -out fake.bmp
+$> rm  fake.bmp
+$> # ciframos los dos pagos
+$> openssl  aes-256-cbc  -nosalt -iv 111 -in pago1.bmp -out pago1.cbc -pass pass:pass
+$> openssl  aes-256-cbc  -nosalt -iv 222 -in pago2.bmp -out pago2.cbc -pass pass:pass
+$> # creamos el pago falso (esto es lo que haría Mallory)
+$> cp pago2.cbc fake.cbc
+$> dd if=pago1.cbc of=fake.cbc count=197388 bs=16 conv=notrunc
+197388+0 records in
+197388+0 records out
+3158208 bytes (3.2 MB, 3.0 MiB) copied, 0.240634 s, 13.1 MB/s
+$> # desciframos el pago falso
+$> openssl  aes-256-cbc  -d -nosalt -iv 111 -in fake.cbc -out fake.bmp -pass pass:pass
 ```
 
 Bob recibiría esta orden de pago:
@@ -352,14 +555,18 @@ humano (y si sale por una impresora, más).
 ##### ¿Qué pasaría con CTR bien usado (i.e. sin repetir _nonce_)?
 
 ```
-# ciframos los dos pagos
-openssl enc -aes-256-ctr  -nosalt  -iv 111 -in pago1.bmp -out pago1.ctr
-openssl enc -aes-256-ctr  -nosalt  -iv 222 -in pago2.bmp -out pago2.ctr
-# creamos el pago falso (esto es lo que haría Mallory)
-cp pago2.ctr fake.ctr
-dd if=pago1.ctr of=fake.ctr count=197388 bs=16 conv=notrunc
-# desciframos el pago falso
-openssl  enc  -d -aes-256-ctr -nosalt  -iv 111 -in fake.ctr -out fake.bmp
+$> rm  fake.bmp
+$> # ciframos los dos pagos
+$> openssl enc -aes-256-ctr  -nosalt  -iv 111 -in pago1.bmp -out pago1.ctr -pass pass:pass
+$> openssl enc -aes-256-ctr  -nosalt  -iv 222 -in pago2.bmp -out pago2.ctr -pass pass:pass
+$> # creamos el pago falso (esto es lo que haría Mallory)
+$> cp pago2.ctr fake.ctr
+$> dd if=pago1.ctr of=fake.ctr count=197388 bs=16 conv=notrunc
+197388+0 records in
+197388+0 records out
+3158208 bytes (3.2 MB, 3.0 MiB) copied, 0.255408 s, 12.4 MB/s
+$> # desciframos el pago falso
+$> openssl  enc  -d -aes-256-ctr -nosalt  -iv 111 -in fake.ctr -out fake.bmp -pass pass:pass
 ```
 
 Bob recibiría esta orden de pago:
@@ -377,14 +584,18 @@ si usamos mal el moco CTR?
 ##### ¿Qué pasaría con CTR mal usado (i.e. reutilizando _nonce_)?
 
 ```
-# ciframos los dos pagos
-openssl enc -aes-256-ctr  -nosalt  -iv 111 -in pago1.bmp -out pago1.ctr
-openssl enc -aes-256-ctr  -nosalt  -iv 111 -in pago2.bmp -out pago2.ctr
-# creamos el pago falso (esto es lo que haría Mallory)
-cp pago2.ctr fake.ctr
-dd if=pago1.ctr of=fake.ctr count=197388 bs=16 conv=notrunc
-# desciframos el pago falso
-openssl  enc  -d -aes-256-ctr -nosalt  -iv 111 -in fake.ctr -out fake.bmp
+$> rm  fake.bmp
+$> # ciframos los dos pagos
+$> openssl enc -aes-256-ctr  -nosalt  -iv 111 -in pago1.bmp -out pago1.ctr -pass pass:pass
+$> openssl enc -aes-256-ctr  -nosalt  -iv 111 -in pago2.bmp -out pago2.ctr -pass pass:pass
+$> # creamos el pago falso (esto es lo que haría Mallory)
+$> cp pago2.ctr fake.ctr
+$> dd if=pago1.ctr of=fake.ctr count=197388 bs=16 conv=notrunc
+197388+0 records in
+197388+0 records out
+3158208 bytes (3.2 MB, 3.0 MiB) copied, 0.243182 s, 13.0 MB/s
+$> # desciframos el pago falso
+$> openssl  enc  -d -aes-256-ctr -nosalt  -iv 111 -in fake.ctr -out fake.bmp -pass pass:pass
 ```
 
 Bob recibiría esta orden de pago:
@@ -405,7 +616,8 @@ otra herramienta para garantizar la integridad o la autenticidad de los
 datos cifrados:
 
 * Cifrar junto con los datos una hash de los mismos. A la hora de descifrar,
-comprobar los datos con la hash. Esto nos garantiza integridad. La siguiente
+comprobar los datos con la hash. Esto nos garantiza integridad y soluciona
+el problema, pero la siguiente
 opción es mejor, ya que proporciona autenticación al mensaje.
 
 * Usar una MAC para garantizar autenticación a los datos (esto es, que
@@ -429,7 +641,8 @@ Hay tres formas de hacer esto:
 autenticación de los datos, eliminando el problema. Cuando intenta descifrar
 con estos modos, el algoritmo sale con fallo si el texto cifrado ha sido
 manipulado. Estos modos están reemplazando a los modos tradicionales que
-hemos visto. Un modo autenticado muy popular es el **modo GCM** (Galois Counter Mode).
+hemos visto. Un modo autenticado muy popular es el **modo GCM** (Galois
+Counter Mode).
 
 
 <sub><sup>
