@@ -357,7 +357,7 @@ indicada (empezando en 0) de un fichero. Este es su fuente:
 #include <fcntl.h>
 
 /*
-	flip the bit in the position (starting at 0)
+	flip the bit in this position (starting at 0)
 	of the file.
 
 	gcc -o flip -Wall flip.c
