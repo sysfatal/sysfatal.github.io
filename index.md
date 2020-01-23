@@ -13,7 +13,7 @@ _Wed Jan 22 22:02:40 CET 2020_
 
 Muchos programadores siguen pensando que cifrar los datos
 es suficiente para mantenerlos _seguros_. En general, el
-cifrado proporciona confidencialidad...
+cifrado proporciona confidencialidad... [(continúa)](maleable.html)
 
 ---
 
