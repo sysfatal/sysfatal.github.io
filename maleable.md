@@ -264,10 +264,6 @@ lee/escribe un registro de un fichero:
 #include <fcntl.h>
 #include <inttypes.h>
 
-/*
-	gcc -o regs -Wall regs.c
-*/
-
 struct Transfer {
     uint64_t    from;
     uint64_t    to;
@@ -295,10 +291,14 @@ printtrans(Transfer *t)
 }
 
 void
-readtrans(char *path)
+writetrans(char *path)
 {
 	int fd;
-	Transfer t;
+	Transfer t = {111111,
+		222222,
+		{'m','o','v','i','e','s','\0'},
+		1579769963,
+		10};
 
 	fd = open(path, O_WRONLY|O_CREAT|O_TRUNC, 0660);
 	if(fd < 0)
@@ -311,14 +311,10 @@ readtrans(char *path)
 }
 
 void
-writetrans(char *path)
+readtrans(char *path)
 {
 	int fd;
-	Transfer t = {111111,
-		222222,
-		{'m','o','v','i','e','s','\0'},
-		1579769963,
-		10};
+	Transfer t;
 
 	fd = open(path, O_RDONLY);
 	if(fd < 0)
@@ -403,7 +399,7 @@ Veamos qué pasa:
 
 ```
 $> ./regs -w original.reg
-Transfer read:
+Transfer written:
 FROM: 111111
 TO: 222222
 DETAILS: movies
@@ -435,14 +431,13 @@ $> xxd -b -c 8 data.aes
 00000048: 11001101 01110110 10100111 01101100 11110101 01100010 01110000 11101010  .v.l.bp.
 $> openssl aes-256-cbc -d -nosalt -in data.aes -out modified.reg -pass pass:somepassword
 $> ./regs modified.reg
-Transfer written:
-FROM: 0
-TO: 1970169159
-DETAILS: 	
-DATE: 1
-AMOUNT: 94181557697773 euros
-$>
-
+Transfer read:
+FROM: 111111
+TO: 222222
+DETAILS: movies
+DATE: 1579769963
+AMOUNT: 72057594037927946 euros
+$> 
 ```
 
 El **modo CFB** es  parecido al anterior.
