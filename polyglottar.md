@@ -29,12 +29,12 @@ ___
 </center>
 
 
-En la pasada edición de [Rooted2020](https://www.rootedcon.com/archive/rooted2020/),
+En la pasada edición de [RootedCON 2020](https://www.rootedcon.com/archive/rooted2020/),
 en la que tuve el honor de participar como ponente,
-@mindcrypt (Alfonso Muñoz) dio una charla sobre *polyglots*... pero me la
+_@mindcrypt_ (Alfonso Muñoz) dio una charla sobre *polyglots*... pero me la
 perdí porque esa mañana tenía que dar cuatro horas de clase
 en la Universidad. Por suerte,  dado
-el confinamiento por el COVID-19, Alfonso repitió la charla por
+el confinamiento por el COVID-19, repitió la charla por
 videoconferencia y ya pude verla. El tema de los *polyglots* me parece muy
 interesante y divertido.
 
