@@ -1389,8 +1389,8 @@ en el *offset* indicado del ELF para que parezca un TAR:
 Hay otro formato interesante con el *magic* más allá del inicio
 del fichero: ISO. Según la lista de *magics*,
 este formato para imágenes de disco tiene el suyo en
-el *offset* ```0x8001``` y ```0x8801```, ```0x9001```.
-El magic es ```CD001```:
+los *offsets* ```0x8001```,```0x8801``` y ```0x9001```.
+El *magic* es ```CD001```:
 
 ```
 $> xxd dsl-4.11.rc1.iso  | egrep '^0+8000:'
@@ -1398,7 +1398,7 @@ $> xxd dsl-4.11.rc1.iso  | egrep '^0+8000:'
 $>
 ```
 
-¿Qué pasa si cogemos un ELF pequeño y lo colocamos al principio?
+¿Qué pasa si cogemos un ELF pequeño y lo colocamos al principio de una ISO?
 
 ```
 $> dd if=proto1 of=dsl-4.11.rc1.iso  bs=1 count=464  conv=notrunc
@@ -1453,8 +1453,8 @@ Magic ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, st
 File size 50.65 MB (53108736 bytes)
 ```
 
-Es una buena forma de ocultar un ejecutable, ya que es bastante normal
-descargar ISO para instalar sistemas, etc. Por ejemplo, haciendo lo mismo
+Esta es también una buena forma de ocultar un ejecutable, ya que es bastante normal
+descargar una ISO para instalar sistemas, etc. Por ejemplo, haciendo lo mismo
 con una ISO de Ubuntu:
 
 ```
@@ -1487,9 +1487,12 @@ Volume Size                     : 2.3 GB
 
 ### CONCLUSIONES
 
-Aunque sea una forma conocida, parece que muchos AV no detectan el
-nuestro **polyglottar** y deberían. Hay otros formatos con el *magic*
+Aunque sea un método ya conocido, parece que muchos AV no detectan el
+nuestro **polyglottar**. Deberían.
+
+Hay otros formatos con el *magic*
 en un *offset* distinto de cero que se pueden explorar, como ISO.
+
 Es divertido jugar con *polyglots*.
 
 
