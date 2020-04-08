@@ -10,7 +10,7 @@ En este blog iré metiendo entradas sobre las cosas que me interesan, como la se
 
 ---
 
-## [Polygottar, un polyglot TAR+ELF](polyglottar.html)
+## [Polyglottar, un polyglot TAR+ELF](polyglottar.html)
 _Wed Apr  8 22:56:09 CEST 2020_
 
 En la pasada edición de [RootedCON 2020](https://www.rootedcon.com/archive/rooted2020/),
