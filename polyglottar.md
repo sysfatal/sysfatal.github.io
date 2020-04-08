@@ -100,11 +100,11 @@ Bueno, aprovechando las vacaciones, he dedicado un día a implementar uno :)
 ### TAR
 
 El formato está descrito
-en [este manual](https://www.gnu.org/software/tar/manual/html_node/Standard.html)
+en [este manual](https://www.gnu.org/software/tar/manual/html_node/Standard.html).
 Como hemos dicho antes, el *magic* está en el offset ```0x101```. Al principio
 del fichero hay una cabecera, pero lo primero que tiene no es el *magic*.
 En todo momento hablaré de TAR POSIX, ya que hay distintas versiones (es un comando
-UNIX primigenio): GNU (dos versiones), v7 y ustar.
+UNIX primigenio, de 1979): GNU (dos versiones), v7 y ustar.
 La cabecera, vista como un record de C, es esta:
 
 ```c
@@ -131,7 +131,8 @@ struct posix_header
 
 Lo primero que viene es el nombre del directorio que contiente el *tar*.
 Por tanto, ¿qué pasa si ponemos como nombre un el *magic* de
-ELF (```0x7f454c46```, un byte 0x7f seguido de los caracteres _ELF_)?
+ELF (```0x7f454c46```, esto es, un byte ```0x7f```
+seguido de los caracteres ```ELF```)?
 
 ```
 $> mkdir test
