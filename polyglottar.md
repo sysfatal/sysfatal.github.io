@@ -958,7 +958,7 @@ SECTIONS
 }
 ```
 
-Si ahora enlazamos con usando este script:
+Si ahora enlazamos con ```ld``` usando ese script:
 
 ```
 $> ld  proto1.o -T ld.script -o proto1
@@ -1126,7 +1126,7 @@ $>
 Tiene buena pinta. Ahora toca cirugía. Tenemos que montar nuestro *Frankenstein*
 particular. El fichero tiene que tener la cabecera del TAR, con la cabecera
 del ELF (y el resto hasta el inicio del segmento CUSTOM) en su inicio. Si
-echamos la cuenta, esto requiere que
+echamos cuentas, esto requiere que
 se sacrifiquen los siguientes campos de la cabecera del TAR:
 
 ```
@@ -1179,7 +1179,7 @@ Leyendo la documentación de TAR y de ver el código de GNU (¡un horror!)
 y el del tar de Plan 9 (bien limpio), saqué en claro
 
 - El checksum es la suma de todos los bytes del bloque de  
-cabecera (ojo, la cabecera son 500 bytes).
+cabecera (ojo, la cabecera son 500 bytes
 pero el bloque es de 512 bytes).
 - El campo ```chksum``` se debe contar como caracteres espacio para esta suma.
 - El campo ```chksum``` tiene el número en texto (una string).
@@ -1208,8 +1208,7 @@ enum{
 	Chksz = 8,
 };
 
-struct posix_header
-{                              /* byte offset */
+struct posix_header{                              /* byte offset */
   char name[100];               /*   0 */
   char mode[8];                 /* 100 */
   char uid[8];                  /* 108 */
@@ -1307,8 +1306,16 @@ d--------- esoriano/esoriano 0 2020-04-08 13:48 \177ELF\002\001\001
 -rw-rw-r-- esoriano/esoriano  5 2020-04-08 13:48 \177ELF/install.exe
 $>
 ```
+<center>
+<figure class="image">
+  <img src="figs/ding.png">
+</figure>
+</center>
 
-**FUNCIONA**. Tanto ```file``` como ```exiftool``` reconocen el fichero
+**¡FUNCIONA!**
+
+
+Tanto ```file``` como ```exiftool``` reconocen el fichero
 como un TAR. EL TAR se lista y extrae perfectamente. Y el binario también
 ejeucta perfectamente.
 
