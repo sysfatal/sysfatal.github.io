@@ -62,8 +62,7 @@ con un *hashbang* (la secuencia ```#!```, también conocida como _shebangs_)
 seguida de la ruta del programa intérprete
 (en ese caso, el sistema ejecutaría el intérprete pasándole como argumento
 la ruta del fichero ejecutable). En el caso de un script de shell, siempre
-debería tener el *hashbang*. Por tanto, un script de shell **sí** tiene
-un *magic number*:  ```#!/bin/sh``` (o la ruta del shell que debe interpretarlo).
+debería tener el *hashbang*.
 Pero esto no es así: el shell entiende que si un programa no se puede ejecutar
 lo tiene que interpretar él mismo, abriendo la puerta a este tipo
 de *polyglots*.
@@ -101,8 +100,7 @@ El formato está descrito
 en [este manual](https://www.gnu.org/software/tar/manual/html_node/Standard.html).
 Como hemos dicho antes, el *magic* está en el offset ```0x101```. Al principio
 del fichero hay una cabecera, pero lo primero que tiene no es el *magic*.
-En todo momento hablaré de TAR POSIX, ya que hay distintas versiones (es un comando
-UNIX primigenio, de 1979): GNU (dos versiones), v7 y ustar.
+En todo momento hablaré de TAR POSIX, ya que hay distintas versiones (el comando original es de 1979): GNU (dos versiones), v7 y ustar.
 La cabecera, vista como un record de C, es esta:
 
 ```c
