@@ -22,6 +22,13 @@ tags:
 
 ___
 
+<center>
+<figure class="image">
+  <img src="figs/elf-in-tar.png">
+</figure>
+</center>
+
+
 En la pasada edición de [Rooted2020](https://www.rootedcon.com/archive/rooted2020/),
 en la que tuve el honor de participar como ponente,
 @mindcrypt (Alfonso Muñoz) dio una charla sobre *polyglots*... pero me la
@@ -31,10 +38,12 @@ el confinamiento por el COVID-19, Alfonso repitió la charla por
 videoconferencia y ya pude verla. El tema de los *polyglots* me parece muy
 interesante y divertido.
 
-El objetivo de un *polyglot* es poder ocultar un programa malicioso como
-si fuera otro tipo de fichero, para que los AV, IDS, etc. No lo detecten.
-En la charla online se explicó un polyglot
-que tenía el formato de una imagen y podía ejecutar un script de shell.
+El objetivo de un *polyglot* es poder pasar como distintos formatos
+de ficheros. Se pueden usar para ocultar un programa malicioso como
+si fuera otro tipo de fichero, con el fin de pasar desapercibido
+al análisis de AV, IDS, etc.  
+En la charla online, se explicó un polyglot
+que tenía el formato de una imagen pero se podía ejecutar como un script de shell.
 Un *magic number* es una secuencia de bytes que identifica un tipo de fichero
 siempre situado en el mismo sitio para los ficheros de ese tipo (en general,
 al principio).  El
@@ -140,14 +149,18 @@ Antes de segir, subí el fichero a *virustotal* para ver qué decía.
 La respuesta me sorprendió: sólo un motor (McAfee) había detectado algo raro
 y lo clasicaba como malware (exploit).
 
-Parece que no soy el primero en
-intentar esto. Virustotal hace referencia
+Parece que no soy el primero en fijarse en TAR.
+Virustotal hace referencia
 al CVE 2012-1429, que a su vez redirige a un
 artículo presentado en la 2012 IEEE Symposium on Security and Privacy
 llamado [Abusing File Processing in Malware Detectors for Fun and Profit](https://ieeexplore.ieee.org/document/6234406). En este artículo se
 exploran distintas técnicas para ocultar malware, entre ellas hablan de TAR.
-En el artículo no hay detalles de implementación del exploit,
-y parece divertido, así que ¡adelante!
+
+Además, en _PoC || GTFO_ número 6 se describe un *polyglot* TAR + PDF.
+Es mucho más interesante con un ELF :) y en el artículo no hay detalles
+de implementación del exploit.
+Parece divertido, así que ¡adelante!
+
 
 ### ELF
 
@@ -1351,7 +1364,7 @@ en el *offset* del ELF.
 
 ### ISO
 
-Bueno, hay otro formato interesante con el *magic* más allá del inicio
+Hay otro formato interesante con el *magic* más allá del inicio
 del fichero: ISO. Según la lista de *magics*,
 este formato para imágenes de disco tiene el suyo en
 el *offset* ```0x8001``` y ```0x8801```, ```0x9001```.
@@ -1402,8 +1415,8 @@ $>
 ```
 
 El comando ```file``` lo identifica como un ELF. Sin embargo, ```exiftool```
-lo identifica como un ISO. Virustotal no ve nada raro (ni McAfee)
-y lo identifica como ELF:
+lo identifica como un ISO. Virustotal no ve nada raro (ni siquiera McAfee),
+pero lo identifica como ELF:
 
 [ver en virustotal](https://www.virustotal.com/gui/file/1065e4ea505969b9a94470d645fb28205afe16b2e422073717877c2cc80adb40/detection)
 
