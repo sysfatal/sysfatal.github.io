@@ -1379,10 +1379,10 @@ La descripción del CVE-2012-1429 es:
 > if additional information is published showing that the error occurred
 > independently in different ELF parser implementations.
 
-Bueno, nosotros hemos ido
-bastante más allá que simplemente poner una cadena
-en el *offset* indicado del ELF: nuestro *polyglot* funciona como un TAR
-y como un ELF **a la vez**.
+Bueno, aquí hemos ido
+bastante más allá, no ponemos simplemente una string
+en el *offset* indicado del ELF para que parezca un TAR:
+*polyglottar* funciona como un TAR y como un ELF **a la vez**.
 
 ### ISO
 
