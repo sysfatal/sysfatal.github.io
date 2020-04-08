@@ -50,7 +50,7 @@ del *polyglot*  es el de la imagen, pero el fichero
 oculta un programa que se ejecutará (en este caso, comandos de un script
 de shell).
 
-Esto es posible porque la mayoría de los shells de UNIX (por ejemplo, ```rc```
+Esto es posible porque en la mayoría de los shells de UNIX (por ejemplo, ```rc```
 no lo hace), si se intenta ejecutar un programa y la llamada a _exec_ falla,
 el shell entiende que es un programa que tiene que interpretar él.
 Por tanto, ejecuta como un script de shell. **IMHO esto es un error de diseño**.
