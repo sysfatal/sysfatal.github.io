@@ -1,5 +1,5 @@
 ---
-title:      Polygottar, un polyglot TAR+ELF
+title:      Polyglottar, un polyglot TAR+ELF
 summary:    Polylgot de dos formatos estructurados
 categories: blog
 date:       Wed Apr  8 22:56:09 CEST 2020
