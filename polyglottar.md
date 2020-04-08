@@ -2,7 +2,7 @@
 title:      Polygottar, un polyglot TAR+ELF
 summary:    Polylgot de dos formatos estructurados
 categories: blog
-date:       Wed Apr  8 14:56:09 CEST 2020
+date:       Wed Apr  8 22:56:09 CEST 2020
 thumbnail:  polyglottar
 image:      https://github.com/sysfatal/figs/elf-in-tar.png
 layout:     post

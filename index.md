@@ -6,6 +6,17 @@ In this blog I'll write about stuff I like: security, operating systems, the int
 
 En este blog iré metiendo entradas sobre las cosas que me interesan, como la seguridad, sistemas operativos, internet, criptografía, etc. Algunas cosas estarán en castellano y otras en inglés, según me dé  :)
 
+
+
+---
+
+## [Polygottar, un polyglot TAR+ELF](polyglottar.html)
+_Wed Apr  8 22:56:09 CEST 2020_
+
+En la pasada edición de [RootedCON 2020](https://www.rootedcon.com/archive/rooted2020/),
+en la que tuve el honor de participar como ponente,
+_@mindcrypt_ (Alfonso Muñoz) dio una charla sobre *polyglots*... [(continúa)](polyglottar.html)
+
 ---
 
 ## [No basta con cifrar](maleable.html)
