@@ -36,14 +36,14 @@ en la Universidad. Por suerte,  dado el confinamiento por el COVID-19, repitió 
 videoconferencia y ya pude verla. El tema de los *polyglots* me parece muy
 interesante y divertido.
 
-El objetivo de un *polyglot* es poder pasar por ficheros con
+El objetivo de un *polyglot* es pasar por ficheros de
 distintos formatos. Se puede usar para ocultar un programa malicioso como
 si fuera otro tipo de fichero, con el fin de pasar desapercibido
 al análisis de AV, IDS, etc.  
 En la charla online, se explicó un polyglot
 que tenía el formato de una imagen pero se podía ejecutar como un script de shell.
 Un *magic number* es una secuencia de bytes que identifica un tipo de fichero
-siempre situado en el mismo sitio para los ficheros de ese tipo (en general,
+(está siempre situado en el mismo sitio, en general,
 al principio).  El
 *magic number* (o *file signature*)
 del *polyglot*  es el de la imagen, pero el fichero
