@@ -156,7 +156,7 @@ artículo presentado en la 2012 IEEE Symposium on Security and Privacy
 llamado [Abusing File Processing in Malware Detectors for Fun and Profit](https://ieeexplore.ieee.org/document/6234406). En este artículo se
 exploran distintas técnicas para ocultar malware, entre ellas hablan de TAR.
 
-Además, en _PoC || GTFO_ número 6 se describe un *polyglot* TAR + PDF.
+Además, en _PoC or GTFO_ número 6 se describe un *polyglot* TAR + PDF.
 
 Pero es mucho más interesante un *polyglot* TAR + ELF :)
 Además, el artículo anterior no ofrece detalles
