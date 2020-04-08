@@ -304,7 +304,9 @@ para el formato ELF nos meteríamos ya en las tablas de secciones y segmentos,
 cosas que no podemos sobrescribir. Pero necesitamos también preservar las
 partes importantes de la cabecera del TAR (*magic* etc.) y sus datos.
 
-El plan es este:
+#### Plan
+
+El plan que se me ocurrió es este:
 
 - Crear un segmento nuevo en el ELF, que llamaremos CUSTOM,
 para que en él caigan todos los datos del TAR.
@@ -1287,7 +1289,7 @@ ejeucta perfectamente.
 Virustotal lo sigue identificando como un exploit por McAfee, el resto
 de motores no lo descubren.
 
-(https://www.virustotal.com/gui/file/3015d4ad1d002032ce1f9bc07507562916e190c6130568f886f66d36667438d6/detection)
+[ver en virustotal](https://www.virustotal.com/gui/file/3015d4ad1d002032ce1f9bc07507562916e190c6130568f886f66d36667438d6/detection)
 
 Lo identifica como:
 
@@ -1317,7 +1319,7 @@ $>
 Ahora Virustotal ya no lo identifica como ELF, lo identificar como TAR
 (pero McAfee lo sigue cazando):
 
-(https://www.virustotal.com/gui/file/2ae17d426ccae26ceb994625524978f6e68721bcda18e8885ff2091031c8900e/detection)
+[ver en virustotal](https://www.virustotal.com/gui/file/2ae17d426ccae26ceb994625524978f6e68721bcda18e8885ff2091031c8900e/detection)
 
 ```
 MD5 eab51c63e4750a450d2c5dbfd45d72d3
@@ -1403,7 +1405,7 @@ El comando ```file``` lo identifica como un ELF. Sin embargo, ```exiftool```
 lo identifica como un ISO. Virustotal no ve nada raro (ni McAfee)
 y lo identifica como ELF:
 
-(https://www.virustotal.com/gui/file/1065e4ea505969b9a94470d645fb28205afe16b2e422073717877c2cc80adb40/detection)
+[ver en virustotal](https://www.virustotal.com/gui/file/1065e4ea505969b9a94470d645fb28205afe16b2e422073717877c2cc80adb40/detection)
 
 ```
 MD5 02f4d023109e06ded5e1e438c8e7cf54
