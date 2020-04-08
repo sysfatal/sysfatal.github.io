@@ -28,7 +28,7 @@ ___
 </figure>
 </center>
 
-En la pasada edición de [RootedCON 2020](https://www.rootedcon.com/archive/rooted2020/),
+En la pasada edición de [RootedCON](https://www.rootedcon.com/archive/rooted2020/),
 en la que tuve el placer de participar como ponente,
 _@mindcrypt_ (Alfonso Muñoz) dio una charla sobre *polyglots*... pero me la
 perdí porque esa mañana tenía que dar cuatro horas de clase
