@@ -1,10 +1,10 @@
 ---
-title:      Polygottar: un polyglot con dos formatos de ficheros estructurados (TAR+ELF)
-summary:    Polylgot ELF + TAR
+title:      Polygottar, un polyglot TAR+ELF
+summary:    Polylgot de dos formatos estructurados
 categories: blog
 date:       Wed Apr  8 14:56:09 CEST 2020
 thumbnail:  polyglottar
-image:      https://github.com/sysfatal/figs/polyglottar.png
+image:      https://github.com/sysfatal/figs/elf-in-tar.png
 layout:     post
 author:     e__soriano
 tags:
@@ -27,7 +27,6 @@ ___
   <img src="figs/elf-in-tar.png">
 </figure>
 </center>
-
 
 En la pasada edición de [RootedCON 2020](https://www.rootedcon.com/archive/rooted2020/),
 en la que tuve el honor de participar como ponente,
