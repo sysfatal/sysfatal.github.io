@@ -57,7 +57,7 @@ no lo hace), si se intenta ejecutar un programa y la llamada a _exec_ falla,
 el shell entiende que es un programa que tiene que interpretar él.
 Por tanto, ejecuta como un script de shell. **IMHO esto es un error de diseño**.
 La llamada al sistema _exec_, si se le ha pasado un fichero ejecutable que
-existe y al que se puede acceder,
+existe y se puede acceder,
 puede fallar porque se está intentando ejecutar
 un binario incorrecto o porque el fichero ejecutable no comienza
 con un *hashbang* (la secuencia ```#!```, también conocida como _shebangs_)
