@@ -1319,8 +1319,8 @@ Tanto ```file``` como ```exiftool``` reconocen el fichero
 como un TAR. EL TAR se lista y extrae perfectamente. Y el binario también
 ejeucta perfectamente.
 
-Virustotal lo sigue identificando como un exploit por McAfee, el resto
-de motores no lo descubren.
+Virustotal lo sigue identificando como un exploit (sólo el motor de McAfee,
+el resto de motores no).
 
 [ver en virustotal](https://www.virustotal.com/gui/file/3015d4ad1d002032ce1f9bc07507562916e190c6130568f886f66d36667438d6/detection)
 
@@ -1379,8 +1379,10 @@ La descripción del CVE-2012-1429 es:
 > if additional information is published showing that the error occurred
 > independently in different ELF parser implementations.
 
-Bueno, nosotros hemos ido más allá que simplemente poner esa cadena
-en el *offset* del ELF.
+Bueno, nosotros hemos ido
+bastante más allá que simplemente poner una cadena
+en el *offset* indicado del ELF: nuestro *polyglot* funciona como un TAR
+y como un ELF **a la vez**.
 
 ### ISO
 
