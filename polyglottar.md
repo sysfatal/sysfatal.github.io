@@ -32,13 +32,12 @@ En la pasada edición de [RootedCON 2020](https://www.rootedcon.com/archive/root
 en la que tuve el placer de participar como ponente,
 _@mindcrypt_ (Alfonso Muñoz) dio una charla sobre *polyglots*... pero me la
 perdí porque esa mañana tenía que dar cuatro horas de clase
-en la Universidad. Por suerte,  dado
-el confinamiento por el COVID-19, repitió la charla por
+en la Universidad. Por suerte,  dado el confinamiento por el COVID-19, repitió la charla por
 videoconferencia y ya pude verla. El tema de los *polyglots* me parece muy
 interesante y divertido.
 
-El objetivo de un *polyglot* es poder pasar por un fichero con
-distintos formato. Se puede usar para ocultar un programa malicioso como
+El objetivo de un *polyglot* es poder pasar por ficheros con
+distintos formatos. Se puede usar para ocultar un programa malicioso como
 si fuera otro tipo de fichero, con el fin de pasar desapercibido
 al análisis de AV, IDS, etc.  
 En la charla online, se explicó un polyglot
