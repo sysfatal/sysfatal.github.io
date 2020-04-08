@@ -81,7 +81,7 @@ crear un polyglot con dos tipos de ficheros estructurados (esto es, cada uno
 con su estructuta interna, *magic numbers*, etc.)?
 
 Al comentarlo, otro asistente dijo que el *magic number* de
-los ficheros siempre están en el principio del fichero,
+los ficheros siempre está al principio del fichero,
 por lo que no es posible tener un *polyglot* que cumpla con dos
 formatos estructurados. Pero esto no es siempre así, hay casos raros.
 En la wikipedia [tenemos los *magic numbers* de los formatos más conocidos](https://en.wikipedia.org/wiki/List_of_file_signatures).
