@@ -1131,7 +1131,7 @@ char mode[8];
 char uid[8];  
 char gid[8];   
 ```
-Esto es, la parte del nombre, el modo, el nombre de usuario y el grupo del TAR.
+Esto es, la parte del nombre, el modo, el id de usuario y de grupo.
 
 Para poder construirlo, podemos usar el comando ```dd```. Lo que hacemos
 es superponer la parte del TAR que va desde su *offset* 120 hasta su final
@@ -1482,7 +1482,7 @@ Volume Size                     : 2.3 GB
 
 ### CONCLUSIONES
 
-Aunque sea un método ya conocido, parece que muchos AV no detectan el
+Aunque sea un método ya conocido, parece que muchos AV no detectan
 nuestro **polyglottar**. Deberían.
 
 Hay otros formatos con el *magic*
