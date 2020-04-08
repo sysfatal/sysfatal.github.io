@@ -66,20 +66,26 @@ seguida de la ruta del programa intérprete
 la ruta del fichero ejecutable). En el caso de un script de shell, siempre
 debería tener el *hashbang*. Por tanto, un script de shell **sí** tiene
 un *magic number*:  ```#!/bin/sh``` (o la ruta del shell que debe interpretarlo).
-Pero claro, dado que el entienden que si un programa no se puede ejecutar,
-lo tiene que interpretar él mismo, pues se abre la puerta a este tipo
+Pero esto no es así: el shell entiende que si un programa no se puede ejecutar
+lo tiene que interpretar él mismo, abriendo la puerta a este tipo
 de *polyglots*.
 Funcionan perfectamente. [Aquí](https://github.com/mindcrypt/bipolar)
 puedes encontrar una herramenienta de @mindcrypt.
 
-En este caso el polyglot es de un tipo de fichero con estructura (con *magic number*)
-y otro tipo sin estructura (sin *magic number*), en este caso, el _script_ de
-shell. La pregunta que me vino a la cabeza durante la charla fue: ¿es posible
+### Estructura
+
+En este caso el *polyglot* es de un tipo de fichero
+con _estructura interna_ (la imagen
+tiene su cabecera, su *magic number*, las secciones, etc.)
+y otro tipo sin _estructura_ (el _"script"_ de
+shell). La pregunta que me vino a la cabeza durante la charla fue: ¿es posible
 crear un polyglot con dos tipos de ficheros estructurados (esto es, cada uno
-con su *magic number*)? Al comentarlo, se comentó que el *magic number* de
-los ficheros siempre están en el principio del fichero (me respondió otro
-asistente), por lo que no es posible tener un polyglot que tenga dos
-formatos estructurados. Pero esto no es así siempre, hay casos raros.
+con su estructuta interna, *magic numbers*, etc.)?
+
+Al comentarlo, otro asistente dijo que el *magic number* de
+los ficheros siempre están en el principio del fichero,
+por lo que no es posible tener un *polyglot* que cumpla con dos
+formatos estructurados. Pero esto no es siempre así, hay casos raros.
 En la wikipedia [tenemos los *magic numbers* de los formatos más conocidos](https://en.wikipedia.org/wiki/List_of_file_signatures).
 Hay un tipo bastante usado en los sistemas de tipo UNIX, *TAR*. Un *tar*
 es un fichero archivador que contiene dentro otros ficheros (comprimido o no).
@@ -89,8 +95,7 @@ al principio del fichero (*offset* ```0x00```). Por tanto, sí es posible crear
 un polyglot de dos tipos estructurados, por ejemplo **TAR** y lo más peligroso
 si hablamos de malware, el formato binario ejecutable de Linux: **ELF**.
 
-Bueno, aprovechando las vacaciones, he dedicado un día a esto y ha sido
-productivo :)
+Bueno, aprovechando las vacaciones, he dedicado un día a implementar uno :)  
 
 ### TAR
 
