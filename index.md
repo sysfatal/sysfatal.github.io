@@ -14,7 +14,7 @@ En este blog iré metiendo entradas sobre las cosas que me interesan, como la se
 _Wed Apr  8 22:56:09 CEST 2020_
 
 En la pasada edición de [RootedCON 2020](https://www.rootedcon.com/archive/rooted2020/),
-en la que tuve el honor de participar como ponente,
+en la que tuve el placer de participar como ponente,
 _@mindcrypt_ (Alfonso Muñoz) dio una charla sobre *polyglots*... [(continúa)](polyglottar.html)
 
 ---
