@@ -1171,8 +1171,8 @@ que el problema es que hemos modificado la cabecera del TAR y por tanto el
 *checksum* (campo ```chksum```) ha cambiado. Esto provoca un error en el TAR
 y además ```file``` no lo reconoce.
 
-Leyendo la documentación de TAR y de ver el código de GNU (¡un horror!)
-y el del tar de Plan 9 (bien limpio), saqué en claro
+De la documentación, el código del tar de GNU (¡un horror!)
+y el código del tar de Plan 9 (bien limpio), saqué en claro lo siguiente:
 
 - El checksum es la suma de todos los bytes del bloque de  
 cabecera (ojo, la cabecera son 500 bytes
@@ -1186,8 +1186,7 @@ Cosas del software primigenio :D
 Pues nada, escribí este pequeño programa en C para leer, calcular y
 actualizar el campo del checksum de un TAR:
 
-```
-$> cat tar-header.c
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -1313,7 +1312,7 @@ $>
 
 Tanto ```file``` como ```exiftool``` reconocen el fichero
 como un TAR. EL TAR se lista y extrae perfectamente. Y el binario también
-ejeucta perfectamente.
+ejecuta perfectamente.
 
 Virustotal lo sigue identificando como un exploit (sólo el motor de McAfee,
 el resto de motores no).
