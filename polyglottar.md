@@ -38,8 +38,8 @@ el confinamiento por el COVID-19, repitió la charla por
 videoconferencia y ya pude verla. El tema de los *polyglots* me parece muy
 interesante y divertido.
 
-El objetivo de un *polyglot* es poder pasar como distintos formatos
-de ficheros. Se pueden usar para ocultar un programa malicioso como
+El objetivo de un *polyglot* es poder pasar por un fichero con
+distintos formato. Se puede usar para ocultar un programa malicioso como
 si fuera otro tipo de fichero, con el fin de pasar desapercibido
 al análisis de AV, IDS, etc.  
 En la charla online, se explicó un polyglot
@@ -157,9 +157,12 @@ llamado [Abusing File Processing in Malware Detectors for Fun and Profit](https:
 exploran distintas técnicas para ocultar malware, entre ellas hablan de TAR.
 
 Además, en _PoC || GTFO_ número 6 se describe un *polyglot* TAR + PDF.
-Es mucho más interesante con un ELF :) y en el artículo no hay detalles
+
+Pero es mucho más interesante un *polyglot* TAR + ELF :)
+Además, el artículo anterior no ofrece detalles
 de implementación del exploit.
-Parece divertido, así que ¡adelante!
+
+Esto parece divertido, así que ¡adelante!
 
 
 ### ELF
