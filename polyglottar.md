@@ -151,18 +151,19 @@ Bueno, pues parece que podemos tener el *magic* de ELF en un TAR.
 Además, el comando ```file``` que sabe inspeccionar el contenido de un fichero
 y localizar los *magic numbers*, dice que es un TAR. La cosa pinta bien.
 
-Antes de segir, subí el fichero a *virustotal* para ver qué decía.
+Antes de seguir, subí el fichero a *virustotal* para ver qué decía.
 La respuesta me sorprendió: sólo un motor (McAfee) había detectado algo raro
 y lo clasicaba como malware (exploit).
 
 Parece que no soy el primero en fijarse en TAR.
 Virustotal hace referencia
 al CVE 2012-1429, que a su vez redirige a un
-artículo presentado en la 2012 IEEE Symposium on Security and Privacy
+artículo presentado en el 2012 IEEE Symposium on Security and Privacy
 llamado [Abusing File Processing in Malware Detectors for Fun and Profit](https://ieeexplore.ieee.org/document/6234406). En este artículo se
-exploran distintas técnicas para ocultar malware, entre ellas hablan de TAR.
+exploran distintas técnicas para ocultar malware; entre otras, hablan de TAR.
 
-Además, en _PoC or GTFO_ número 6 se describe un *polyglot* TAR + PDF.
+Mirando más, encontré que el _PoC or GTFO_ [número 6](https://www.alchemistowl.org/pocorgtfo/)
+se describe un *polyglot* TAR + PDF.
 
 Pero es mucho más interesante un *polyglot* TAR + ELF :)
 Además, el artículo anterior no ofrece detalles
@@ -205,8 +206,8 @@ globales inicializadas), etc.
 
 ### POLYGLOTTAR
 
-El programa que vamos a intentar ejecutar es este (en
-AT&T assembly syntax ya que usaremos GNU AS):
+El programa que vamos a intentar ejecutar es este (escrito en
+_AT&T assembly syntax_ ya que usaremos _GNU AS_):
 
 ```
 .global _start
@@ -236,7 +237,7 @@ Este pequeño programa (lo he tomado prestado de [aquí](https://medium.com/@dmx
 El programa primero hace una llamada al sistema ```write``` y después
 acaba el programa realizando una llamada al sistema ```exit```.
 
-Si ensamblamos, enlazamos el programa y ejecutamos:
+Si ensamblamos, enlazamos y ejecutamos:
 
 ```
 $> as hey.s -o hey.o
@@ -248,6 +249,7 @@ $>
 Veamos qué tiene dentro el ejecutable:
 
 ```
+$> readelf -a hey
 ELF Header:
   Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00
   Class:                             ELF64
@@ -318,13 +320,15 @@ No version information found in this file.
 $>
 ```
 
-El programa tiene su segmento TEXT (instrucciones), tablas de símbolos
-(que se puede quitar) y poco más.
+El programa tiene su segmento TEXT (instrucciones), la tabla de símbolos
+(que se puede quitar con ```strip```) y poco más.
 
-Tenemos un problema: la cabecera del TAR ocupa 512 bytes. En ese offset
-para el formato ELF nos meteríamos ya en las tablas de secciones y segmentos,
+Pero tenemos un problema: la cabecera del TAR ocupa 512 bytes. En ese *offset*,
+para el formato ELF, nos meteríamos ya en las tablas de secciones y segmentos,
+que son
 cosas que no podemos sobrescribir. Pero necesitamos también preservar las
 partes importantes de la cabecera del TAR (*magic* etc.) y sus datos.
+¿Qué hacemos?
 
 #### Plan
 
