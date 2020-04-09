@@ -1379,6 +1379,29 @@ bastante más allá, no ponemos simplemente una string
 en el *offset* indicado del ELF para que parezca un TAR:
 *polyglottar* funciona como un TAR y como un ELF **a la vez**.
 
+
+#### _ACTUALIZACIÓN_
+
+_@patowc_ me dice en twitter:
+
+>> Te lanzo un desafío xD que funcione el polyglot y sus ofuscaciones en WSL
+>> (https://es.wikipedia.org/wiki/Windows_Subsystem_for_Linux), de forma
+>> que puedas extender la ejecución a entorno Windows con WSL activado /cc @mindcrypt
+
+El *polyglottar* sin modificación ejecuta en WLS tranquilamente (no sabía
+si iba a funcionar, ya que hago las _syscalls_ a pelo sin pasar por la
+```glibc```):
+
+<center>
+<figure class="image">
+  <img src="figs/win10-WLS.png">
+</figure>
+</center>
+
+Por tanto, ahora es cuestión de ejecutar lo necesario como para salirse
+del WLS (esa es otra guerra).
+
+
 ### ISO
 
 Hay otro formato interesante con el *magic* más allá del inicio
