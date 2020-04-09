@@ -1388,8 +1388,8 @@ _@patowc_ me dice en twitter:
 >> (https://es.wikipedia.org/wiki/Windows_Subsystem_for_Linux), de forma
 >> que puedas extender la ejecución a entorno Windows con WSL activado /cc @mindcrypt
 
-El *polyglottar* sin modificación ejecuta en WLS tranquilamente (no sabía
-si iba a funcionar, ya que hago las _syscalls_ a pelo sin pasar por la glibc):
+El **polyglottar** (sin modificación) ejecuta en WLS tranquilamente. No sabía
+si iba a funcionar, ya que hago las _syscalls_ a pelo sin pasar por la glibc:
 
 <center>
 <figure class="image">
