@@ -1389,8 +1389,7 @@ _@patowc_ me dice en twitter:
 >> que puedas extender la ejecución a entorno Windows con WSL activado /cc @mindcrypt
 
 El *polyglottar* sin modificación ejecuta en WLS tranquilamente (no sabía
-si iba a funcionar, ya que hago las _syscalls_ a pelo sin pasar por la
-```glibc```):
+si iba a funcionar, ya que hago las _syscalls_ a pelo sin pasar por la glibc):
 
 <center>
 <figure class="image">
