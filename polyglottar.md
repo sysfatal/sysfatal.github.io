@@ -1480,7 +1480,7 @@ Boot System                     : EL TORITO SPECIFICATION
 Volume Size                     : 2.3 GB
 ```
 
-### CONCLUSIONES
+### Conclusiones
 
 Aunque sea un método ya conocido, parece que muchos AV no detectan
 nuestro **polyglottar**. Deberían.
@@ -1490,6 +1490,9 @@ en un *offset* distinto de cero que se pueden explorar, como ISO.
 
 Es divertido jugar con *polyglots*.
 
+### Comentarios
+
+Puedes hacer comentarios en el [tweet](https://twitter.com/e__soriano/status/1248031203334197250?s=19)
 
 <sub><sup>
     <b>(cc) Enrique Soriano-Salvador</b>
