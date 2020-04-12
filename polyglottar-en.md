@@ -41,10 +41,10 @@ at offset 0, so you have to pick only one magic number for the file.
 
 Nevertheless, there are
 some weird file types that don't put the *magic number* at offset 0. One
-of them is a very popular command for UNIX geeks (like me): TAR. It's an old file
-archiver used in UNIX (it was used for tape backups).
+of them is very popular for UNIX geeks (like me): TAR. It's an old file
+archiver used in UNIX (a .tgz file is a compressed tar).
 
-This post describes a TAR+ELF polyglot PoC: **polyglottar**. The file
+This post describes a TAR+ELF polyglot PoC: **polyglottar**. This file
 is identified and can be used as a TAR, but it's also an ELF binary that
 can be executed in a Linux system.
 
