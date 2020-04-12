@@ -37,7 +37,7 @@ compilation of references  [here](https://github.com/mindcrypt/polyglot).
 
 Most polyglots break the metadata structure of one of their _types_ because
 most file formats put the *magic number*  (or *file signature*)
-at offset 0. You have to pick one magic for the file.
+at offset 0, so you have to pick only one magic number for the file.
 
 Nevertheless, there are
 some weird file types that don't put the *magic number* at offset 0. One
