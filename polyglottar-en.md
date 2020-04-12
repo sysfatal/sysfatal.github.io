@@ -1000,8 +1000,8 @@ $>
 ```
 
 So far so good! Let's make the CUSTOM segment big enough to hold the
-TAR data (the TAR file is 10 KB). We create an 10240 byte array, all
-bytes set to ```0x66```:
+TAR data (the TAR file is 10 KB). We create a 10240 byte array, with all
+the bytes set to ```0x66```:
 
 
 ```
