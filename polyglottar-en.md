@@ -46,7 +46,7 @@ archiver used in UNIX (a .tgz file is a compressed tar).
 
 This post describes a TAR+ELF polyglot PoC: **polyglottar**. This file
 is identified and can be used as a TAR, but it's also an ELF binary that
-can be executed in a Linux system.
+can be executed on a Linux system.
 
 I am not the first one focusing on the TAR format to make a polyglot. 
 For example, _PoC or GTFO_ [#6](https://www.alchemistowl.org/pocorgtfo/) describes a TAR + PDF polyglot
