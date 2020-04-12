@@ -10,6 +10,15 @@ En este blog iré metiendo entradas sobre las cosas que me interesan, como la se
 
 ---
 
+## [Polyglottar, a TAR+ELF polyglot](polyglottar-en.html)
+_Sun Apr 12 17:58:47 CEST 2020_
+
+This post describes a TAR+ELF polyglot PoC: **polyglottar**. The file
+is identified as a TAR file, but it's also an ELF binary file that
+can be executed in a Linux system.... [(continúa)](polyglottar.html)
+
+---
+
 ## [Polyglottar, un polyglot TAR+ELF](polyglottar.html)
 _Wed Apr  8 22:56:09 CEST 2020_
 

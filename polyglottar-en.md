@@ -1,6 +1,6 @@
 ---
-title:      Polyglottar, un polyglot TAR+ELF
-summary:    Polylgot de dos formatos estructurados
+title:      Polyglottar, a TAR+ELF polyglot
+summary:    Polylgot for two structured formats
 categories: blog
 date:       Wed Apr  8 22:56:09 CEST 2020
 thumbnail:  polyglottar
@@ -28,80 +28,38 @@ ___
 </figure>
 </center>
 
-En la pasada edición de [RootedCON](https://www.rootedcon.com/archive/rooted2020/),
-en la que tuve el placer de participar como ponente,
-_@mindcrypt_ (Alfonso Muñoz) dio una charla sobre *polyglots*... pero me la
-perdí porque esa mañana tenía que dar cuatro horas de clase
-en la Universidad. Por suerte,  dado el confinamiento por el COVID-19, repitió la charla por
-videoconferencia y ya pude verla. El tema de los *polyglots* me parece muy
-interesante y divertido.
+This is a _lite_ version of the main post (written in Spanish).
+Polyglots are files that can play the role of two or more file formats
+simultaneously. They are used to bypass protection mechanisms (e.g. IDS or AV).
+There are a lot of different polyglot types, you can find a good
+compilation of references  [here](https://github.com/mindcrypt/polyglot).
 
-El objetivo de un *polyglot* es pasar por ficheros de
-distintos formatos. Se puede usar para ocultar un programa malicioso como
-si fuera otro tipo de fichero, con el fin de pasar desapercibido
-al análisis de AV, IDS, etc.  
-En la charla online, se explicó un polyglot
-que tenía el formato de una imagen pero se podía ejecutar como un script de shell.
-Un *magic number* es una secuencia de bytes que identifica un tipo de fichero
-(está siempre situado en el mismo sitio, en general,
-al principio).  El
-*magic number* (o *file signature*)
-del *polyglot*  es el de la imagen, pero el fichero
-oculta un programa que se ejecutará (en este caso, comandos de un script
-de shell).
+Most polyglots break the metadata structure of one of their _types_ because
+most file formats put the *magic number*  (or *file signature*)
+at offset 0. Then, you have to chose one magic for the file. But there are
+some weird file types that don't put the *magic number* at offset 0. One
+of them is very popular among UNIX geeks (like me): TAR. It's an old file
+archiver used in UNIX (it was used for tape backups).
 
-Esto es posible porque en la mayoría de los shells de UNIX (por ejemplo, ```rc```
-no lo hace), si se intenta ejecutar un programa y la llamada a _exec_ falla,
-el shell entiende que es un programa que tiene que interpretar él.
-Por tanto, ejecuta como un script de shell. **IMHO esto es un error de diseño**.
-La llamada al sistema _exec_, si se le ha pasado un fichero ejecutable que
-existe y se puede acceder,
-puede fallar porque se está intentando ejecutar
-un binario incorrecto o porque el fichero ejecutable no comienza
-con un *hashbang* (la secuencia ```#!```, también conocida como _shebangs_)
-seguida de la ruta del programa intérprete
-(en ese caso, el sistema ejecutaría el intérprete pasándole como argumento
-la ruta del fichero ejecutable). En el caso de un script de shell, siempre
-debería tener el *hashbang*.
-Pero esto no es así: el shell entiende que si un programa no se puede ejecutar
-lo tiene que interpretar él mismo, abriendo la puerta a este tipo
-de *polyglots*.
-Funcionan perfectamente. [Aquí](https://github.com/mindcrypt/bipolar)
-puedes encontrar una herramenienta de @mindcrypt.
+This post describes a TAR+ELF polyglot PoC: **polyglottar**. The file
+is identified as a TAR file, but it's also a binary file that
+can be executed in a Linux system.
 
-### Estructura
-
-En este caso el *polyglot* es de un tipo de fichero
-con _estructura interna_ (la imagen
-tiene su cabecera, su *magic number*, las secciones, etc.)
-y otro tipo sin _estructura_ (el _"script"_ de
-shell). La pregunta que me vino a la cabeza durante la charla fue: ¿es posible
-crear un polyglot con dos tipos de ficheros estructurados (esto es, cada uno
-con su estructuta interna, *magic numbers*, etc.)?
-
-Al comentarlo, otro asistente dijo que el *magic number* de
-los ficheros siempre está al principio del fichero,
-por lo que no es posible tener un *polyglot* que cumpla con dos
-formatos estructurados. Pero esto no es siempre así, hay casos raros.
-En la wikipedia [tenemos los *magic numbers* de los formatos más conocidos](https://en.wikipedia.org/wiki/List_of_file_signatures).
-Hay un tipo bastante usado en los sistemas de tipo UNIX, *TAR*. Un *tar*
-es un fichero archivador que contiene dentro otros ficheros (comprimido o no).
-
-La cuestión es que el *magic* de *tar* está en el *offset* ```0x101```, no
-al principio del fichero (*offset* ```0x00```). Por tanto, sí es posible crear
-un polyglot de dos tipos estructurados, por ejemplo **TAR** y lo más peligroso
-si hablamos de malware, el formato binario ejecutable de Linux: **ELF**.
-
-Bueno, aprovechando las vacaciones, he dedicado un día a implementar uno :)  
+I am not the first one focusing on the
+TAR format to make a polyglot. For example,  
+_PoC or GTFO_ [#6](https://www.alchemistowl.org/pocorgtfo/)
+describes a TAR + PDF polyglot.
+In addition, a paper titled
+[Abusing File Processing in Malware Detectors for Fun and Profit](https://ieeexplore.ieee.org/document/6234406),
+(2012 IEEE Symposium on Security and Privacy) also describes TAR as a technique
+to hide exploits. CVE 2012-1429 references this paper.
 
 ### TAR
 
-El formato está descrito
-en [este manual](https://www.gnu.org/software/tar/manual/html_node/Standard.html).
-Como hemos dicho antes, el *magic* está en el offset ```0x101```. Al principio
-del fichero hay una cabecera, pero lo primero que tiene no es el *magic*.
-En todo momento hablaré de TAR POSIX, ya que hay distintas versiones (el comando original es de 1979): GNU (dos versiones), v7 y ustar.
-La cabecera, vista como un record de C, es esta:
+The format is described in [this manual](https://www.gnu.org/software/tar/manual/html_node/Standard.html).
+The TAR *magic number* is placed at *offset* ```0x101```.
+We focus on the POSIX TAR format.
+This is the file header (as a C struct):
 
 ```c
 struct posix_header
@@ -125,10 +83,11 @@ struct posix_header
 };
 ```
 
-Lo primero que viene es el nombre del directorio que contiente el *tar*.
-Por tanto, ¿qué pasa si ponemos como nombre un el *magic* de
-ELF (```0x7f454c46```, esto es, un byte ```0x7f```
-seguido de los caracteres ```ELF```)?
+The first field is the name of the directory. So, what if
+we archive a directory with a funny name: the *magic number* of another
+file format? Let's try. We will use the ELF (executable format for
+different UNIX systems) magic number:  ```0x7f454c46```,
+that is, the byte ```0x7f``` followed by the string  ```ELF```).
 
 ```
 $> mkdir test
@@ -143,35 +102,14 @@ $> xxd file.tar | head -1
 00000000: 7f45 4c46 2f00 0000 0000 0000 0000 0000  .ELF/..........
 $>
 ```
-Bueno, pues parece que podemos tener el *magic* de ELF en un TAR.
-Además, el comando ```file``` que sabe inspeccionar el contenido de un fichero
-y localizar los *magic numbers*, dice que es un TAR. La cosa pinta bien.
 
-Antes de seguir, subí el fichero a *virustotal* para ver qué decía.
-La respuesta me sorprendió: sólo un motor (McAfee) había detectado algo raro
-y lo clasicaba como malware (exploit).
-
-Parece que no soy el primero en fijarse en TAR.
-Virustotal hace referencia
-al CVE 2012-1429, que a su vez redirige a un
-artículo presentado en el 2012 IEEE Symposium on Security and Privacy
-llamado [Abusing File Processing in Malware Detectors for Fun and Profit](https://ieeexplore.ieee.org/document/6234406). En este artículo se
-exploran distintas técnicas para ocultar malware; entre otras, hablan de TAR.
-
-Mirando más, encontré que el _PoC or GTFO_ [número 6](https://www.alchemistowl.org/pocorgtfo/)
-se describe un *polyglot* TAR + PDF.
-
-Pero es mucho más interesante un *polyglot* TAR + ELF :)
-Además, el artículo anterior no ofrece detalles
-de implementación del exploit.
-
-Esto parece divertido, así que ¡adelante!
-
+Well, this way we can have both magic numbers (TAR and ELF) in the same
+file, and the file is recognized as a TAR file by the ```file``` command.
 
 ### ELF
 
-Ahora veamos un poco de ELF (nos centraremos en 64 bits). Un ELF tiene la
-cabecera:
+This is the 64-bit ELF header:
+
 
 ```c
 typedef struct
@@ -194,16 +132,16 @@ typedef struct
 ```
 ***
 
-Después de la cabecera, el fichero tiene sus secciones (la información
-necesaria para el enlazado) y los segmentos (la información para cargar el
-programa y ponerlo a ejecutar en un proceso)
-que conforman el ejecutable: TEXT (las instrucciones), DATA (las variables
-globales inicializadas), etc.
+After the header, there are the sections (data for the linker)
+and segments (data for the loader). The sections of the executable are
+TEXT (instructions), DATA (global variables), etc.
 
 ### POLYGLOTTAR
 
-El programa que vamos a intentar ejecutar es este (escrito en
-_AT&T assembly syntax_ ya que usaremos _GNU AS_):
+We will use this
+_AT&T assembly syntax_
+program (we will use _GNU AS_) for the PoC
+(example code taken from [here](https://medium.com/@dmxinajeansuit/elf-binary-mangling-part-1-concepts-e00cb1352301)):
 
 ```
 .global _start
@@ -229,11 +167,10 @@ msg:
     .ascii "hey!!\n"
 ```
 
-Este pequeño programa (lo he tomado prestado de [aquí](https://medium.com/@dmxinajeansuit/elf-binary-mangling-part-1-concepts-e00cb1352301)) simplemente escribe la cadena ```hey!!``` por su salida.
-El programa primero hace una llamada al sistema ```write``` y después
-acaba el programa realizando una llamada al sistema ```exit```.
-
-Si ensamblamos, enlazamos y ejecutamos:
+The program just writes ```hey!!``` in its standard output.
+First, it performs a  ```write```
+system call. Then it finishes with ```exit``` system call.
+Let's see:
 
 ```
 $> as hey.s -o hey.o
@@ -242,7 +179,8 @@ $> ./hey
 hey!!
 $>
 ```
-Veamos qué tiene dentro el ejecutable:
+
+Let's dump the executable:
 
 ```
 $> readelf -a hey
@@ -316,24 +254,21 @@ No version information found in this file.
 $>
 ```
 
-El programa tiene su segmento TEXT (instrucciones), la tabla de símbolos
-(que se puede quitar con ```strip```) y poco más.
+Basically, it has the TEXT segment, the symbol table and the sting table.
 
-Pero tenemos un problema: la cabecera del TAR ocupa 512 bytes. En ese *offset*,
-para el formato ELF, nos meteríamos ya en las tablas de secciones y segmentos,
-que son
-cosas que no podemos sobrescribir. Pero necesitamos también preservar las
-partes importantes de la cabecera del TAR (*magic* etc.) y sus datos.
-¿Qué hacemos?
+We have a problem: the TAR header is 512 bytes (in fact it is 500 bytes, but
+TAR work with 512 byte sectors).
+If we want a valid TAR, we also need to preserve the TAR data, but it will
+destroy the TEXT segment of the ELF. What can we do?
 
 #### Plan
 
-El plan que se me ocurrió es este:
+This is my plan
 
-- Crear un segmento nuevo en el ELF, que llamaremos CUSTOM,
-para que en él caigan todos los datos del TAR.
+- Create a new segment in the ELF, named CUSTOM. This segment will
+contain part of the header and the data of the TAR.
 
-- Ignorar ese segmento en nuestro programa.
+- Ignore the CUSTOM segmente in the program.
 
 <center>
 <figure class="image">
@@ -341,7 +276,7 @@ para que en él caigan todos los datos del TAR.
 </figure>
 </center>
 
-Para crear el segmento:
+We change the programa in order to create the new segment:
 
 ```
 $> cat proto1.s
@@ -372,7 +307,7 @@ msg:
 $>
 ```
 
-Veamos qué tiene dentro el ejecutable ahora:
+Let's dump the ELF:
 
 ```
 $> readelf -a proto1
@@ -455,11 +390,10 @@ No version information found in this file.
 $>
 ```
 
-El problema es que el segmento CUSTOM va después de TEXT. Nosotros lo
-necesitamos antes. Para esto, he tenido que _hackear_ un rato con el enlazador.
-Nunca antes había usado un script para el comando ```ld```.
-Para ver el script que usa para enlazar el programa, se puede usar la
-opción ```--verbose```:
+We have a problem. We need to put the CUSTOM segment before the TEXT segment,
+it has to be the first segment of the ELF. How can we do that? We need some
+linker hacking. The  option  ```--verbose``` provides the _ld script_
+that is used to link:
 
 ```
 $> ld --verbose proto1.o -o proto1
@@ -714,9 +648,9 @@ attempt to open proto1.o succeeded
 proto1.o
 ```
 
-Ahora lo que hacemos es decirle que antes del segmento TEXT queremos
-nuestro segmento CUSTOM. Simplemente metemos una línea antes de la
-parte que inserta TEXT:
+It's easy. We can modify this script to add the CUSTOM segment
+before the TEXT segment. We only need to add a new line before the
+TEXT segment part:
 
 ```
 $> cat ld.script
@@ -954,7 +888,7 @@ SECTIONS
 }
 ```
 
-Si ahora enlazamos con ```ld``` usando ese script:
+Now we can link the programa using the script:
 
 ```
 $> ld  proto1.o -T ld.script -o proto1
@@ -1034,9 +968,8 @@ Symbol table '.symtab' contains 9 entries:
 No version information found in this file.
 ```
 
-Si volcamos el fichero,
-vemos que la sección CUSTOM va la primera en el binario y funciona
-perfectamente:
+If we dump the ELF, we can see that the CUSTOM segment is where
+we needed, it's the first segment. The binary works fine:
 
 ```
 $> xxd proto1 | head -15
@@ -1060,10 +993,11 @@ $> ./proto1
 hey!!
 $>
 ```
-¡Esto va bien! Hagamos ahora que el segmento CUSTOM sea lo suficientemente
-grande como para cubrir toda la zona del TAR, que tiene 10 KB. Para ello
-rellenamos el segmento CUSTOM con un array de 10240 bytes, puestos todos
-a ```0x66```:
+
+So far so good! Let's make the CUSTOM segment big enough to hold the
+TAR data (10 KB). We create an 10240 byte array, all
+bytes set to ```0x66```:
+
 
 ```
 $> cat proto2.s
@@ -1119,11 +1053,11 @@ $> xxd proto2 | head -20
 00000130: 6666 6666 6666 6666 6666 6666 6666 6666  ffffffffffffffff
 $>
 ```
-Tiene buena pinta. Ahora toca cirugía. Tenemos que montar nuestro *Frankenstein*
-particular. El fichero tiene que tener la cabecera del TAR, con la cabecera
-del ELF (y el resto hasta el inicio del segmento CUSTOM) en su inicio. Si
-echamos cuentas, esto requiere que
-se sacrifiquen los siguientes campos de la cabecera del TAR:
+Looks good. Let's do some surgery. We have to create a *Frankenstein* file.
+It will have the ELF header, part of the TAR header, the TAR data (overwriting
+the CUSTOM segment) and the rest of the ELF file. In order to have a correct
+ELF (header and tables before the CUSTOM segment), we need to sacrifice
+these fields of the TAR header:
 
 ```
 char name[100];  
@@ -1131,11 +1065,9 @@ char mode[8];
 char uid[8];  
 char gid[8];   
 ```
-Esto es, la parte del nombre, el modo, el id de usuario y de grupo.
 
-Para poder construirlo, podemos usar el comando ```dd```. Lo que hacemos
-es superponer la parte del TAR que va desde su *offset* 120 hasta su final
-en el fichero ELF:
+To create the *Frankenstein* file, we use the ```dd``` command to overwrite
+the ELF file with the TAR file (from offset 120 to EOF):
 
 ```
 $> cp proto2 frankie.tar
@@ -1145,7 +1077,7 @@ $> dd if=/tmp/file.tar of=frankie.tar skip=120 seek=120 bs=1 count=10240 conv=no
 10120 bytes (10 kB, 9.9 KiB) copied, 0.0209625 s, 483 kB/s
 ```
 
-Si lo ejecutamos:
+If we execute it:
 
 ```
 $> ./frankie.tar
@@ -1153,7 +1085,8 @@ hey!!
 $>
 ```
 
-¿Qué pasa si lo tratamos como un TAR?
+Is it a TAR file?
+
 
 ```
 $> file ./frankie.tar
@@ -1166,25 +1099,20 @@ tar: Skipping to next header
 tar: Exiting with failure status due to previous errors
 $>
 ```
-Vaya, tenemos un problema. Después de probar varias cosas, me di cuenta de
-que el problema es que hemos modificado la cabecera del TAR y por tanto el
-*checksum* (campo ```chksum```) ha cambiado. Esto provoca un error en el TAR
-y además ```file``` no lo reconoce.
 
-De la documentación, el código del tar de GNU (¡un horror!)
-y el código del tar de Plan 9 (bien limpio), saqué en claro lo siguiente:
+Ooops, nope. We have a problem: the TAR format uses a checksum of the header
+block (the first 512 bytes). If the checksum is wrong, there is an error.
+Moreover, in this case, ```file``` says that the file is an ELF executable!
 
-- El checksum es la suma de todos los bytes del bloque de  
-cabecera (ojo, la cabecera son 500 bytes
-pero el bloque es de 512 bytes).
-- El campo ```chksum``` se debe contar como caracteres espacio para esta suma.
-- El campo ```chksum``` tiene el número en texto (una string).
-- El número está en octal (esto me mordió).
+After reading the GNU manual, the GNU tar command code (horror!) and
+the Plan 9 tar command code (very clean as usual), I found out that:
 
-Cosas del software primigenio :D
+- The checksum is the sum of all bytes of the header.
+- The ```chksum``` field must be all blanks (space) to compute the checksum.
+- The ```chksum``` field is text.
+- Is octal.
 
-Pues nada, escribí este pequeño programa en C para leer, calcular y
-actualizar el campo del checksum de un TAR:
+I wrote this little C program to print and update the checksum of a TAR:
 
 ```c
 #include <stdio.h>
@@ -1262,7 +1190,7 @@ main(int argc, char *argv[])
 }
 ```
 
-Veamos ahora:
+Let's try again:
 
 ```
 $> mkdir m
@@ -1307,19 +1235,19 @@ $>
 </figure>
 </center>
 
-**¡FUNCIONA!**
+**IT WORKS!**
 
 
-Tanto ```file``` como ```exiftool``` reconocen el fichero
-como un TAR. EL TAR se lista y extrae perfectamente. Y el binario también
-ejecuta perfectamente.
+Both ```file``` and ```exiftool``` say that it's a TAR file.
+We can list and extract it. Also, the binary works fine.  
 
-Virustotal lo sigue identificando como un exploit (sólo el motor de McAfee,
-el resto de motores no).
+If we upload the file to virustotal, only one AV engine (McAfee) detects
+that something is wrong: It says it's an exploit and provides the CVE
+we mentioned before (CVE 2012-1429):
 
-[ver en virustotal](https://www.virustotal.com/gui/file/3015d4ad1d002032ce1f9bc07507562916e190c6130568f886f66d36667438d6/detection)
+[virustotal](https://www.virustotal.com/gui/file/3015d4ad1d002032ce1f9bc07507562916e190c6130568f886f66d36667438d6/detection)
 
-Lo identifica como:
+The file is identified as an ELF:
 
 ```
 MD5 f9ed8754eb8d18a44f0c7ccb6390b1a5
@@ -1332,22 +1260,22 @@ Magic POSIX tar archive (GNU)
 File size 10.84 KB (11104 bytes)
 ```
 
-Teníamos el magic del ELF, pero para que cuadre con la especificación
-de TAR tenemos que dejar el nombre del directorio en los primeros bytes,
-falta la '/' y el terminador de string.
-Si lo corregimos con un editor hexa para poner
-el nombre del TAR bien (```0x2f00``` después de ```ELF```),
-el resultado NO es el mismo:
+Note that the file has the ELF magic number. The next two bytes are used
+to define the arch (32 or 64 bit) and the endianess of the ELF. We need to
+put the ```/``` and the NULL char ```\0``` to make it a correct TAR.
+(```0x2f00``` after ```\x7FELF```). If we polish the header with an hexa
+editor:
 
 ```
 $> xxd frankie.tar | head -1
 00000000: 7f45 4c46 2f00 0100 0000 0000 0000 0000  .ELF/...........
 $>
 ```
-Ahora Virustotal ya no lo identifica como ELF, lo identificar como TAR
-(pero McAfee lo sigue cazando):
 
-[ver en virustotal](https://www.virustotal.com/gui/file/2ae17d426ccae26ceb994625524978f6e68721bcda18e8885ff2091031c8900e/detection)
+The ELF executes OK.
+Now, virustotal says that the file is a TAR:
+
+[virustotal](https://www.virustotal.com/gui/file/2ae17d426ccae26ceb994625524978f6e68721bcda18e8885ff2091031c8900e/detection)
 
 ```
 MD5 eab51c63e4750a450d2c5dbfd45d72d3
@@ -1360,9 +1288,7 @@ Magic POSIX tar archive (GNU)
 File size 10.84 KB (11104 bytes)
 ```
 
-Parece que McAfee se fija la cadena ```.ustar``` en
-el *offset* para el *magic* de TAR si parece un ELF.
-La descripción del CVE-2012-1429 es:
+McAfee still detects it. The CVE-2012-1429 description says:
 
 > The ELF file parser in Bitdefender 7.2, Comodo Antivirus 7424, Emsisoft
 > Anti-Malware 5.1.0.1, eSafe 7.0.17.0, F-Secure Anti-Virus 9.0.16160.0,
@@ -1374,24 +1300,13 @@ La descripción del CVE-2012-1429 es:
 > if additional information is published showing that the error occurred
 > independently in different ELF parser implementations.
 
-Bueno, aquí hemos ido
-bastante más allá, no ponemos simplemente una string
-en el *offset* indicado del ELF para que parezca un TAR:
-*polyglottar* funciona como un TAR y como un ELF **a la vez**.
+Well, we have gone way further. This polyglot is not just an ELF with
+that string at offset ```0x101```.
+We have made a correct TAR file that is also a correct ELF
+executable.
 
-
-#### _ACTUALIZACIÓN_
-
-_@patowc_ me dice en twitter:
-
->> Te lanzo un desafío xD que funcione el polyglot y sus ofuscaciones en WSL
->> (https://es.wikipedia.org/wiki/Windows_Subsystem_for_Linux), de forma
->> que puedas extender la ejecución a entorno Windows con WSL activado /cc @mindcrypt
-
-El **polyglottar** (sin modificación) ejecuta en WLS tranquilamente. No sabía
-si iba a funcionar, ya que hago las _syscalls_ a pelo sin pasar por la glibc,
-pero WSL 2 es simplemente un kernel de Linux virtualizado, por lo que funciona
-perfectamente:
+If we try to execute **polyglottar** in Windows 10 WLS, it also works
+(as expeted, since WSL 2 is a virtualized Linux kernel):
 
 <center>
 <figure class="image">
@@ -1399,17 +1314,13 @@ perfectamente:
 </figure>
 </center>
 
-Por tanto, ahora es cuestión de ejecutar lo necesario como para salirse
-del WLS (esa es otra guerra).
-
 
 ### ISO
 
-Hay otro formato interesante con el *magic* más allá del inicio
-del fichero: ISO. Según la lista de *magics*,
-este formato para imágenes de disco tiene el suyo en
-los *offsets* ```0x8001```,```0x8801``` y ```0x9001```.
-El *magic* es ```CD001```:
+There is another file format that does not have the magic number
+at offset 0, ISO.
+The magic, ```CD001```,
+is located at offsets ```0x8001```,```0x8801``` and ```0x9001```:
 
 ```
 $> xxd dsl-4.11.rc1.iso  | egrep '^0+8000:'
@@ -1417,7 +1328,7 @@ $> xxd dsl-4.11.rc1.iso  | egrep '^0+8000:'
 $>
 ```
 
-¿Qué pasa si cogemos un ELF pequeño y lo colocamos al principio de una ISO?
+What if we put a little ELF at the beginning of an ISO file?
 
 ```
 $> dd if=proto1 of=dsl-4.11.rc1.iso  bs=1 count=464  conv=notrunc
@@ -1455,11 +1366,11 @@ Volume Size                     : 51 MB
 $>
 ```
 
-El comando ```file``` lo identifica como un ELF. Sin embargo, ```exiftool```
-lo identifica como un ISO. Virustotal no ve nada raro (ni siquiera McAfee),
-pero lo identifica como ELF:
+The ```file``` command identifies it as an ELF file. Nevertheless,  ```exiftool```
+identifies it as an ISO file. Virustotal does not detect anything wrong
+but identifies it as an ELF file:
 
-[ver en virustotal](https://www.virustotal.com/gui/file/1065e4ea505969b9a94470d645fb28205afe16b2e422073717877c2cc80adb40/detection)
+[virustotal](https://www.virustotal.com/gui/file/1065e4ea505969b9a94470d645fb28205afe16b2e422073717877c2cc80adb40/detection)
 
 ```
 MD5 02f4d023109e06ded5e1e438c8e7cf54
@@ -1472,9 +1383,9 @@ Magic ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, st
 File size 50.65 MB (53108736 bytes)
 ```
 
-Esta es también una buena forma de ocultar un ejecutable, ya que es bastante normal
-descargar una ISO para instalar sistemas, etc. Por ejemplo, haciendo lo mismo
-con una ISO de Ubuntu:
+It seems to be a good way to bypass some AV and IDS protections, because
+ISO files are commonly downloaded to install systems and applications.
+For example, a Ubuntu Linux ISO (a very common download):
 
 ```
 $> ./ubuntu-19.10-desktop-amd64.iso
@@ -1504,24 +1415,23 @@ Boot System                     : EL TORITO SPECIFICATION
 Volume Size                     : 2.3 GB
 ```
 
-### Conclusiones
+### Conclusions
 
-Aunque sea un método ya conocido, parece que muchos AV no detectan
-nuestro **polyglottar**. Deberían.
+Although **polyglottar** uses a known mechanism to hide exploits, most
+AVs don't detect. They should.
 
-Hay otros formatos con el *magic*
-en un *offset* distinto de cero que se pueden explorar, como ISO.
+We can explore the use of other formats with the magic numbers at weird
+offsets, such as ISO.
 
-Es divertido jugar con *polyglots*.
+*Polyglots* **are fun**.
 
-### Comentarios
+### Comments
 
-Puedes hacer comentarios en el [tweet](https://twitter.com/e__soriano/status/1248031203334197250?s=19)
+You can comment this post in [twitter](https://twitter.com/e__soriano/status/1248031203334197250?s=19)
 
 <sub><sup>
     <b>(cc) Enrique Soriano-Salvador</b>
-    Algunos derechos reservados. Este trabajo se entrega bajo la licencia
-    Creative Commons Reconocimiento - NoComercial - SinObraDerivada (by-nc-nd).
+    Creative Commons (by-nc-nd).
     Creative Commons, 559 Nathan Abbott Way, Stanford,
     California 94305, USA.
 </sup></sub>
