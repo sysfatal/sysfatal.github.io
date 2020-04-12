@@ -56,7 +56,8 @@ In addition, a paper titled
 (2012 IEEE Symposium on Security and Privacy) also describes TAR as a technique
 to hide exploits. CVE 2012-1429 references this paper.
 
-There wasn't a TAR+ELF polyglot in this [polyglot database](https://github.com/Polydet/polyglot-database).
+In this [polyglot database](https://github.com/Polydet/polyglot-database), there is not a TAR+ELF polygot...
+
 So let's do it!
 
 ### TAR
