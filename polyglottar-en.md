@@ -45,7 +45,7 @@ of them is a very popular command for UNIX geeks (like me): TAR. It's an old fil
 archiver used in UNIX (it was used for tape backups).
 
 This post describes a TAR+ELF polyglot PoC: **polyglottar**. The file
-is identified as a TAR file, but it's also a binary file that
+is identified and used as a TAR, but it's also an ELF binary that
 can be executed in a Linux system.
 
 I am not the first one focusing on the
