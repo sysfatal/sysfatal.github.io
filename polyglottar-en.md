@@ -1059,9 +1059,9 @@ $> xxd proto2 | head -20
 $>
 ```
 
-Looks good. Let's do some surgery. We have to create a *Frankenstein* file.
-This file will have the ELF header, part of the TAR header, the TAR data (overwriting
-the CUSTOM segment) and the rest of the ELF file. In order to have a correct
+Looks good. Let's do some surgery. We are going to create a *Frankenstein* file
+with the ELF header, part of the TAR header, the TAR data (overwriting
+the CUSTOM segment) and the rest of the ELF file. In order to get a correct
 ELF (header and tables before the CUSTOM segment), we need to sacrifice
 these fields of the TAR header:
 
@@ -1072,8 +1072,8 @@ char uid[8];
 char gid[8];   
 ```
 
-To create the *Frankenstein* file, we use the ```dd``` command to overwrite
-the ELF file with the TAR file (from offset 120 to EOF):
+We use the ```dd``` command to overwrite the ELF file with 
+the TAR file (from offset 120 to EOF):
 
 ```
 $> cp proto2 frankie.tar
