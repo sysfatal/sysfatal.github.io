@@ -2,7 +2,7 @@
 title:      Polyglottar, a TAR+ELF polyglot
 summary:    Polylgot for two structured formats
 categories: blog
-date:       Wed Apr  8 22:56:09 CEST 2020
+date:       Sun Apr 12 17:58:47 CEST 2020
 thumbnail:  polyglottar
 image:      https://github.com/sysfatal/figs/elf-in-tar.png
 layout:     post
@@ -53,6 +53,8 @@ In addition, a paper titled
 [Abusing File Processing in Malware Detectors for Fun and Profit](https://ieeexplore.ieee.org/document/6234406),
 (2012 IEEE Symposium on Security and Privacy) also describes TAR as a technique
 to hide exploits. CVE 2012-1429 references this paper.
+There wasn't a TAR+ELF polyglot in this [polyglot database](https://github.com/Polydet/polyglot-database).
+Ok, let's go!
 
 ### TAR
 

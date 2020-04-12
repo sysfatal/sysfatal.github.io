@@ -159,11 +159,15 @@ llamado [Abusing File Processing in Malware Detectors for Fun and Profit](https:
 exploran distintas técnicas para ocultar malware; entre otras, hablan de TAR.
 
 Mirando más, encontré que el _PoC or GTFO_ [número 6](https://www.alchemistowl.org/pocorgtfo/)
-se describe un *polyglot* TAR + PDF.
-
+se describe un *polyglot* TAR+PDF. En esta publicación son muy aficionados a
+los *polyglots*.
 Pero es mucho más interesante un *polyglot* TAR + ELF :)
 Además, el artículo anterior no ofrece detalles
 de implementación del exploit.
+
+En esta [base de datos de polyglots](https://github.com/Polydet/polyglot-database)
+no aparece ninguno TAR+ELF (enlace cortesía de _@cgvwzq_).
+
 
 Esto parece divertido, así que ¡adelante!
 
