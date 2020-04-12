@@ -110,7 +110,7 @@ $> xxd file.tar | head -1
 $>
 ```
 
-This way we can put both magic numbers (TAR and ELF) in the same
+This way, we can put both magic numbers (TAR and ELF) in the same
 file. Note that the file is recognized as a TAR file by the ```file``` command.
 
 ### ELF
@@ -259,7 +259,7 @@ No version information found in this file.
 $>
 ```
 
-Basically, it has the TEXT segment, the symbol table and the sting table.
+Basically, it has the TEXT segment, the symbol table and the string table.
 
 We have a problem: the TAR header is 512 bytes (in fact, the header
 is 500 bytes, but TAR works with 512 byte sectors).
