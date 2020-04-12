@@ -1059,7 +1059,9 @@ $> xxd proto2 | head -20
 $>
 ```
 
-Looks good. Let's do some surgery. We are going to create a *Frankenstein* file
+It looks good. 
+
+Let's do some surgery. We are going to create a *Frankenstein* file
 with the ELF header, part of the TAR header, the TAR data (overwriting
 the CUSTOM segment) and the rest of the ELF file. In order to get a correct
 ELF (header and tables before the CUSTOM segment), we need to sacrifice
