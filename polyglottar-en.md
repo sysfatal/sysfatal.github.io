@@ -29,6 +29,7 @@ ___
 </center>
 
 
+
 Polyglots are files that can play the role of two or more file formats
 simultaneously. They are used to bypass protection mechanisms (e.g. IDS or AV).
 There are a lot of different polyglot types, you can find a good
@@ -36,9 +37,11 @@ compilation of references  [here](https://github.com/mindcrypt/polyglot).
 
 Most polyglots break the metadata structure of one of their _types_ because
 most file formats put the *magic number*  (or *file signature*)
-at offset 0. Then, you have to chose one magic for the file. But there are
+at offset 0. You have to pick one magic for the file.
+
+Nevertheless, there are
 some weird file types that don't put the *magic number* at offset 0. One
-of them is very popular among UNIX geeks (like me): TAR. It's an old file
+of them is a very popular command for UNIX geeks (like me): TAR. It's an old file
 archiver used in UNIX (it was used for tape backups).
 
 This post describes a TAR+ELF polyglot PoC: **polyglottar**. The file
