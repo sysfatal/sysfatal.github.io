@@ -15,7 +15,7 @@ _Sun Apr 12 17:58:47 CEST 2020_
 
 This post describes a TAR+ELF polyglot PoC: **polyglottar**. The file
 is identified as a TAR file, but it's also an ELF binary file that
-can be executed in a Linux system.... [(continúa)](polyglottar.html)
+can be executed in a Linux system.... [(continue)](polyglottar.html)
 
 ---
 

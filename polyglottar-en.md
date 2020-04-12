@@ -28,7 +28,7 @@ ___
 </figure>
 </center>
 
-This is a _lite_ version of the main post (written in Spanish).
+
 Polyglots are files that can play the role of two or more file formats
 simultaneously. They are used to bypass protection mechanisms (e.g. IDS or AV).
 There are a lot of different polyglot types, you can find a good
