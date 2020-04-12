@@ -1308,10 +1308,10 @@ McAfee still detects it. The CVE-2012-1429 description says:
 
 Well, we have gone way further. This polyglot is not just an ELF with
 that string at offset ```0x101```.
-We have made a correct TAR file that is also a correct ELF
+We have made a correct TAR file which is also a correct ELF
 executable.
 
-If we try to execute **polyglottar** in Windows 10 WLS, it also works
+If we try to execute **polyglottar** in Windows 10 WLS, it works
 (as expected, since WSL 2 is a virtualized Linux kernel):
 
 <center>
