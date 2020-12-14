@@ -159,7 +159,8 @@ mensajes cifrados, para evitar ataques
 de replay como los que afectan a Needham-Schroeder.
 
 El secreto de Kerberos depende del cifrado que se use.
-Básicamente, los Windows puede aceptar tres familias (depende
+Básicamente, los sistemas Windows pueden usar
+tres familias (depende
 de la versión/configuración): RC4-HMAC, DES o
 AES. En todos los casos, el secreto de Kerberos
 se deriva a partir de la contraseña de la cuenta. Dependiendo
