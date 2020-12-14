@@ -92,10 +92,9 @@ ante el servicio S.
 con ***Kcs*** y se lo envía a S.
 9. Una vez autenticados mutuamente, se comunican de forma segura usando ***Kcs***.
 
-Básicamente, la idea es esta: A le da a C algo para que se
-lo dé a S (sólo S lo puede descifrar).
-Además, S da la clave de sesión
-***Kcs*** a los dos (a uno directamente y al otro indirectamente).
+Básicamente, la idea es esta: A le da a C una cosa que es para S
+(sólo S la puede descifrar).
+Así, C y S conocerán ***Kcs*** (a uno le llega directamente y al otro indirectamente).
 
 Este protocolo tenía sus problemas: ataques de replay si se comprometía
 una clave de sesión, no usaba timestamps, etc. pero sirvió de base
