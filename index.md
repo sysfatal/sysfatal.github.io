@@ -12,7 +12,7 @@ En este blog iré metiendo entradas sobre las cosas que me interesan, como la se
 ## [Tickets preciosos: ataques a ¿Kerberos?](tickets.html)
 _Mon 14 Dec 2020 01:03:39 PM CET_
 
-Es común ver en charlas, blogs, artículos etc. distintos
+En muchas charlas, blogs y artículos se describen
 ataques en entornos corporativos Windows que usan el protocolo de
 autenticación distribuida Kerberos... [(continúa)](tickets.html)
 

@@ -28,13 +28,13 @@ tags:
 </center>
 <br>
 
-Es común ver en charlas, blogs, artículos etc. distintos
+En muchas charlas, blogs y artículos se describen
 ataques en entornos corporativos Windows que usan el protocolo de
 autenticación distribuida Kerberos.
 
-Viendo todo esto, no es raro que quede
-cierta sensación de que el protocolo Kerberos es bastante
-inseguro: están los famosos *golden tickets* (como el de Willy Wonka),
+Viendo esos ataques con nombres peculiares, no es raro que quede
+cierta sensación de que el protocolo Kerberos es 
+inseguro: los famosos *golden tickets* (como el de Willy Wonka),
 los *silver tickets*, etc.
 
 Pero, ¿son ataques al protocolo Kerberos?
