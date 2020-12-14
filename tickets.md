@@ -33,9 +33,10 @@ autenticación distribuida Kerberos.
 
 Viendo todo esto, no es raro que quede
 cierta sensación de que el protocolo Kerberos es bastante
-inseguro: está el famoso *Golden Ticket* (como el de Willy Wonka),
-el *Silver Ticket*, etc.
-¿Es así?
+inseguro: están los famosos *golden tickets* (como el de Willy Wonka),
+los *silver tickets*, etc.
+
+Pero, ¿son ataques al protocolo Kerberos?
 
 ### Autenticación distribuida con Kerberos
 
