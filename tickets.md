@@ -96,8 +96,8 @@ Básicamente, la idea es esta: A le da a C una cosa que es para S
 (sólo S la puede descifrar).
 Así, C y S conocerán ***Kcs*** (a uno le llega directamente y al otro indirectamente).
 
-Este protocolo tenía sus problemas: ataques de replay si se comprometía
-una clave de sesión, no usaba timestamps, etc. pero sirvió de base
+Este protocolo tenía sus problemas (ataques de replay si se comprometía
+una clave de sesión, no usaba timestamps, etc.) pero sirvió de base
 para los protocolos de autenticación modernos.
 
 #### Kerberos
