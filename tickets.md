@@ -97,7 +97,7 @@ lo dé a S (sólo S lo puede descifrar).
 Además, S da la clave de sesión
 ***Kcs*** a los dos (a uno directamente y al otro indirectamente).
 
-Este protocolo tenía sus problemas: ataques de replay si se compromete
+Este protocolo tenía sus problemas: ataques de replay si se comprometía
 una clave de sesión, no usaba timestamps, etc. pero sirvió de base
 para los protocolos de autenticación modernos.
 
@@ -124,7 +124,7 @@ suelen ejecutar en la misma máquina llamada KDC (Key Distribution Center):
 	Puede haber distintos TGS para distintos dominios.
 	Comparte un secreto con cada servidor de su dominio (***Ks***).
 
-Kerberos es una evolución del protocolo Needham-Schroeder:
+Kerberos es una evolución del protocolo Needham-Schroeder,
 podemos verlo como dos iteraciones. El esquema es el siguiente:
 
 <center>
@@ -134,7 +134,7 @@ podemos verlo como dos iteraciones. El esquema es el siguiente:
 </center>
 <br>
 
-Otra vez:
+De nuevo,
 tenemos que tener claro que las cajas de color fucsia de este esquema
 contienen **secretos**.
 
