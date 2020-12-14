@@ -316,10 +316,8 @@ Por tanto, si queda
 totalmente comprometido, el atacante también podrá pedir el mismo
 servicio.
 
-Por tanto, no son ataques al protocolo Kerberos, son ataques a las credenciales
-del sistema.
-Hay que tener esto claro: si el adversario toma el control de un sistema,
-podrá acceder a los recursos a los que accede dicho sistema.
+Por tanto, estos no son ataques al protocolo Kerberos,
+son ataques a las credenciales del sistema.
 De hecho,
 MITRE CAPEC engloba estos ataques en el patrón *Use of Known Domain Credentials*
 y MITRE ATT&CK en *Use Alternate Authentication Material*.
