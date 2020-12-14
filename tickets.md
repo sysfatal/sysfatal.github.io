@@ -310,13 +310,13 @@ Por tanto, si queda
 totalmente comprometido, el atacante también podrá usarlos.
 
 Estos no ataques no se pueden considerar ataques
-al protocolo de autenticación Kerberos, son ataques a las credenciales 
+al protocolo de autenticación Kerberos, son ataques a las credenciales
 del sistema.
 De hecho,
 MITRE CAPEC engloba estos ataques en el
 patrón *Use of Known Credentials*
 y MITRE ATT&CK en *Use Alternate Authentication Material*
-y *Credential Access *.
+y *Credential Access*.
 
 Hay distintas herramientas para extraer las credenciales en una máquina
 comprometida. El fichero que contiene las credenciales
