@@ -306,8 +306,15 @@ Si no se guardaran ***Kc***, ***Ks***, etc. en la memoria,
 se necesitaría pedir algún secreto al usuario (p. ej. contraseña)
 cada vez que se necesitara ejecutar el protocolo. Esto no es viable,
 sobre todo en los servidores. Además, si
-la máquina está comprometida hasta ese punto, también se podría capturar ese
-otro secreto.
+la máquina está comprometida hasta ese punto, también se podría
+capturar ese secreto que introduce el usuario. El robo de claves
+se puede poner más
+dificil usando un HSM o Smart Cards. No obstante, al final el
+sistema tiene
+que poder pedir servicio a esos componentes de alguna forma.
+Por tanto, si queda
+totalmente comprometido, el atacante también podrá pedir el mismo
+servicio.
 
 Por tanto, no son ataques al protocolo Kerberos, son ataques a las credenciales
 del sistema.
