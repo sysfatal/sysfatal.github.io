@@ -288,8 +288,9 @@ que hemos visto en las cajas de color fucsia o los tickets:
 * *Golden ticket*
 * *Silver ticket*
 
-Al final, un protocolo de autenticación se tiene que basar en la compartición
-de secretos de algún tipo. Los extremos tienen que tener sus secretos
+Al final, un protocolo de autenticación se tiene que basar
+en secretos de algún tipo.
+Los extremos tienen que tener sus secretos
 a buen recaudo. **Si el atacante consigue esos secretos, poco se puede hacer**.
 
 Los secretos tienen que estar en la máquina (en la memoria
