@@ -193,15 +193,12 @@ para conseguir la clave  ***Kc*** y
 así poder ejecutar el protocolo normalmente para solicitar un TGT
 para acceder a los servicios.
 
-Este ataque es similar al *pass the hash* para el protocolo NTLM (en
-realidad, es una familia
-de protocolos de autenticación de
-*challenge-response* de Windows; Keberos es una
-alternativa a estos protocolos).
+Este ataque es similar al *pass the hash* cuando se usa el
+protocolo NTLM.
 
 #### Golden ticket
 
-Los ***golden tickets*** son ***Ticket-Granting Tickets (TGTs) falsos***.
+Los *golden tickets* son ***Ticket-Granting Tickets (TGTs) falsos***.
 Para poder forjarlos, es necesario asaltar el KDC.
 En redes Windows, el KDC es el Controlador de Dominio.
 
