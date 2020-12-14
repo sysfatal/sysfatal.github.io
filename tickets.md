@@ -1,5 +1,5 @@
 ---
-title:      Tickets preciosos: ataques a ¿Kerberos?
+title:      Tickets preciosos... ataques a ¿Kerberos?
 summary:    Golden ticket, silver ticket, etc.
 categories: blog
 date:       Mon 14 Dec 2020 01:03:39 PM CET
@@ -12,13 +12,14 @@ tags:
  - kerberos
  - windows
 ---
-
 <div class="share-page">
     Share this on &rarr;
     [<a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via=e__soriano&related=e__soriano" rel="nofollow" target="_blank" title="Share on Twitter">Twitter</a>]
     [<a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook">Facebook</a>]
 </div>
 <br>
+
+---
 
 <center>
 <figure class="image">
