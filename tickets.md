@@ -297,10 +297,12 @@ del componente de seguridad concreto, kernel, o donde sea)
 para permitir la autonomía de los servicios.
 Si no se guardaran en la memoria,
 se necesitaría pedir algún secreto al usuario (p. ej. contraseña)
-para derivarlo
+para derivar la clave
 cada vez que se necesitara ejecutar el protocolo. Esto no es viable,
 sobre todo en los servidores. Además, si
-la máquina está comprometida hasta ese punto, también se podría
+la máquina está comprometida hasta el punto de poder volcar
+las credenciales de la memoria de los componentes de seguridad,
+seguramente también se pueda
 capturar ese secreto que introduce el usuario. El robo de claves
 se puede poner más dificil usando HSMs o Smart Cards.
 No obstante, al final un sistema tiene
