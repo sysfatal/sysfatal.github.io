@@ -291,36 +291,32 @@ que hemos visto en las cajas de color fucsia o los tickets:
 
 Al final, un protocolo de autenticación se tiene que basar en la compartición
 de secretos de algún tipo. Los extremos tienen que tener sus secretos
-a buen recaudo. **Si el atacante consigue esos secretos, poco se puede hacer.**
-
-**Este es el problema:** la máquina atacada
-está totalmente comprometida y el atacante puede
-conseguir los secretos de los componentes de seguridad.
-En el caso del *silver ticket*, o se ha comprometido otra máquina
-que tenga *Ks* (p. ej. el KDC) o se ha podido crackear de alguna forma.
+a buen recaudo. **Si el atacante consigue esos secretos, poco se puede hacer**.
 
 Los secretos tienen que estar en la máquina (en la memoria
 del componente de seguridad concreto, kernel, o donde sea)
 para permitir la autonomía de los servicios.
-Si no se guardaran ***Kc***, ***Ks***, etc. en la memoria,
+Si no se guardaran en la memoria,
 se necesitaría pedir algún secreto al usuario (p. ej. contraseña)
+para derivarlo
 cada vez que se necesitara ejecutar el protocolo. Esto no es viable,
 sobre todo en los servidores. Además, si
 la máquina está comprometida hasta ese punto, también se podría
 capturar ese secreto que introduce el usuario. El robo de claves
-se puede poner más
-dificil usando un HSM o Smart Cards. No obstante, al final el
-sistema tiene
-que poder pedir servicio a esos componentes de alguna forma.
+se puede poner más dificil usando HSMs o Smart Cards.
+No obstante, al final un sistema tiene
+que poder usar esos componentes de alguna forma.
 Por tanto, si queda
-totalmente comprometido, el atacante también podrá pedir el mismo
-servicio.
+totalmente comprometido, el atacante también podrá usarlos.
 
-Por tanto, estos no son ataques al protocolo Kerberos,
-son ataques a las credenciales del sistema.
+Estos no ataques no se pueden considerar ataques
+al protocolo de autenticación Kerberos, son ataques a las credenciales 
+del sistema.
 De hecho,
-MITRE CAPEC engloba estos ataques en el patrón *Use of Known Domain Credentials*
-y MITRE ATT&CK en *Use Alternate Authentication Material*.
+MITRE CAPEC engloba estos ataques en el
+patrón *Use of Known Credentials*
+y MITRE ATT&CK en *Use Alternate Authentication Material*
+y *Credential Access *.
 
 Hay distintas herramientas para extraer las credenciales en una máquina
 comprometida. El fichero que contiene las credenciales
