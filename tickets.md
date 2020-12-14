@@ -310,7 +310,7 @@ que poder usar esos componentes de alguna forma.
 Por tanto, si queda
 totalmente comprometido, el atacante también podrá usarlos.
 
-Estos no ataques no se pueden considerar ataques
+Estos ataques no se pueden considerar ataques
 al protocolo de autenticación Kerberos, son ataques a las credenciales
 del sistema.
 De hecho,
