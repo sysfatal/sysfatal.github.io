@@ -342,11 +342,15 @@ Ambas protecciones (excepto Syskey con contraseña adicional en arranque)
 se saltan el segundo principio de Kerckhoffts: la clave usada para cifrar
 está en alguna parte del sistema y se puede encontrar (de hecho, se encuentra).
 
-Microsoft tiene otro problema serio con las credenciales:
-como se ha comentado, se sigue usando la hash NT.
-Como ya se ha comentado,
-es en realidad una hash MD4 (función que se considera obsoleta desde hace
-mucho tiempo). Además, no se usa salt para generarla a partir de la contraseña
+Como de costumbre, también hay problemas con la compatibilidad hacia
+atrás y la posibilidad de activar opciones inseguras (p. ej. el
+cifrado RC4-HMAC para Kerberos).
+Microsoft tiene un problema serio con las credenciales:
+como se ha comentado, en muchas instalaciones
+se sigue usando la hash NT. Ya se ha comentado que es una
+hash MD4, función que se considera obsoleta desde hace
+mucho tiempo.
+Además, no se usa salt para generar la hash a partir de la contraseña
 del usuario, lo que abre la puerta a ataques con tablas precomputadas y
 *rainbow tables*, etc.
 
