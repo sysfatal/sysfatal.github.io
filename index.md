@@ -7,6 +7,14 @@ In this blog I'll write about stuff I like: security, operating systems, the int
 En este blog iré metiendo entradas sobre las cosas que me interesan, como la seguridad, sistemas operativos, internet, criptografía, etc. Algunas cosas estarán en castellano y otras en inglés, según me dé  :)
 
 
+---
+
+## [Tickets preciosos: ataques a ¿Kerberos?](tickets.html)
+_Mon 14 Dec 2020 01:03:39 PM CET_
+
+Es común ver en charlas, blogs, artículos etc. distintos
+ataques en entornos corporativos Windows que usan el protocolo de
+autenticación distribuida Kerberos... [(continúa)](tickets.html)
 
 ---
 
