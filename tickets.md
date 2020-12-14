@@ -77,28 +77,29 @@ C y A, y ***Ks*** es el secreto compartido entre S y A.
 Esos secretos permiten la autenticación de C con
 A, de C con S y viceversa.
 
-Simplificando, funciona así:
+Simplificando, el protocolo funciona así:
 
-1. C se autentica ante A usando ***Kc*** indicando que quiere autenticarse
+1. C se autentica ante A usando ***Kc***, indicando que quiere autenticarse
 ante el servicio S.
-2. A comprueba que la petición de C es correcta con ***Kc***.
+2. A comprueba que la petición de C es correcta, usando ***Kc***.
 3. A crea una clave de sesión ***Kcs*** para que C y S la usen temporalmente.
-4. A envía ***Kcs*** a C junto con un mensaje cifrado que sólo S puede descifrar
+4. A envía ***Kcs*** a C, junto con un mensaje cifrado que sólo S puede descifrar
 (se necesitará ***Ks***).
 5. C consigue ***Kcs*** y envía a S el mensaje que le dio A (y sólo S puede descifrar).
-6. S consigue ***Kcs*** de dicho mensaje.
+6. S consigue ***Kcs*** de dicho mensaje usando ***Ks***.
 7. S crea un reto, lo cifra con ***Kcs*** y se lo envía a C.
 8. C descifra el reto con ***Kcs***, lo decrementa, lo cifra de nuevo
 con ***Kcs*** y se lo envía a S.
 9. Una vez autenticados mutuamente, se comunican de forma segura usando ***Kcs***.
 
 Básicamente, la idea es esta: A le da a C algo para que se
-lo dé a S, y sólo S lo puede descifrar.
+lo dé a S (sólo S lo puede descifrar).
 Además, S da la clave de sesión
 ***Kcs*** a los dos (a uno directamente y al otro indirectamente).
 
-Este protocolo tenía sus problemas (ataques de replay si se compromete
-una clave de sesión, no usaba timestamps, etc.), pero después vino Kerberos.
+Este protocolo tenía sus problemas: ataques de replay si se compromete
+una clave de sesión, no usaba timestamps, etc. pero sirvió de base
+para los protocolos de autenticación modernos.
 
 #### Kerberos
 
