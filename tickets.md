@@ -266,7 +266,7 @@ servicio (constrained delegation).
 Así, el atacante es capaz de manipular
 un ticket generado para  para cambiar las opciones de delegación.
 
-### Pero... ¿son ataques al protocolo Kerberos?
+### Pero... ¿son realmente ataques al protocolo Kerberos?
 
 En el caso de
 
@@ -275,9 +275,11 @@ En el caso de
 
 estamos hablado
 de intentar *crackear* la clave.
-Esto depende de la criptografía usada (RC4 es lo ideal para el ataque),
+Esto depende de la criptografía usada (RC4 es lo ideal para
+el atacante en este caso),
 la calidad de las contraseñas y la potencia de cálculo del
-adversario.
+adversario. En el segundo caso, el problema es la opción
+de omitir la preautenticación.
 
 Los siguientes ataques se basan exclusivamente en **robar los secretos**
 que hemos visto en las cajas de color fucsia o los tickets:
