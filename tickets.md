@@ -274,7 +274,7 @@ En el caso de
 
 estamos hablado
 de intentar *crackear* la clave.
-Esto depende de la criptografía usada (RC4 es lo ideal para
+Esto depende de la criptografía usada (RC4-HMAC es lo ideal para
 el atacante en este caso),
 la calidad de las contraseñas y la potencia de cálculo del
 adversario. En el segundo caso, el problema es la opción
