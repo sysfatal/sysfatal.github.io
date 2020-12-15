@@ -169,7 +169,7 @@ secreto es la hash NT tal cual (una hash MD4).
 Con AES, se deriva usando
 como salt el *realm* y el nombre de usuario, aplicando la KDF
 PBKDF2 para conseguir una clave AES para después cifrar
-una constante [7]. Evidentemente, es recomendable usar AES.
+una constante [8]. Evidentemente, es recomendable usar AES.
 
 ### Ataques populares
 
