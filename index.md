@@ -9,6 +9,15 @@ En este blog iré metiendo entradas sobre las cosas que me interesan, como la se
 
 ---
 
+## [El /dev/random de Linux es muy random](random.html)
+_Mon 28 Dec 2020 12:41:02 PM CET_
+
+La generación de claves, *nonces* y otros datos importantes para
+asegurar las comunicaciones requiere conseguir datos lo más aleatorios
+que se pueda... [(continúa)](random.html)
+
+---
+
 ## [Tickets preciosos: ataques a ¿Kerberos?](tickets.html)
 _Mon 14 Dec 2020 01:03:39 PM CET_
 
