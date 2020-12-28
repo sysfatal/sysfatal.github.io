@@ -242,7 +242,7 @@ que quieren escribir en el *pool* puedan hacerlo.
 
 - ***uuid*** y ***boot_id***: dan identificadores
 aleatorios, el primero se actualiza cada vez que se lee, el
-segundo se genera una vez.
+segundo se genera una vez. 
 
 ¿Cómo de lento es leer de */dev/urandom*?
 Bueno, esta prueba rápida y
