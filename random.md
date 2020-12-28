@@ -198,7 +198,7 @@ En Linux 5.6, hay poca diferencia entre los dos ficheros (ojo, antes
 
 - ***/dev/urandom***
 
- 	- Nunca se bloquea, aunque el CSPRNG no esté
+	- Nunca se bloquea, aunque el CSPRNG no esté
 	correctamente
 	inicializado.
 	Hay que tener cuidado con esto (ver la página de manual
@@ -207,15 +207,15 @@ En Linux 5.6, hay poca diferencia entre los dos ficheros (ojo, antes
 	genera y a día de hoy no está actualizada con estos
 	cambios).
 
-Las escrituras en estos ficheros también alimentan el *pool*,
-*mezclándose* con los datos que tiene.
-Por ejemplo, podemos escribir esos ficheros
-con los datos extraídos de un dispositivo
-USB ofrece entropía basada en el *efecto  avalancha*
-en un semiconductor (*avalanche breakdown*).
-Hay que tener en cuenta que el cambio de semilla (*reseed*)
-se hace cada 5 minutos. Por tanto, pasará un tiempo hasta que se renueve
-la semilla del CSPRNG.
+	Las escrituras en estos ficheros también alimentan el *pool*,
+	*mezclándose* con los datos que tiene.
+	Por ejemplo, podemos escribir esos ficheros
+	con los datos extraídos de un dispositivo
+	USB ofrece entropía basada en el *efecto  avalancha*
+	en un semiconductor (*avalanche breakdown*).
+	Hay que tener en cuenta que el cambio de semilla (*reseed*)
+	se hace cada 5 minutos. Por tanto, pasará un tiempo hasta que se renueve
+	la semilla del CSPRNG.
 
 En */proc/sys/kernel/random* tenemos ficheros sintéticos
 con información sobre */dev/random*, entre ellos:
