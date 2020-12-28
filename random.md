@@ -244,7 +244,8 @@ que quieren escribir en el *pool* puedan hacerlo.
 aleatorios, el primero se actualiza cada vez que se lee, el
 segundo se genera una vez.
 
-¿Cómo de lento es leer de */dev/urandom*. Bueno, esta prueba rápida y
+¿Cómo de lento es leer de */dev/urandom*?
+Bueno, esta prueba rápida y
 sucia (habría que hacer un estudio más serio para verlo de verdad)
 indica que no es mucho más lento que leer ceros de */dev/zero*:
 
