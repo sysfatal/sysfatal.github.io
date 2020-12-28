@@ -147,7 +147,15 @@ discordia [2]: */dev/random* y */dev/urandom*.
 
 Al principio sólo existía */dev/random*, luego se metió */dev/urandom*
 para evitar bloqueos cuando el sistema se quedaba sin entropía.
-La implementación y el comportamiento
+
+La existencia de dos ficheros distintos para lo que muchos perciben
+como *lo mismo* ha sido un problema durante mucho tiempo. Muchos seguían
+usando */dev/random* sin ser conscientes de los bloqueos (que lo hacían
+extremadamente lento). Otros confundían los dos ficheros, pensaban
+que eran igual de lentos, etc.
+La recomendación usual era siempre **usa urandom**.
+
+La implementación y el comportamiento de estos ficheros
 han cambiado varias veces, y recientemente han sufrido cambios severos.
 Existe el mito de que *urandom*
 es un PRNG y *random* es un CSPRNG, pero no es
@@ -235,6 +243,23 @@ que quieren escribir en el *pool* puedan hacerlo.
 - ***uuid*** y ***boot_id***: dan identificadores
 aleatorios, el primero se actualiza cada vez que se lee, el
 segundo se genera una vez.
+
+¿Cómo de lento es leer de */dev/urandom*. Bueno, esta prueba rápida y
+sucia (habría que hacer un estudio más serio para verlo de verdad)
+indica que no es mucho más lento que leer ceros de */dev/zero*:
+
+```
+$> dd if=/dev/zero of=/tmp/z bs=512 count=$((1024*100)) oflag=sync,direct
+102400+0 records in
+102400+0 records out
+52428800 bytes (52 MB, 50 MiB) copied, 226.873 s, 231 kB/s
+$> dd if=/dev/urandom of=/tmp/r bs=512 count=$((1024*100)) oflag=sync,direct
+102400+0 records in
+102400+0 records out
+52428800 bytes (52 MB, 50 MiB) copied, 238.146 s, 220 kB/s
+```
+La penalización para copiar 50 MiB de datos a un fichero en un disco
+SSD, saltando la cache, es de aprox. 4.9%.
 
 También hay una llamada al sistema para conseguir los
 datos, *getrandom(2)*, y una función de biblioteca, *getentropy(3)*.
