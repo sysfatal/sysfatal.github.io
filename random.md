@@ -6,11 +6,11 @@ date:       Mon 28 Dec 2020 12:41:02 PM CET
 thumbnail:  random
 image:      https://github.com/sysfatal/figs/dices.png
 layout:     post
-thumbnail:  tickets
+thumbnail:  random
 author:     e__soriano
 tags:
- - kerberos
- - windows
+ - random
+ - csprng
 ---
 <div class="share-page">
     Share this on &rarr;
@@ -47,9 +47,11 @@ Para conseguir datos *que parezcan aleatorios*, podemos usar
 un generador de números pseudo-aleatorios
 (PRNG). Estos generadores crean una secuencia a partir de un valor
 inicial, llamado *semilla* (*seed*).
-Dicha secuencia *parece aleatoria*, no puede reproducir ningún
-patrón. Se pueden usar test de aleatoriedad estadísticos para comprobar
-la salida de los generadores, por ejemplo:
+Dicha secuencia *parece aleatoria*: no puede reproducir ningún
+patrón. 
+
+Se puede usar un test de aleatoriedad estadístico para comprobar
+la salida de un generador, por ejemplo:
 
 ```
 $> rngtest -c 100 < /dev/urandom
@@ -104,7 +106,7 @@ $> awk 'BEGIN{srand(12);for(i=0;i<10;i++){print rand()};exit}'
 $>
 ```
 
-Vemos que la secuencia es la misma. Los datos parecen aleatorios, pero ¡son
+Los datos parecen aleatorios, pero ¡son
 siempre los mismos!
 Si inicializamos el generador con otra semilla distinta a 12, la secuencia cambia:
 
@@ -128,6 +130,7 @@ debemos reiniciar el generador constantemente
 con nuevas semillas (con la mayor entropía que podamos
 conseguir). Hay que evitar que se pueda adivinar
 o alterar el estado actual del generador.
+
 Hay que tener cuidado con los generadores
 por omisión en los lenguajes/bibliotecas que estamos
 usando. **Muchas veces no son
@@ -142,24 +145,22 @@ sobre la semilla observando la salida del CSPRNG.
 ## /dev/random y /dev/urandom
 
 En Linux hay dos ficheros sintéticos de los que podemos
-leer datos datos pseudoaleatorios que crean bastante
+leer datos datos pseudoaleatorios, que crean bastante
 discordia [2]: */dev/random* y */dev/urandom*.
 
 Al principio sólo existía */dev/random*, luego se metió */dev/urandom*
 para evitar bloqueos cuando el sistema se quedaba sin entropía.
 
-La existencia de dos ficheros distintos para lo que muchos perciben
-como *lo mismo* ha sido un problema durante mucho tiempo. Muchos seguían
-usando */dev/random* sin ser conscientes de los bloqueos (que lo hacían
-extremadamente lento). Otros confundían los dos ficheros, pensaban
-que eran igual de lentos, etc.
-La recomendación usual era siempre **usa urandom**.
+La existencia de dos ficheros distintos ha sido un problema durante mucho tiempo. Muchos seguían
+usando */dev/random* sin entender su comportamiento bloqueante ni los datos que ofrecía.
+Otros confundían los dos ficheros o pensaban
+que eran iguales, etc. También
+existía el mito de que *urandom*
+era un PRNG y *random* era un CSPRNG (y otros, ver [3]).
+La recomendación usual era: **usa urandom**.
 
-La implementación y el comportamiento de estos ficheros
-han cambiado varias veces, y recientemente han sufrido cambios severos.
-Existe el mito de que *urandom*
-es un PRNG y *random* es un CSPRNG, pero no es
-así (hay otros mitos, ver [3]).
+La implementación de estos ficheros ha cambiado varias veces.
+Recientemente han sufrido cambios severos.
 
 Con tantos cambios y *creencias* sobre estos dos ficheros,
 no es fácil encontrar información clara sobre cómo está organizado
@@ -170,17 +171,18 @@ El sistema recolecta aleatoriedad de distintas fuentes,
 como por ejemplo los bits de menos peso en el
 tiempo en nanosegundos en el que ocurre una interrupción hardware (p. ej. IRQ).
 En las CPUs modernas hay hardware para conseguir
-entropía (p. ej. la instrucción *rdrand*), aunque
+entropía (p. ej. con la instrucción *rdrand*), aunque
 Linux no lo usa. Los desarrolladores de Linux no se fían.
-También hay que tener cuidado:
+Hay que ser cuidadoso a la hora de extraer esos datos:
 en las máquinas virtuales el hardware está virtualizado,
-no se puede acceder a ciertos registros, hay documentados bugs en estas
+no se puede acceder a ciertos registros,
+hay documentados bugs en estas
 instrucciones, etc.
 
 A partir de esa aleatoriedad (que pasa un filtrado), se mantiene
 un *pool de entropía* de 4096 bits.
 De ese *pool* salen las semillas
-para un CSPRNG basado en el algoritmo de cifrado de stream ChaCha20.
+para un CSPRNG basado en el algoritmo de cifrado de stream **ChaCha20**.
 Ese CSPRNG es el que proporciona los datos de los dos ficheros.
 La semilla se renueva (*reseed*) periódicamente (cada 5 minutos).
 
@@ -212,14 +214,15 @@ En Linux 5.6, hay poca diferencia entre los dos ficheros (ojo, antes
 	Hay que tener cuidado con esto (ver la página de manual
 	*random(4)*, aunque
 	esta página de manual es conocida por la confusión que
-	genera y a día de hoy no está actualizada con estos
+	genera y a día de hoy no está actualizada con los últimos
 	cambios).
 
 Las escrituras en estos ficheros también alimentan el *pool*,
-*mezclándose* con los datos que tiene.
-Por ejemplo, podemos escribir esos ficheros
-con los datos extraídos de un dispositivo
-USB ofrece entropía basada en el *efecto  avalancha*
+*mezclándose* con sus datos.
+Por ejemplo, podemos escribir 
+datos extraídos de un dispositivo
+USB que ofrece entropía basada
+en el *efecto  avalancha*
 en un semiconductor (*avalanche breakdown*).
 Hay que tener en cuenta que el cambio de semilla (*reseed*)
 se hace cada 5 minutos. Por tanto, pasará un tiempo hasta que se renueve
@@ -230,21 +233,23 @@ con información sobre */dev/random*, entre ellos:
 
 - ***entropy_avail***: te dice la cantidad de bits de
 entropía del pool (de 0 a 4096).
-Grosso modo, N bits de entropía significa que los datos
-del *pool* son unos datos escogidos de entre
+Grosso modo, tener N bits de entropía significa que los datos
+del *pool* son unos datos escogidos entre
 2 elevado a N posibilidades distintas.
 
 - ***poolsize***: te dice el tamaño máximo del *pool* en bits (4096).
 
 - ***write_wakeup_threshold***: contiene el número
-de bits de entropía para dejar que los procesos
-que quieren escribir en el *pool* puedan hacerlo.
+de bits de entropía al que hay que llegar
+para permitir escribir en el pool (por si hay procesos
+que lo alimentan).
 
 - ***uuid*** y ***boot_id***: dan identificadores
 aleatorios, el primero se actualiza cada vez que se lee, el
 segundo se genera una vez.
 
-¿Cómo de lento es leer de */dev/urandom*?
+## ¿Cómo de lento es leer de */dev/urandom*?
+
 Bueno, esta prueba rápida y
 sucia (habría que hacer un estudio más serio para verlo de verdad)
 indica que no es mucho más lento que leer ceros de */dev/zero*:
