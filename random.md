@@ -221,7 +221,7 @@ Las escrituras en estos ficheros también alimentan el *pool*,
 *mezclándose* con sus datos.
 Por ejemplo, podemos escribir 
 datos extraídos de un dispositivo
-USB que ofrece entropía basada
+USB que ofrezca entropía basada
 en el *efecto  avalancha*
 en un semiconductor (*avalanche breakdown*).
 Hay que tener en cuenta que el cambio de semilla (*reseed*)
