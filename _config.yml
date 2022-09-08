@@ -1,0 +1,10 @@
+theme: jekyll-theme-minimal
+logo:  figs/eod.png
+twitter_username: e__soriano
+description: "sysfatal(blog)"
+baseurl: ""
+url: https://sysfatal.github.io/
+title_image: https://sysfatal.github.io/figs/eod.png
+twitter:
+  username: e__soriano
+  card: "summary"
