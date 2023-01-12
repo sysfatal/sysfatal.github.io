@@ -14,7 +14,8 @@ tags:
 ---
 <div class="share-page">
     Share this on &rarr;
-    [<a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via=e__soriano&related=e__soriano" rel="nofollow" target="_blank" title="Share on Twitter">Twitter</a>]
+    [<a title="Share on Mastodon" href="https://tootpick.org/#text=Check%20out%20https://sysfatal.github.io{{  page.url }}%20by%20@esoriano@social.linux.pizza">Mastodon</a>]
+   [<a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}&via=e__soriano&related=e__soriano" rel="nofollow" target="_blank" title="Share on Twitter">Twitter</a>]
     [<a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook">Facebook</a>]
 </div>
 <br>
@@ -48,7 +49,7 @@ un generador de números pseudo-aleatorios
 (PRNG). Estos generadores crean una secuencia a partir de un valor
 inicial, llamado *semilla* (*seed*).
 Dicha secuencia *parece aleatoria*: no puede reproducir ningún
-patrón. 
+patrón.
 
 Se puede usar un test de aleatoriedad estadístico para comprobar
 la salida de un generador, por ejemplo:
@@ -219,7 +220,7 @@ En Linux 5.6, hay poca diferencia entre los dos ficheros (ojo, antes
 
 Las escrituras en estos ficheros también alimentan el *pool*,
 *mezclándose* con sus datos.
-Por ejemplo, podemos escribir 
+Por ejemplo, podemos escribir
 datos extraídos de un dispositivo
 USB que ofrezca entropía basada
 en el *efecto  avalancha*
