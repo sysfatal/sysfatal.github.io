@@ -1,4 +1,5 @@
-<a href="https://twitter.com/e__soriano?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @e__soriano on Twitter</a>
+<a href="https://social.linux.pizza/@esoriano" data-show-count="false">Follow me on Mastodon (@esoriano@social.linux.pizza)</a>
+<a href="https://twitter.com/e__soriano?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow me on Twitter (@e__soriano)</a>
 
 # sysfatal(blog)
 
