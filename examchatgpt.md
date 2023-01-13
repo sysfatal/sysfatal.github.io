@@ -47,7 +47,7 @@ he dado a chatgpt el enunciado del examen de prácticas
 que pusimos esta semana en la asignatura *Sistemas Operativos* (tercer curso
 de los grados Ing. Telemática / Ing. Tecnologías de Teleco.).
 
-El examen le ha salido realmente bien, mucho mejor que a muchos de
+Lo ha hecho bien, mucho mejor que a muchos de
 mis alumnos humanos.
 Chatgpt aprueba el examen, como el 30% de los alumnos que se han presentado
 al examen (el 20% de los matriculados en la asignatura).
@@ -92,6 +92,7 @@ La prueba es presencial.
 Los alumnos tienen una hora para hacer este programa un sistema GNU Linux
 Ubuntu 22.04 con las páginas de manual instaladas, sin apuntes o material
 ni conexión a internet.
+Como se puede ver, no es una prueba muy difícil.
 
 ### Nuestra solución
 
