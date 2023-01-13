@@ -760,15 +760,15 @@ Llevo escuchando que los programadores
 dejarán de existir desde que empecé a estudiar en los 90s. Entonces, se decía
 por las herramientas CASE. En la última década, por la IA.
 Matt Welsh declaró hace pocos días el [*fin de la programación*](https://cacm.acm.org/magazines/2023/1/267976-the-end-of-programming/fulltext) en Communications of the ACM.
-El exprofesor de Harvard y exdirector de ingeniería en Apple y Google
-es el fundador y CEO de  Fixie.ai, una startup de IA para desarrollo software.
+El exprofesor de Harvard (y exdirector de ingeniería en Apple y Google)
+es el fundador y CEO de Fixie.ai, una startup de IA para desarrollo software.
 Puede que eso tenga algo que ver con su opinión.
 
 Los avances de los
 últimos años parecen indicar que los programadores menos cualificados, los
 dedicados a copiar y pegar código de *stack overflow*,
 ya están en peligro. Sin embargo, en mi opinión, en el futuro
-se seguirán necesitando programadores expertos y especializados
+se seguirán necesitando programadores expertos
 para, entre otras cosas, auditar, modificar e integrar la salida de estas
 herramientas
 Si fuese un estudiante TIC, ahora mismo estaría bastante preocupado e
