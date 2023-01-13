@@ -1,9 +1,9 @@
 ---
-title:      chatgpt aprueba el examen
-summary:    chatgpt aprueba el examen
+title:      ChatGPT aprueba el examen
+summary:    ChatGPT aprueba el examen
 categories: blog
 date:       Fri Jan 13 06:55:33 PM CET 2023
-thumbnail:  chatgpt
+thumbnail:  ChatGPT
 image:      https://github.com/sysfatal/figs/asimov.png
 layout:     post
 author:     e__soriano
@@ -31,11 +31,11 @@ ___
 
 <br>
 
-# Chatgpt aprueba el examen
+# ChatGPT aprueba el examen
 
 <br>
 
-Muchos llevamos unas semanas revolucionados con chatgpt,
+Muchos llevamos unas semanas revolucionados con ChatGPT,
 la IA especializada en generación de diálogo
 de [OpenAI](https://openai.com/). Supongo que a estas alturas
 no hace falta explicar [qué es](https://es.wikipedia.org/wiki/ChatGPT).
@@ -43,12 +43,12 @@ A mí me gusta decir que es una *charlatana excelente*:
 habla mucho pero no entiende nada, sólo dice lo que ha escuchado por ahí :)
 
 Este post describe un experimento:
-he dado a chatgpt el enunciado del examen de prácticas
+he dado a ChatGPT el enunciado del examen de prácticas
 que pusimos esta semana en la asignatura *Sistemas Operativos* (tercer curso
 de los grados Ing. Telemática / Ing. Tecnologías de Teleco.).
 
 Lo ha hecho bien.
-Chatgpt aprueba el examen, como el 30% de los alumnos que se han presentado
+ChatGPT aprueba el examen, como el 30% de los alumnos que se han presentado
 al examen (el 20% de los matriculados en la asignatura).
 
 ### Enunciado
@@ -200,16 +200,16 @@ main(int argc, char *argv[])
 
 **yo:** Hola
 
-**chatgpt:** ¡Hola! ¿En qué puedo ayudarte hoy?
+**ChatGPT:** ¡Hola! ¿En qué puedo ayudarte hoy?
 
 **yo:** Quiero hacer un programa en C para linux
 
-**chatgpt:** ¡Genial! Para comenzar a programar en C en Linux, necesitarás un compilador de C, como GCC (GNU Compiler Collection). La mayoría de las distribuciones de Linux vienen con GCC preinstalado, pero si no está instalado en tu sistema, puedes instalarlo usando el administrador de paquetes de tu distribución.
+**ChatGPT:** ¡Genial! Para comenzar a programar en C en Linux, necesitarás un compilador de C, como GCC (GNU Compiler Collection). La mayoría de las distribuciones de Linux vienen con GCC preinstalado, pero si no está instalado en tu sistema, puedes instalarlo usando el administrador de paquetes de tu distribución.
 Una vez que tengas GCC instalado, puedes crear un archivo de código fuente con un editor de texto (como nano o vi) y guardarlo con la extensión ".c". Luego puedes compilar el archivo fuente utilizando el comando "gcc" seguido del nombre del archivo.  
 
 **yo:** Escribe un programa llamado concattxt en C que admita un único argumento, que será una ruta. El programa debe escribir el contenido de todos los ficheros del directorio de trabajo actual cuyo nombre termine en .txt en el fichero indicado por el argumento. No importa el orden en el que se recorra los ficheros correspondientes (como estén en el directorio). Si el fichero ya existe, se debe truncar. En otro caso, se debe crear. El programa debe avisar y fallar si se ejecuta sin argumentos o con más de un argumento. Los ficheros pueden tener cualquier tamaño. No se puede ejecutar ningún programa externo.
 
-**chatgpt:** Aquí te dejo un ejemplo de código de un programa en C que cumple con los requisitos especificados:
+**ChatGPT:** Aquí te dejo un ejemplo de código de un programa en C que cumple con los requisitos especificados:
 
 ```c
 #include <stdio.h>
@@ -273,7 +273,7 @@ ___
 Ok. Este programa está bien. Hace lo que pide el enunciado y funciona.
 Sin embargo, no es del todo correcto (ignoraremos todo lo que tiene que ver
 con el estilo de código que utilizamos en la asignatura,
-porque chatgpt no lo puede saber):
+porque ChatGPT no lo puede saber):
 
 - No escribe los mensajes de error/diagnóstico en la salida de errores, los escribe
 en la salida estándar. Eso no está bien.
@@ -301,7 +301,7 @@ con la comprensión de los registros de activación en la pila, la depuración y
 los posibles problemas de ocultación (*shadowing*).
 
 ¿Estaría este programa aprobado aplicando los mismos criterios de corrección? Sin duda.
-Teniendo en cuenta las entregas del examen, **la nota de chatgpt estaría
+Teniendo en cuenta las entregas del examen, **la nota de ChatGPT estaría
 en el primer cuartil.**
 
 ___
@@ -310,7 +310,7 @@ ___
 
 **yo:** Está todo implementado en la función principal, ¿puedes partir en funciones?
 
-**chatgpt**: Claro, aquí te muestro cómo podría dividir el código en varias funciones para una mejor legibilidad y reutilización:
+**ChatGPT**: Claro, aquí te muestro cómo podría dividir el código en varias funciones para una mejor legibilidad y reutilización:
 
 ```c
 #include <stdio.h>
@@ -385,7 +385,7 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-**chatgpt:** De esta manera el código queda más organizado, se puede entender mejor y es más fácil de mantener y extender. Cada función tiene un propósito específico, es fácil de entender y testear por separado, y se pueden reutilizar en otros programas.
+**ChatGPT:** De esta manera el código queda más organizado, se puede entender mejor y es más fácil de mantener y extender. Cada función tiene un propósito específico, es fácil de entender y testear por separado, y se pueden reutilizar en otros programas.
 
 ___
 
@@ -400,13 +400,13 @@ ___
 
 **yo:** Los errores deberian salir por la salida de errores, ¿no?
 
-**chatgpt:** Sí, tienes razón. Es recomendable que los errores y mensajes de advertencia se escriban en la salida de error estándar (stderr) en lugar de la salida estándar (stdout), ya que la salida de error estándar suele ser redirigida a un archivo o a una consola separada, lo que facilita su monitoreo y registro. Para escribir en la salida de error estándar, se puede usar la función fprintf() con el puntero de archivo "stderr" en lugar de "stdout". Por ejemplo:
+**ChatGPT:** Sí, tienes razón. Es recomendable que los errores y mensajes de advertencia se escriban en la salida de error estándar (stderr) en lugar de la salida estándar (stdout), ya que la salida de error estándar suele ser redirigida a un archivo o a una consola separada, lo que facilita su monitoreo y registro. Para escribir en la salida de error estándar, se puede usar la función fprintf() con el puntero de archivo "stderr" en lugar de "stdout". Por ejemplo:
 
 fprintf(stderr, "Error: No se pudo abrir el archivo de salida: %s\n", outputFile);
 
 **yo:** ¿Puedes reescribir el código de esa manera?
 
-**chatgpt:** Claro, aquí te dejo una versión actualizada del código donde se escriben los mensajes de error en la salida de error estándar:
+**ChatGPT:** Claro, aquí te dejo una versión actualizada del código donde se escriben los mensajes de error en la salida de error estándar:
 
 ```c
 #include <stdio.h>
@@ -491,7 +491,7 @@ ___
 
 **yo:** ¿Puedes definir constantes cuando sea apropiado?
 
-**chatgpt:** Sí, se pueden definir constantes en C para mejorar la legibilidad y mantenibilidad del código.
+**ChatGPT:** Sí, se pueden definir constantes en C para mejorar la legibilidad y mantenibilidad del código.
 Una constante es un valor que no puede ser modificado una vez que se asigna. En C, se pueden definir constantes utilizando la palabra clave "const" delante del tipo de datos. Por ejemplo, se puede definir una constante entera llamada "BUFFER_SIZE" de la siguiente manera:
 const int BUFFER_SIZE = 4096;
 En el código anterior se puede observar como se usa una constante BUFFER_SIZE para definir el tamaño del buffer, esto tiene varias ventajas:
@@ -506,7 +506,7 @@ También se pueden utilizar constantes en otros lugares donde sea apropiado, com
 
 **yo:** ¿Puedes reescribir el código con constantes cuando hagan falta?
 
-**chatgpt:** Claro, aquí te muestro cómo podría reescribir el código utilizando constantes cuando sea apropiado:
+**ChatGPT:** Claro, aquí te muestro cómo podría reescribir el código utilizando constantes cuando sea apropiado:
 
 ```c
 #include <stdio.h>
@@ -582,7 +582,7 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 ```
-**chatgpt:** Espero que esta nueva versión del código cumpla con tus necesidades.
+**ChatGPT:** Espero que esta nueva versión del código cumpla con tus necesidades.
 
 ___
 
@@ -611,7 +611,7 @@ ___
 
 **yo:** ¿Puedes cambiar el programa de C para que no use stdio y use las llamadas al sistema read y write?
 
-**chatgpt:** Sí, se puede reescribir el programa para que utilice las llamadas al sistema read() y write() en lugar de las funciones de la biblioteca estándar stdio. Sin embargo, es importante tener en cuenta que estas llamadas al sistema son más bajas nivel y requieren un mayor cuidado y precisión al manejar los errores y los tamaños de los datos.
+**ChatGPT:** Sí, se puede reescribir el programa para que utilice las llamadas al sistema read() y write() en lugar de las funciones de la biblioteca estándar stdio. Sin embargo, es importante tener en cuenta que estas llamadas al sistema son más bajas nivel y requieren un mayor cuidado y precisión al manejar los errores y los tamaños de los datos.
 Claro, aquí te muestro el programa completo reescrito para utilizar las llamadas al sistema read() y write():
 
 ```c
@@ -705,7 +705,7 @@ llamadas al sistema `open`, `read`, `write` y `close` en lugar
 de `fopen`, `fread`, `fwrite` y `fclose` para la lectura/escritura
 de los ficheros, no para escribir los mensajes de error/diagnóstico
 en `stderr` (eso de podía quedar con `fprintf`). De todas formas,
-es natural que chatgpt no me haya entendido bien y haya cambiado todo.
+es natural que ChatGPT no me haya entendido bien y haya cambiado todo.
 
 El problema es que
 ahora el código **no compila**: ha quitado `includes` pero sigue usando
@@ -719,7 +719,7 @@ Sigue sin comprobar los errores en las lecturas y las escrituras.
 
 **yo:** ¿Puedes reescribir el programa en shell scripting?
 
-**chatgpt:** Claro, aquí te muestro una posible implementación del programa en shell scripting:
+**ChatGPT:** Claro, aquí te muestro una posible implementación del programa en shell scripting:
 
 ```sh
 #!/bin/bash
@@ -739,7 +739,7 @@ do
 done
 ```
 
-**chatgpt:** El script comienza verificando el número de argumentos pasados al script mediante el uso de la expresión if [[ $# -ne 1 ]]. El uso de >&2 en el echo, redirige la salida a la salida de error, de esta forma se diferencian los mensajes de error de los normales.
+**ChatGPT:** El script comienza verificando el número de argumentos pasados al script mediante el uso de la expresión if [[ $# -ne 1 ]]. El uso de >&2 en el echo, redirige la salida a la salida de error, de esta forma se diferencian los mensajes de error de los normales.
 Luego, se asigna el primer argumento (nombre del archivo de salida) a una variable outputFile.
 Por último, se utiliza el comando for para recorrer todos los archivos con extensión .txt en el directorio actual. Dentro del ciclo, se utiliza el comando cat para concatenar el contenido de cada archivo al archivo de salida. El operador >> se utiliza para agregar el contenido al final del archivo de salida en lugar de sobreescribirlo.
 Espero que esta implementación sea de ayuda.
@@ -777,7 +777,7 @@ intentaría esforzarme para ser uno de ellos.
 Como nos recuerda Rodney Brooks, exdirector
 del MIT Computer Science and Artificial Intelligence Lab,
 [*hay que calmarse*](https://rodneybrooks.com/predictions-scorecard-2023-january-01/).
-Hasta el propio CEO de OpenAI, Sam Altman, [dice](https://twitter.com/sama/status/1601731295792414720?s=20&t=mGoYALxCL6wwHKJ4KzIrlA) que chatgpt tiene
+Hasta el propio CEO de OpenAI, Sam Altman, [dice](https://twitter.com/sama/status/1601731295792414720?s=20&t=mGoYALxCL6wwHKJ4KzIrlA) que ChatGPT tiene
 muchas limitaciones pero es
 lo suficientemente buena como para dar una falsa impresión de grandeza y es un
 error depender de ella a día de hoy.
