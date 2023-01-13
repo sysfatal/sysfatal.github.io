@@ -275,18 +275,18 @@ Sin embargo, no es del todo correcto (ignoraremos todo lo que tiene que ver
 con el estilo de código que utilizamos en la asignatura,
 porque chatgpt no lo puede saber):
 
-- No escribe los mensajes de error/diagnóstico por la salida de errores, los escribe
-por la salida estándar. Eso no está bien.
+- No escribe los mensajes de error/diagnóstico en la salida de errores, los escribe
+en la salida estándar. Eso no está bien.
 
 - En lugar de usar las llamadas al sistema (`open`, `read`, `write`, `close`) usa `stdio`.
-En este caso, `stdio` no aporta mucho, pero tampoco está mal usarla. En el examen,
+En este caso, `stdio` no aporta nada, pero tampoco está mal usarla. En el examen,
 se permitía implementar el programa de cualquiera de las dos formas.
 El problema es que comprueba errores en las aperturas, pero no lo hace
-en las lecturas y escrituras: tanto `fread` como `fwrite`
-pueden fallar, y esto no se está comprobando. Ya que ha decido usar `stdio` para leer y
-escribir, debería usar `ferror` y `feof` para comprobar esos errores.
+en las lecturas y escrituras: las funciones `fread` y `fwrite`
+pueden fallar y no se está comprobando. Ya que ha decidido usar `stdio` para leer y
+escribir, debería usar `ferror` y `feof` para comprobar los posibles errores.
 
-- Está implementado todo en el procedimiento principal. Aunque sea
+- Todo está implementado en el procedimiento principal (main). Aunque sea
 un programa pequeño, debería estar partido en funciones
 (i.e. cada subproblema en un subprograma).
 
@@ -298,9 +298,9 @@ estar justificado. Esto se puede escribir mucho más limpio.
 
 - No debería declarar variables en cualquier parte de la función. Esto tiene que ver
 con la comprensión de los registros de activación en la pila, la depuración y
-los problemas de ocultación (*shadowing*).
+los posibles problemas de ocultación (*shadowing*).
 
-¿Estaría aprobado aplicando los mismos criterios de corrección? Sin duda.
+¿Estaría este programa aprobado aplicando los mismos criterios de corrección? Sin duda.
 Teniendo en cuenta las entregas del examen, **la nota de chatgpt estaría
 en el primer cuartil.**
 
@@ -391,8 +391,8 @@ ___
 
 Como ella misma dice, partir el programa mejora la legibilidad y la reutilización del código.
 Vemos que ha partido el código, como se ha pedido. No está muy bien partido,
-porque básicamente esté recubriendo funciones y sacando el programa principal a otra función,
-pero lo ha intentado.
+porque básicamente está recubriendo las funciones de biblioteca y
+sacando parte del programa principal a otra función. Al menos, lo ha intentado.
 
 ___
 
@@ -589,25 +589,21 @@ ___
 Aquí está usando `const` para definir la constante. Entramos en un viejo
 debate: ¿cuál es la mejor forma de definir constantes en C?
 
-Tenemos tres formas para definir constantes enteras:
-
-- `define`
-
-- `const`
-
-- `enum`
+Tenemos tres formas para definir constantes enteras: `define`, `const`
+y `enum`.
 
 `define` es una orden para el preprocesador de C que realiza
 una sustitución textual en el fuente antes de pasar al compilador.
-Eso trae muchos problemas. Por otra
-parte, `const` lo que hace es indicar que la "variable" es inmutable,
+Eso trae muchos problemas. `const` es un cualificador que
+indica que dicha **"variable"** es inmutable,
 que no es lo mismo que definir un valor que sea constante durante toda
 la ejecución del programa:
 la memoria de dicha variable puede estar en una región
 de memoria que sea modificable y un bug puede provocar un cambio en el valor de
-la constante (cosa que nunca debería pasar), puedes conseguir su dirección de memoria
+la constante (cosa que nunca debería pasar), se puede conseguir su dirección de memoria
 con &, etc. Puedes ver un ejemplo [aquí](https://twitter.com/e__soriano/status/1398573039256756225?s=20&t=GXIS8vrp9Q6yYs6H9zVVtg).
-Para definir constantes enteras en C, lo más apropiado es `enum`.  
+Para definir constantes enteras en C, lo más apropiado es usar `enum`, que sirve para
+crear tipos enumerados y permite asignar nombres a constantes enteras.
 
 ___
 
@@ -708,11 +704,13 @@ En realidad, yo quería que usara las
 llamadas al sistema `open`, `read`, `write` y `close` en lugar
 de `fopen`, `fread`, `fwrite` y `fclose` para la lectura/escritura
 de los ficheros, no para escribir los mensajes de error/diagnóstico
-en `stderr` (con `fprintf`). De todas formas,
+en `stderr` (eso de podía quedar con `fprintf`). De todas formas,
 es natural que chatgpt no me haya entendido bien y haya cambiado todo.
 
 El problema es que
-ahora el código **no compila**: faltan ficheros de cabecera.
+ahora el código **no compila**: ha quitado `includes` pero sigue usando
+funciones que los necesitan.
+
 Sigue sin comprobar los errores en las lecturas y las escrituras.
 
 ---
@@ -754,19 +752,20 @@ ___
 
 ###  Opinión (la de hoy :) )
 
-Este tipo de herramientas van a cambiar la forma de programar, eso es lo único
+Estas vherramientas van a cambiar la forma de programar, eso es lo único
 que tengo claro.
 
 Llevo escuchando que los programadores
 dejarán de existir desde que empecé a estudiar en los 90s. Entonces, se decía
 por las herramientas CASE. En la última década, por la IA. Los avances de los
-últimos años parecen indicar que el empleo de los programadores menos cualificados
+últimos años parecen indicar que los programadores menos cualificados
 dedicados a copiar y pegar código de *stack overflow*
-ya está en peligro. Sin embargo, en mi opinión, en el futuro
-se necesitarán programadores expertos para evaluar, modificar e integrar
-la salida de estas herramientas.
-Esperemos que sea así. Si fuera un estudiante, estaría bastante preocupado e
-intentaría esforzarme para entrar en dicha categoría.
+ya están en peligro. Sin embargo, en mi opinión, en el futuro
+se seguirán necesitando programadores expertos y especializados
+para, entre otras cosas, auditar, modificar e integrar la salida de estas
+herramientas
+Si fuese un estudiante TIC, ahora mismo estaría bastante preocupado e
+intentaría esforzarme para ser uno de ellos.
 
 Chatgpt 3 funciona sorprendentemente bien. Es una
 *charlatana excelente*. Hay que tener mucho con ella, porque habla
