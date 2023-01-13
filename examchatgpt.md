@@ -47,8 +47,7 @@ he dado a chatgpt el enunciado del examen de prácticas
 que pusimos esta semana en la asignatura *Sistemas Operativos* (tercer curso
 de los grados Ing. Telemática / Ing. Tecnologías de Teleco.).
 
-Lo ha hecho bien, mucho mejor que a muchos de
-mis alumnos humanos.
+Lo ha hecho bien.
 Chatgpt aprueba el examen, como el 30% de los alumnos que se han presentado
 al examen (el 20% de los matriculados en la asignatura).
 
