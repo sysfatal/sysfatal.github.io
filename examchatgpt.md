@@ -39,7 +39,7 @@ Muchos llevamos unas semanas revolucionados con chatgpt,
 la IA especializada en generación de diálogo
 de [OpenAI](https://openai.com/). Supongo que a estas alturas
 no hace falta explicar [qué es](https://es.wikipedia.org/wiki/ChatGPT).
-A mí me gusta describirla como una *charlatana excelente*:
+A mí me gusta decir que es una *charlatana excelente*:
 habla mucho pero no entiende nada, sólo dice lo que ha escuchado por ahí :)
 
 Este post describe un experimento:
@@ -47,8 +47,8 @@ he dado a chatgpt el enunciado del examen de prácticas
 que pusimos esta semana en la asignatura *Sistemas Operativos* (tercer curso
 de los grados Ing. Telemática / Ing. Tecnologías de Teleco.).
 
-**El examen le ha salido realmente bien, mucho mejor que a muchos de
-mis alumnos humanos.**
+El examen le ha salido realmente bien, mucho mejor que a muchos de
+mis alumnos humanos.
 Chatgpt aprueba el examen, como el 30% de los alumnos que se han presentado
 al examen (el 20% de los matriculados en la asignatura).
 
@@ -778,12 +778,12 @@ el programa proporcionado era bastante peor que la primera,
 
 Apuesto a que nos traerá muchos problemas durante los próximos años.
 
-A largo plazo, puede que los humanos dejemos de saber cómo funciona la
-tecnología. Ya nos avisó Asimov.
+**A largo plazo, puede que los humanos dejemos de saber cómo funciona la
+tecnología. Ya nos avisó Asimov.**
 
 ### Comentarios
 
-Puedes comentar este post en [Mastodon]() 
+Puedes comentar este post en [Mastodon]()
 
 <sub><sup>
     <b>(cc) Enrique Soriano-Salvador</b>
