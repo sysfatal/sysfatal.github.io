@@ -755,11 +755,18 @@ ___
 Estas vherramientas van a cambiar la forma de programar, eso es lo único
 que tengo claro.
 
+
 Llevo escuchando que los programadores
 dejarán de existir desde que empecé a estudiar en los 90s. Entonces, se decía
-por las herramientas CASE. En la última década, por la IA. Los avances de los
-últimos años parecen indicar que los programadores menos cualificados
-dedicados a copiar y pegar código de *stack overflow*
+por las herramientas CASE. En la última década, por la IA.
+Matt Welsh declaró hace pocos días el [*fin de la programación*](https://cacm.acm.org/magazines/2023/1/267976-the-end-of-programming/fulltext) en Communications of the ACM.
+El exprofesor de Harvard y exdirector de ingeniería en Apple y Google
+es el fundador y CEO de  Fixie.ai, una startup de IA para desarrollo software.
+Puede que eso tenga algo que ver con su opinión.
+
+Los avances de los
+últimos años parecen indicar que los programadores menos cualificados, los
+dedicados a copiar y pegar código de *stack overflow*,
 ya están en peligro. Sin embargo, en mi opinión, en el futuro
 se seguirán necesitando programadores expertos y especializados
 para, entre otras cosas, auditar, modificar e integrar la salida de estas
@@ -767,15 +774,26 @@ herramientas
 Si fuese un estudiante TIC, ahora mismo estaría bastante preocupado e
 intentaría esforzarme para ser uno de ellos.
 
-Chatgpt 3 funciona sorprendentemente bien. Es una
-*charlatana excelente*. Hay que tener mucho con ella, porque habla
-de todo sin saber de nada... esta vez ha quedado entre los mejores de la
-clase.
+Como nos recuerda Rodney Brooks, exdirector
+del MIT Computer Science and Artificial Intelligence Lab,
+[*hay que calmarse*](https://rodneybrooks.com/predictions-scorecard-2023-january-01/).
+Hasta el propio CEO de OpenAI, Sam Altman, [dice](https://twitter.com/sama/status/1601731295792414720?s=20&t=mGoYALxCL6wwHKJ4KzIrlA) que chatgpt tiene
+muchas limitaciones pero es
+lo suficientemente buena como para dar una falsa impresión de grandeza y es un
+error depender de ella a día de hoy.
 
-Ya sabemos que chatgpt no es determinista. He repetido el experimento y
-el programa proporcionado era bastante peor que la primera,   
+Hay que tener mucho cuidado con ella, porque habla de todo sin saber de nada.
+Esta vez ha quedado entre los mejores de la clase,  pero podría haber fallado.
+De hecho, he repetido el experimento y
+ha generado otra solución bastante peor usando `fgets` y `fputs`
+para las lecturas y escrituras, que no son apropiadas para este programa (ten
+en cuenta que puede generar distintas respuestas para la misma pregunta).
+En otras ocasiones me ha dado soluciones y explicaciones totalmente incorrectas.
 
-Apuesto a que nos traerá muchos problemas durante los próximos años.
+Ya hay [estudios](https://arxiv.org/abs/2211.03622) que indican que el código
+creado con asistentes de este tipo es más inseguro
+que el creado sin usarlo.
+Apuesto a que este *hype* nos traerá muchos problemas durante los próximos años.
 
 **A largo plazo, puede que los humanos dejemos de saber cómo funciona la
 tecnología. Ya nos avisó Asimov.**
