@@ -8,6 +8,12 @@ In this blog I'll write about stuff I like: security, operating systems, the int
 
 En este blog iré metiendo entradas sobre las cosas que me interesan, como la seguridad, sistemas operativos, internet, criptografía, etc. Algunas cosas estarán en castellano y otras en inglés, según me dé  :)
 
+---
+
+## [Chatgpt aprueba el examen](examchatgpt.html)
+_Fri Jan 13 06:55:33 PM CET 2023_
+
+Muchos llevamos unas semanas revolucionados con chatgpt...[(continúa)](examchatgpt.html)
 
 ---
 
