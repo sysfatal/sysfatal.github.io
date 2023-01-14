@@ -89,7 +89,7 @@ $
 
 La prueba es presencial.
 Los alumnos tienen una hora para hacer este programa en un sistema GNU Linux
-Ubuntu 22.04 con las páginas de manual instaladas, sin apuntes o material
+Ubuntu 22.04 con las páginas de manual instaladas, sin material (apuntes, etc.)
 ni conexión a internet.
 Como se puede ver, no es una prueba muy difícil.
 
