@@ -796,7 +796,7 @@ Apuesto a que este *hype* nos traerá muchos problemas durante los próximos añ
 
 A largo plazo, puede que los humanos olvidemos las matemáticas y
 la programación, y no sepamos cómo funcionan las máquinas.
-Ya nos avisó Asimov (o eso dice ChatGPT)v.
+Ya nos avisó Asimov (o eso dice ChatGPT).
 
 ### Comentarios
 
