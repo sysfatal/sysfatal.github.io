@@ -800,7 +800,7 @@ Ya nos avisó Asimov (o eso dice ChatGPT)v.
 
 ### Comentarios
 
-Puedes comentar este post en [Mastodon]()
+Puedes comentar este post en Mastodon: [https://social.linux.pizza/@esoriano/109684708021342526](https://social.linux.pizza/@esoriano/109684708021342526)
 
 <sub><sup>
     <b>(cc) Enrique Soriano-Salvador</b>
