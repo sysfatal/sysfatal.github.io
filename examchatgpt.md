@@ -751,7 +751,7 @@ El script es correcto, incluso escribe los errores por la salida de errores.
 
 ___
 
-###  Opinión (la de hoy)
+###  Opinión
 
 Estas herramientas van a cambiar la forma de programar, eso es lo único
 que tengo claro.
