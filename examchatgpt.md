@@ -786,7 +786,7 @@ error depender de ella a día de hoy.
 Esta vez ha quedado entre los mejores de la clase,  pero podría haber fallado.
 De hecho, he repetido el experimento y
 ha generado una solución peor que usa `fgets` y `fputs`
-para las lecturas y escrituras (no son apropiadas para este programa).
+(no son apropiadas para este programa).
 En otras ocasiones me ha dado soluciones y explicaciones totalmente incorrectas.
 
 Ya hay [estudios](https://arxiv.org/abs/2211.03622) que indican que el código
