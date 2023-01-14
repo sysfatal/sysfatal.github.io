@@ -768,8 +768,7 @@ Puede que eso tenga algo que ver con su opinión.
 Los avances de los
 últimos años parecen indicar que los programadores menos cualificados, los
 dedicados a copiar y pegar código de *stack overflow*,
-ya están en peligro. Sin embargo, en mi opinión, en el futuro
-se seguirán necesitando programadores expertos
+ya están en peligro. Yo creo que se necesitarán programadores expertos
 para, entre otras cosas, auditar, modificar e integrar la salida de estas
 herramientas.
 Si fuese un estudiante TIC, ahora mismo estaría bastante preocupado e
@@ -793,7 +792,7 @@ Ya hay [estudios](https://arxiv.org/abs/2211.03622) que indican que el código
 creado con asistentes de este tipo es más inseguro.
 Apuesto a que este *hype* nos traerá muchos problemas durante los próximos años.
 
-A largo plazo, puede que los humanos olvidemos las matemáticas y
+En el futuro, puede que los humanos olvidemos las matemáticas y
 la programación, y no sepamos cómo funcionan las máquinas.
 Ya nos avisó Asimov (o eso dice ChatGPT).
 
