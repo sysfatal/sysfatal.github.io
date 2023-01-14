@@ -752,7 +752,7 @@ ___
 
 ###  Opinión (la de hoy :) )
 
-Estas vherramientas van a cambiar la forma de programar, eso es lo único
+Estas herramientas van a cambiar la forma de programar, eso es lo único
 que tengo claro.
 
 
@@ -770,7 +770,7 @@ dedicados a copiar y pegar código de *stack overflow*,
 ya están en peligro. Sin embargo, en mi opinión, en el futuro
 se seguirán necesitando programadores expertos
 para, entre otras cosas, auditar, modificar e integrar la salida de estas
-herramientas
+herramientas.
 Si fuese un estudiante TIC, ahora mismo estaría bastante preocupado e
 intentaría esforzarme para ser uno de ellos.
 
@@ -791,8 +791,7 @@ en cuenta que puede generar distintas respuestas para la misma pregunta).
 En otras ocasiones me ha dado soluciones y explicaciones totalmente incorrectas.
 
 Ya hay [estudios](https://arxiv.org/abs/2211.03622) que indican que el código
-creado con asistentes de este tipo es más inseguro
-que el creado sin usarlo.
+creado con asistentes de este tipo es más inseguro.
 Apuesto a que este *hype* nos traerá muchos problemas durante los próximos años.
 
 **A largo plazo, puede que los humanos dejemos de saber cómo funciona la
