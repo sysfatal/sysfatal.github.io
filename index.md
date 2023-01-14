@@ -10,10 +10,10 @@ En este blog iré metiendo entradas sobre las cosas que me interesan, como la se
 
 ---
 
-## [Chatgpt aprueba el examen](examchatgpt.html)
+## [ChatGPT aprueba el examen](examchatgpt.html)
 _Fri Jan 13 06:55:33 PM CET 2023_
 
-Muchos llevamos unas semanas revolucionados con chatgpt...[(continúa)](examchatgpt.html)
+Muchos llevamos unas semanas revolucionados con ChatGPT...[(continúa)](examchatgpt.html)
 
 ---
 
