@@ -8,9 +8,10 @@ image:      https://github.com/sysfatal/figs/asimov.png
 layout:     post
 author:     e__soriano
 tags:
- - malware
- - stego
- - unix
+ - ChatGPT
+ - linux
+ - programación
+ - IA
 ---
 
 <div class="share-page">
