@@ -794,8 +794,9 @@ Ya hay [estudios](https://arxiv.org/abs/2211.03622) que indican que el código
 creado con asistentes de este tipo es más inseguro.
 Apuesto a que este *hype* nos traerá muchos problemas durante los próximos años.
 
-**A largo plazo, puede que los humanos dejemos de saber cómo funciona la
-tecnología. Ya nos avisó Asimov.**
+A largo plazo, puede que los humanos olvidemos las matemáticas y
+la programación, y no sepamos cómo funcionan las máquinas.
+Ya nos avisó Asimov (o eso dice ChatGPT)v.
 
 ### Comentarios
 
