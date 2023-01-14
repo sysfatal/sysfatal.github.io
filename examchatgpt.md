@@ -32,10 +32,6 @@ ___
 
 <br>
 
-# ChatGPT aprueba el examen
-
-<br>
-
 Muchos llevamos unas semanas revolucionados con ChatGPT,
 la IA especializada en generación de diálogo
 de [OpenAI](https://openai.com/). Supongo que a estas alturas
