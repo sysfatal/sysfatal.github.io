@@ -783,12 +783,10 @@ muchas limitaciones pero es
 lo suficientemente buena como para dar una falsa impresión de grandeza y es un
 error depender de ella a día de hoy.
 
-Hay que tener mucho cuidado con ella, porque habla de todo sin saber de nada.
 Esta vez ha quedado entre los mejores de la clase,  pero podría haber fallado.
 De hecho, he repetido el experimento y
-ha generado otra solución bastante peor usando `fgets` y `fputs`
-para las lecturas y escrituras, que no son apropiadas para este programa (ten
-en cuenta que puede generar distintas respuestas para la misma pregunta).
+ha generado una solución peor que usa `fgets` y `fputs`
+para las lecturas y escrituras (no son apropiadas para este programa).
 En otras ocasiones me ha dado soluciones y explicaciones totalmente incorrectas.
 
 Ya hay [estudios](https://arxiv.org/abs/2211.03622) que indican que el código
