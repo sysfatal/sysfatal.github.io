@@ -701,7 +701,7 @@ En realidad, yo quería que usara las
 llamadas al sistema `open`, `read`, `write` y `close` en lugar
 de `fopen`, `fread`, `fwrite` y `fclose` para la lectura/escritura
 de los ficheros, no para escribir los mensajes de error/diagnóstico
-en `stderr` (eso de podía quedar con `fprintf`). De todas formas,
+en `stderr` (eso se podía quedar con `fprintf`). De todas formas,
 es natural que ChatGPT no me haya entendido bien y haya cambiado todo.
 
 El problema es que
