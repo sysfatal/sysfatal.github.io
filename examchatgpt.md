@@ -812,7 +812,7 @@ Todas las preguntas puntúan igual.
 Las respuestas correctas cuentan un 100% y las incorrectas restan un 20%.
 Las respuestas en blanco no cuentan.
 
-**La nota media de la clase ha sido 4.25. ChatGPT saca un 4.6 y se sitúa
+La nota media de la clase ha sido 4.25. **ChatGPT saca un 4.6 y se sitúa
 en el segundo cuartil.**
 
 ### Comentarios
