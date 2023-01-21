@@ -124,11 +124,13 @@ dump(char *path, int fdout)
 	}
 	while ((nr = read(fdin, buf, BufSize)) > 0) {
 		if (write(fdout, buf, nr) != nr) {
+			close(fdin);
 			warn("can't write");
 			return -1;
 		}
 	}
 	if (nr < 0) {
+		close(fdin);
 		warn("can't read file %s", path);
 		return -1;
 	}
