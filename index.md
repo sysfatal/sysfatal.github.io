@@ -24,6 +24,14 @@ Ransomware early detection tools try to detect a ransomware attack in order...[(
 
 ---
 
+## [Gopper, keep a close eye on this proc!](gopper.html)
+_Thu 27 Jan 2022 07:35:51 PM CET_
+
+Some time ago, I wrote a post
+about bypassing Frida-trace interception...[(continue)](gopper.html)
+
+---
+
 ## [Bypassing Frida dynamic function call tracing](bypassfrida-en.html)
 _Tue 10 Aug 2021 12:54:49 PM CEST_
 
