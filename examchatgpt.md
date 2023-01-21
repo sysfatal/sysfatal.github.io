@@ -792,6 +792,29 @@ En el futuro, puede que los humanos olvidemos las matemáticas y
 la programación, y no sepamos cómo funcionan las máquinas.
 Ya nos avisó Asimov (o eso dice ChatGPT).
 
+
+### ACTUALIZACIÓN (21-ene) ¿Y un test?
+
+Para ver qué tal le salen los test, he probado con el de mi asignatura
+Seguridad en Sistemas Robóticos de cuarto curso de Ingeniería de Robótica
+Software.
+
+La prueba consiste en un test de [Moodle](https://en.wikipedia.org/wiki/Moodle).
+La prueba es presencial y no se tiene salida a Internet.
+Los alumnos disponen de 50 minutos para hacer el test
+y pueden usar los materiales de clase. El test
+tiene 20 preguntas en las que se combinan conceptos de
+criptografía, autenticación, control de acceso, protocolos seguros,
+programación segura, seguridad en sistemas ROS2, seguridad perimetral,
+ataques, VPN, exploits, etc.
+Cada pregunta tiene cinco respuestas y sólo una es correcta.
+Todas las preguntas puntúan igual.
+Las respuestas correctas cuentan un 100% y las incorrectas restan un 20%.
+Las respuestas en blanco no cuentan.
+
+**La nota media de la clase ha sido 4.25. ChatGPT saca un 4.6 y se sitúa
+en el segundo cuartil.**
+
 ### Comentarios
 
 Puedes comentar este post en Mastodon: [https://social.linux.pizza/@esoriano/109684708021342526](https://social.linux.pizza/@esoriano/109684708021342526)
