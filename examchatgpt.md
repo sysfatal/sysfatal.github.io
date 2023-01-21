@@ -795,7 +795,7 @@ Ya nos avisó Asimov (o eso dice ChatGPT).
 
 ### ACTUALIZACIÓN (21-ene) ¿Y un test?
 
-Para ver qué tal le salen los test, he probado con el de mi asignatura
+Para ver qué tal le salen los test, he probado con el de otra asignatura:
 Seguridad en Sistemas Robóticos de cuarto curso de Ingeniería de Robótica
 Software.
 
