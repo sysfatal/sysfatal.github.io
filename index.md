@@ -24,6 +24,14 @@ Ransomware early detection tools try to detect a ransomware attack in order...[(
 
 ---
 
+## [Bypassing Frida dynamic function call tracing](bypassfrida-en.html)
+_Tue 10 Aug 2021 12:54:49 PM CEST_
+
+Frida is an amazing dynamic analysis tool, it's quite powerful. Lately, I've been learning how to use it and wondering
+how it works... [(continue)](bypassfrida-en.html)
+
+---
+
 ## [El /dev/random de Linux es muy random](random.html)
 _Mon 28 Dec 2020 12:41:02 PM CET_
 
