@@ -26,6 +26,6 @@ tags:
 </figure>
 </center>
 
-This post has been converted into an [article](https://link.springer.com/article/10.1007/s11416-022-00458-7). Please refer to:
+This post has been converted into an [article](https://link.springer.com/article/10.1007/s11416-022-00458-7) about antifrida techniques. Please refer to:
 
 **Detecting and bypassing frida dynamic function call tracing: exploitation and mitigation**. Journal of Computer Virology and Hacking Techniques. DOI: [10.1007/s11416-022-00458-7](https://link.springer.com/article/10.1007/s11416-022-00458-7)
