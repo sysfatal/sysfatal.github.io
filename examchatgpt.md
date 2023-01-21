@@ -793,7 +793,7 @@ la programación, y no sepamos cómo funcionan las máquinas.
 Ya nos avisó Asimov (o eso dice ChatGPT).
 
 
-### ACTUALIZACIÓN (21-ene) ¿Y un test?
+### ACTUALIZACIÓN (21 de enero) ¿Y un test?
 
 Para ver qué tal le salen los test, he probado con el de otra asignatura:
 Seguridad en Sistemas Robóticos de cuarto curso de Ingeniería de Robótica
