@@ -28,6 +28,8 @@ tags:
 </figure>
 </center>
 
+TTY significa _teletype terminal_.
+
 Como decía Lions en su libro "A Comentary on the UNIX Operating System"
 [1], en 1977 ya había
 una gran cantidad de terminales disponibles de distinto tipo que podían ser
@@ -39,10 +41,10 @@ el baudio (Bd) es una _unidad de transmisión de datos que se usa para referirse
 a la velocidad de las señales, específicamente, representa la cantidad de veces
 que una señal cambia por segundo_.
 
-* Paridad de transmisión, que puede ser odd, even, none, o inoperative.  ¿Qué
+* Paridad de transmisión, que puede ser _odd_, _even_, _none_, o _inoperative_.  ¿Qué
 es eso? Es un bit de redundancia para detectar errores. Si has visto el ASR33, te puedes
 imaginar por dónde tenían que viajar los bits hasta llegar al ordenador, y al
-revés. Era fácil que un bit se cambiara (flip).
+revés. Era fácil que un bit se cambiara por el camino.
 Por ejemplo, si es odd (impar), si el número de bits transmitidos es par,
 el bit de paridad se pone a 1, para que la cuenta total sea impar; si el número
 es impar, se pone a 0 para que la cuenta total sea impar.
@@ -57,9 +59,12 @@ en los dos sentidos a la vez o no), algunas funciones de control, etc.
 Una de las características es su técnica de salida.
 ¿Estás pensando en pantallas? Puede que no sea una pantalla.
 Mira el teletipo ASR33, su salida es una impresora. Ese dispositivo
-es un *teletipo*. Cuando apareció la línea de comandos, sustituyendo los trabajos
+es un **teletipo**.
+
+Cuando apareció la línea de comandos, sustituyendo los trabajos
 por lotes (no en todos los casos), se empezaron a conectar todo tipo de teletipos
 a los ordenadores para hacer entrada/salida. Es lo que había en el mercado entonces.
+
 El los años 1970s se empezaron a usar terminales de video como el VT100 de DEC [2].
 No se usan dispositivos de este tipo, desde hace varias décadas.
 
@@ -454,6 +459,7 @@ tenemos que emular hardware que lleva décadas obsoleto**.
 Nuestros teléfonos móviles llevan dentro todo este código
 y nos podemos conectar a ellos por un USB serie ¡como si nuestro portátil
 fuera un *teletipo*!
+Si tienes valor, lee la página de manual _xterm(1)_.
 
 <center>
 <figure class="image">
@@ -477,8 +483,6 @@ pero no por mucho tiempo.
 </center>
 
 Aquí seguimos, emulando terminales de la familia VT de DEC en 2023.
-Si tienes valor, lee la página de manual _xterm(1)_.
-
 
 # Referencias
 
