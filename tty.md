@@ -480,6 +480,7 @@ El concepto de *teletipo*, o TTY, había desaparecido [4]...
 pero no por mucho tiempo:
 aquí seguimos, emulando terminales de la familia VT de DEC en 2023.
 
+
 <center>
 <figure class="image">
   <img src="figs/vt220.jpg">
