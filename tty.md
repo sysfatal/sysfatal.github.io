@@ -136,8 +136,8 @@ Si el mínimo es cero y el tiempo está establecido, es una lectura con _timeout
 Tienes más detalles en [6] y [7].
 
 El modo canónico es el que estamos acostumbrados a usar.
-Con el fin de mantener los programas de área de usuario lo más
-sencillos posible (filosofía Unix), el sistema permite realizar
+Con el fin de mantener los programas de área de usuario sencillos
+(filosofía Unix), el sistema permite realizar
 operaciones de edición sobre
 las líneas que el usuario va escribiendo en el terminal, antes de que esas
 líneas sean entregadas al programa en cuestión (p. ej. a la shell). Originalmente,
