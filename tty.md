@@ -83,11 +83,8 @@ la *consola*? TTY significa **teletype terminal**.
 
 Todos sabemos (o deberíamos saber) que unas de las ideas originales de Unix es que
 (casi) todo se representa como un fichero, que no tiene por qué ser una serie
-de bloques en un disco duro: hay ficheros _sintéticos_ que sirven como interfaz
-con el sistema operativo. En general, esta filosofía se ha ido diluyendo
-con el tiempo en los sistemas de tipo Unix (aunque tenemos ejemplos
-como */proc* y */sys*), aunque algunos sistemas sucesores de UNIX la
-llevaron al límite.
+de bloques en un disco duro: hay ficheros _sintéticos_ que sirven de interfaz
+con el núcleo del sistema.
 
 El fichero */dev/tty* siempre representa el terminal controlador de un proceso
 (si es que tiene). Siempre que abras ese fichero, estás abriendo tu terminal controlador.
