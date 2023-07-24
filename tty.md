@@ -316,13 +316,9 @@ Para restablecer los
 valores del terminal podemos usar el comando _reset(1)_, que vuelve a ponerlo
 en modo cocinado y con eco, y pone los valores por omisión.
 
-
-
-# Pseudoterminales
-
 Si en el terminal que estoy usando ahora mismo en mi máquina con Ubuntu 22.04
-miro los descriptores de fichero de la shell que estoy usando (una bash en este
-caso), podré ver:
+miro los descriptores de fichero de la shell que estoy usando (una *bash* en este
+caso):
 
 ```
 $ ls -l /proc/$$/fd
