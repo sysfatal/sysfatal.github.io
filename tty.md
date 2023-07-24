@@ -338,7 +338,7 @@ Si en mi sistema Ubuntu 22.04 pulso Ctrl+Alt+F4, paso a usar un terminal virtual
 (en este caso, */dev/tty4*). Si me autentico y miro los ficheros que
 tiene abiertos la shell,
 vemos que la entrada estándar, la salida estándar y la salida de
-errores (descriptores0, 1 y 2) están usando el terminal virtual tty4:
+errores (descriptores 0, 1 y 2) están usando el terminal virtual tty4:
 
 ```
 $ ls -l /proc/$$/fd
