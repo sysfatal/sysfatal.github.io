@@ -96,8 +96,6 @@ $ ls -l /dev/tty
 crw-rw-rw- 1 root tty 5, 0 jul 19 09:22 /dev/tty
 ```
 
-# Terminales
-
 En una máquina Linux tenemos dispositivos de caracteres para los terminales,
 con el nombre */dev/ttyX*, siendo X un número. Estos son terminales _virtuales_.
 
@@ -111,12 +109,13 @@ $ ls /dev/tty* | wc -l
 98
 ```
 
-Los teletipos se conectan por un par de cables a una UART (Universal Asynchronous
+Los teletipos se conectaban a través de un par de cables a una UART (Universal Asynchronous
 Receiver and Transmitter). La transmisión por este cable serie la gestiona
-un driver del kernel. Este driver era extremadamente importante, porque
+un driver de UART. Otro driver, el del terminal, lee/escribe de la UART.
+Este segundo driver era extremadamente importante, porque
 los terminales eran la interfaz del usuario con el sistema.
 
-El driver puede manejar la entrada en dos
+El driver del terminal puede manejar la entrada en dos
 modos: canónico y no canónico.  El modo se indica en la
 flag `ICANON` de la configuración del terminal.
 
