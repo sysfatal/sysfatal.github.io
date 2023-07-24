@@ -357,8 +357,9 @@ video emulado por software, que se visualiza en nuestra pantalla.
 De nuevo, esto no es lo que usamos habitualmente cuando queremos trabajar
 con una shell en nuestro PC con Linux.
 
-En mi portátil, con Ubuntu 22.04, tengo la interfaz gráfica con Gnome.
-Normalmente, uso un terminal *terminator*.
+En mi portátil,  tengo la interfaz gráfica con X Window y el escritorio
+gnome. Normalmente, para trabajar con la shell
+uso una aplicación gráfica llamada *terminator*.
 
 Si miramos los descriptores de fichero de la shell que se ejecuta en
 mi *terminator*
@@ -384,7 +385,8 @@ Los terminales que estamos usando son **terminales emulados**.
 
 Un emulador de terminal es un programa con una
 interfaz gráfica que simula un terminal hardware de los que se usaban hace décadas.
-Hay muchos programas de este tipo:  *xterm*, *gnome-terminal* o *konsole*, etc.
+Hay muchos programas de este tipo:  *xterm*, *gnome-terminal*, *terminator*,
+*konsole*, etc.
 Por ejemplo, cuando se escribe un código ANSI para cambiar el color de los
 caracteres, es el emulador de terminal el que interpreta ese código y se pone
 a _pintar_ los caracteres de otro color.
