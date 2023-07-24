@@ -198,7 +198,7 @@ modo canónico (i.e. uso interactivo del terminal)
 y el término _crudo_ cuando nos referimos al modo no
 canónico (i.e. sin ningún tipo de preprocesado).
 En UNIX Version 7 se usaban esos nombres.
-Algunos autores usan esos términos como sinónimos (p. ej. Tanembaum [8]).
+Algunos autores usan esos términos como sinónimos (p. ej. Tanenbaum [8]).
 Existen otros modos. Por ejemplo, _cbreak_
 es algo intermedio: se lee carácter a carácter, pero sí se interpretan
 ciertos caracteres de control.
@@ -553,7 +553,7 @@ pero no por mucho tiempo:
 
 [7] The Linux Programming Interface, Kerrisk.
 
-[8] Modern Operating Systems 4th Ed., A. Tanembaum.
+[8] Modern Operating Systems 4th Ed., A. Tanenbaum.
 
 <sub><sup>
     <b>(cc) Enrique Soriano-Salvador</b>
