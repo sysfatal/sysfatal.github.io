@@ -109,22 +109,23 @@ $ ls /dev/tty* | wc -l
 98
 ```
 
-Los teletipos se conectaban a través de un par de cables a una UART (Universal Asynchronous
-Receiver and Transmitter). La transmisión por este cable serie la gestiona
-un driver de UART. Otro driver, el del terminal, lee/escribe de la UART.
-Este segundo driver era extremadamente importante, porque
-los terminales eran la interfaz del usuario con el sistema.
+Los teletipos se conectaban a través de un par de cables a
+una UART (Universal Asynchronous Receiver and Transmitter).
+El driver de la UART gestiona la transmisión por este cable serie.
+Otro driver implementa el terminal, leyendo/escribiendo en la UART.
 
-El driver del terminal puede manejar la entrada en dos
+El driver del terminal era extremadamente importante, porque
+los terminales eran la interfaz del usuario con el sistema.
+El driver puede manejar la entrada en dos
 modos: canónico y no canónico.  El modo se indica en la
 flag `ICANON` de la configuración del terminal.
 
 En modo no canónico, la entrada del terminal se procesa
-carácter a carácter. No es la forma en la que estamos acostumbrados a usar
-un terminal.
+carácter a carácter.
+Esta no es la forma en la que estamos acostumbrados a usar un terminal.
 Las aplicaciones como editores (p. ej. vi, nano) usan la entrada en modo
-no canónico, porque esos programas quieren controlar el manejo de las
-líneas, no quieren ningún tipo de preprocesado.
+no canónico, porque esos programas quieren ningún tipo de preprocesado
+para el manejo de las líneas, etc.
 En modo no canónico se configuran dos parámetros para decidir
 cuando una lectura en el
 terminal se debe completar: el tiempo y la cantidad de mínima
