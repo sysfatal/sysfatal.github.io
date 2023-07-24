@@ -455,8 +455,7 @@ lo que corresponda (p. ej. _pintar_
 cosas en esa ventana de la interfaz gráfica como si fuera una pantalla o
 una impresora de los antiguos teletipos).
 Si tienes valor, lee la página de manual _xterm(1)_.
-Entre el _slave_ y el _master_ se aplica  
-la *disciplina de línea*.
+Entre el _slave_ y el _master_ se aplica la *disciplina de línea*.
 
 En Linux, todo esto lo proporciona el sistema de ficheros *devpts*, incluído
 en 1997, que implementa lo que se conoce como pseudoterminales Unix98.
