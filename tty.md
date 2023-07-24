@@ -98,6 +98,22 @@ crw-rw-rw- 1 root tty 5, 0 jul 19 09:22 /dev/tty
 
 En una máquina Linux tenemos dispositivos de caracteres para los terminales,
 con el nombre */dev/ttyX*, siendo X un número. Estos son terminales _virtuales_.
+Los terminales virtuales (VT) son terminales de pantalla completa en modo texto.
+Se pueden acceder pulsando Ctrl+Alt+F1, etc. Es la interfaz que podemos usar
+en una máquina que no tenga el sistema gráfico configurado (p. ej. en servidores).
+Si en mi sistema Ubuntu 22.04 pulso Ctrl+Alt+F4, paso a usar un terminal virtual
+(/dev/tty4). Si miro los descriptores que tiene abiertos la shell que ejecuto
+en dicho terminal virtual:
+
+```
+$ ls -l /proc/$$/fd
+total 0
+lrwx------ 1 esoriano esoriano 64 jul 24 14:51 0 -> /dev/tty4
+lrwx------ 1 esoriano esoriano 64 jul 24 14:51 1 -> /dev/tty4
+lrwx------ 1 esoriano esoriano 64 jul 24 14:51 2 -> /dev/tty4
+```
+
+
 
 Los terminales serie se llaman */dev/ttySX*, siendo X un número. Son puertos
 UART para conectar terminales de verdad por un cable serie. Hay muchos otros
@@ -316,9 +332,9 @@ Para restablecer los
 valores del terminal podemos usar el comando _reset(1)_, que vuelve a ponerlo
 en modo cocinado y con eco, y pone los valores por omisión.
 
-Si en el terminal que estoy usando ahora mismo en mi máquina con Ubuntu 22.04
-miro los descriptores de fichero de la shell que estoy usando (una *bash* en este
-caso):
+Si en el terminal que estoy usando ahora mismo en mi máquina con Ubuntu 22.04,
+un *terminator*, miro los descriptores de fichero de la shell
+que estoy usando (una *bash* en este caso):
 
 ```
 $ ls -l /proc/$$/fd
