@@ -316,7 +316,7 @@ valores del terminal podemos usar el comando _reset(1)_, que vuelve a ponerlo
 en modo cocinado y con eco, y pone los valores por omisión.
 
 Pero, por lo general, no usamos un terminal a través de un cable serie.
-Lo que usamos son *terminales virtuales o emulados*.
+Lo que usamos son *terminales virtuales y emulados*.
 
 Los dispositivos */dev/ttyX*, siendo X un número, son terminales _virtuales_.
 Los terminales virtuales (VT), o consolas virtuales,
@@ -326,7 +326,10 @@ en una máquina que no tenga el sistema gráfico configurado
 para ejecutar una GUI con X11 o Wayland (p. ej. en servidores).
 
 Si en mi sistema Ubuntu 22.04 pulso Ctrl+Alt+F4, paso a usar un terminal virtual
-(/dev/tty4). Si me autentico y  miro los descriptores que tiene abiertos la shell:
+(en este caso, */dev/tty4*). Si me autentico y miro los ficheros que
+tiene abiertos la shell,
+vemos que la entrada estándar, la salida estándar y la salida de
+errores (descriptores0, 1 y 2) están usando el terminal virtual tty4:
 
 ```
 $ ls -l /proc/$$/fd
@@ -336,18 +339,18 @@ lrwx------ 1 esoriano esoriano 64 jul 24 14:51 1 -> /dev/tty4
 lrwx------ 1 esoriano esoriano 64 jul 24 14:51 2 -> /dev/tty4
 ```
 
-Los terminales virtuales están implementados por la consola del kernel de Linux,
-que implementa un terminal completo (compatible con la familia VT100).
+La consola del kernel de Linux proporciona estos terminales virtuales.
+Implementa un terminal completo, compatible con la familia VT100.
 En este caso, el driver del terminal funciona igual que con un terminal serie,
-pero sin *hablar* con un terminal físico o una UART. Se habla con terminal de
+pero sin *hablar* con un terminal físico o una UART: se _habla_ con terminal de
 video emulado por software, que se visualiza en nuestra pantalla.
 
-Pero, de nuevo, esto no es lo que solemos usar cuando queremos trabajar
-con una shell en un PC moderno.
+De nuevo, esto no es lo que solemos usar cuando queremos trabajar
+con una shell en nuestro PC.
 
-Si en el terminal que estoy usando ahora mismo en mi máquina con Ubuntu 22.04,
-un *terminator*, miro los descriptores de fichero de la shell
-que estoy usando (una *bash* en este caso):
+En mi portátil, con Ubuntu 22.04 y Gnome, normalmente uso
+un *terminator*. Si miramos los descriptores de fichero de la shell que
+se ejecuta en ese *terminator*
 
 ```
 $ ls -l /proc/$$/fd
@@ -357,8 +360,7 @@ lrwx------ 1 esoriano esoriano 64 jul 19 13:35 1 -> /dev/pts/0
 lrwx------ 1 esoriano esoriano 64 jul 19 13:35 2 -> /dev/pts/0
 ```
 
-Vemos que la entrada estándar, la salida estándar y la salida de errores (descriptores
-0, 1 y 2) están usando el mismo fichero: */dev/pts/0*:
+veremos que el terminal es */dev/pts/0*.
 
 ```
 $ ls -l /dev/pts/0
