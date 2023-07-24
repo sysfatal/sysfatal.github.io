@@ -96,35 +96,18 @@ $ ls -l /dev/tty
 crw-rw-rw- 1 root tty 5, 0 jul 19 09:22 /dev/tty
 ```
 
-En una máquina Linux tenemos dispositivos de caracteres para los terminales,
-con el nombre */dev/ttyX*, siendo X un número. Estos son terminales _virtuales_.
-Los terminales virtuales (VT) son terminales de pantalla completa en modo texto.
-Se pueden acceder pulsando Ctrl+Alt+F1, etc. Es la interfaz que podemos usar
-en una máquina que no tenga el sistema gráfico configurado (p. ej. en servidores).
-Si en mi sistema Ubuntu 22.04 pulso Ctrl+Alt+F4, paso a usar un terminal virtual
-(/dev/tty4). Si miro los descriptores que tiene abiertos la shell que ejecuto
-en dicho terminal virtual:
-
-```
-$ ls -l /proc/$$/fd
-total 0
-lrwx------ 1 esoriano esoriano 64 jul 24 14:51 0 -> /dev/tty4
-lrwx------ 1 esoriano esoriano 64 jul 24 14:51 1 -> /dev/tty4
-lrwx------ 1 esoriano esoriano 64 jul 24 14:51 2 -> /dev/tty4
-```
-
-
-
-Los terminales serie se llaman */dev/ttySX*, siendo X un número. Son puertos
-UART para conectar terminales de verdad por un cable serie. Hay muchos otros
-tipos de ficheros tty en */dev/*, para hardware específico (p. ej. puertos
-_stallion_, _specialix_, etc.)... en mi sistema, hay 98:
+En una máquina Linux tenemos diferentes dispositivos de caracteres para los terminales,
+con el nombre /dev/tty*.
+Hay muchos diferentes, para hardware específico (p. ej. puertos
+_stallion_, _specialix_, etc.), etc. En mi sistema, hay 98:
 
 ```
 $ ls /dev/tty* | wc -l
 98
 ```
 
+Los terminales serie se llaman */dev/ttySX*, siendo X un número. Son puertos
+UART para conectar terminales de verdad por un cable serie.
 Los teletipos se conectaban a través de un par de cables a
 una UART (Universal Asynchronous Receiver and Transmitter).
 El driver de la UART gestiona la transmisión por este cable serie.
@@ -332,6 +315,36 @@ Para restablecer los
 valores del terminal podemos usar el comando _reset(1)_, que vuelve a ponerlo
 en modo cocinado y con eco, y pone los valores por omisión.
 
+Pero, por lo general, no usamos un terminal a través de un cable serie.
+Lo que usamos son *terminales virtuales o emulados*.
+
+Los dispositivos */dev/ttyX*, siendo X un número, son terminales _virtuales_.
+Los terminales virtuales (VT), o consolas virtuales,
+son terminales de pantalla completa en modo texto.
+Se pueden acceder pulsando Ctrl+Alt+F1, etc. Es la interfaz que podemos usar
+en una máquina que no tenga el sistema gráfico configurado
+para ejecutar una GUI con X11 o Wayland (p. ej. en servidores).
+
+Si en mi sistema Ubuntu 22.04 pulso Ctrl+Alt+F4, paso a usar un terminal virtual
+(/dev/tty4). Si me autentico y  miro los descriptores que tiene abiertos la shell:
+
+```
+$ ls -l /proc/$$/fd
+total 0
+lrwx------ 1 esoriano esoriano 64 jul 24 14:51 0 -> /dev/tty4
+lrwx------ 1 esoriano esoriano 64 jul 24 14:51 1 -> /dev/tty4
+lrwx------ 1 esoriano esoriano 64 jul 24 14:51 2 -> /dev/tty4
+```
+
+Los terminales virtuales están implementados por la consola del kernel de Linux,
+que implementa un terminal completo (compatible con la familia VT100).
+En este caso, el driver del terminal funciona igual que con un terminal serie,
+pero sin *hablar* con un terminal físico o una UART. Se habla con terminal de
+video emulado por software, que se visualiza en nuestra pantalla.
+
+Pero, de nuevo, esto no es lo que solemos usar cuando queremos trabajar
+con una shell en un PC moderno.
+
 Si en el terminal que estoy usando ahora mismo en mi máquina con Ubuntu 22.04,
 un *terminator*, miro los descriptores de fichero de la shell
 que estoy usando (una *bash* en este caso):
@@ -419,11 +432,15 @@ canal se llama _master_ y el otro _slave_.
 
 El _slave_ ofrece la interfaz clásica de un terminal. Los programas
 que esperan encontrarse un terminal, pueden abrir ese fichero y trabajar
-con él. Los programas que emulan un terminal, como *xterm*,
-tendrán que abrir el _master_ para hacer lo que corresponda (p. ej. _pintar_
+con él.
+Los programas que emulan un terminal, como *xterm*,
+tendrán que abrir y usar el extremo _master_, haciendo
+lo que corresponda (p. ej. _pintar_
 cosas en esa ventana de la interfaz gráfica como si fuera una pantalla o
 una impresora de los antiguos teletipos).
 Si tienes valor, lee la página de manual _xterm(1)_.
+Entre el _slave_ y el _master_ se aplica  
+la *disciplina de línea*.
 
 En Linux, todo esto lo proporciona el sistema de ficheros *devpts*, incluído
 en 1997, que implementa lo que se conoce como pseudoterminales Unix98.
