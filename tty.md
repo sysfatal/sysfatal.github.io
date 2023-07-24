@@ -28,7 +28,6 @@ tags:
 </figure>
 </center>
 
-TTY significa _teletype terminal_.
 
 Como decía Lions en su libro "A Comentary on the UNIX Operating System"
 [1], en 1977 ya había
@@ -64,9 +63,7 @@ es un **teletipo**.
 Cuando apareció la línea de comandos, sustituyendo los trabajos
 por lotes (no en todos los casos), se empezaron a conectar todo tipo de teletipos
 a los ordenadores para hacer entrada/salida. Es lo que había en el mercado entonces.
-
 El los años 1970s se empezaron a usar terminales de video como el VT100 de DEC [2].
-No se usan dispositivos de este tipo, desde hace varias décadas.
 
 <center>
 <figure class="image">
@@ -75,11 +72,14 @@ No se usan dispositivos de este tipo, desde hace varias décadas.
 </figure>
 </center>
 
-Sin embargo, los sistemas de tipo Unix, como Linux, siguen usando todo esto, que
-está metido en las profundidades del sistema. ¿Cómo? Usamos terminales virtuales
+Desde hace varias décadas no usamos dispositivos hardware de este tipo: lo que tenemos
+es un ordenador con su teclado y pantalla.
+Sin embargo, en los sistemas de tipo Unix, como Linux o OSX, todo esto
+está metido en las profundidades del sistema.
+Usamos terminales _virtuales_
 que no están conectados por un par de cables a un teclado y una impresora o pantalla.
 ¿Nunca te has preguntado por qué se habla de TTY cuando hacemos referencia a
-lo que llamamos *consola*? TTY significa *teletype terminal*.
+la *consola*? TTY significa **teletype terminal**.
 
 Todos sabemos (o deberíamos saber) que unas de las ideas originales de Unix es que
 (casi) todo se representa como un fichero, que no tiene por qué ser una serie
