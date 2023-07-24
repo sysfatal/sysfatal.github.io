@@ -346,7 +346,7 @@ Por ejemplo, cuando se escribe un código ANSI para cambiar el color de los
 caracteres, es el emulador de terminal el que interpreta ese código y se pone
 a _pintar_ los caracteres de otro color.
 
-El comando _tty(1)_ nos dice la ruta al terminal en el que estamos:
+El comando _tty(1)_ nos dice la ruta del fichero del terminal en el que estamos:
 
 ```
 $ tty
@@ -360,7 +360,7 @@ Si en ese terminal ejecutamos
 $ cat /dev/tty
 ```
 
-el programa *cat* leerá de ese fichero */dev/tty*. Ese fichero
+el programa *cat* leerá de su terminal controlador. Ese fichero
 representa la consola para el proceso que está ejecutando *cat*.
 
 Si en otro terminal escribimos en el fichero */dev/pts/0*
