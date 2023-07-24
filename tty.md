@@ -464,15 +464,6 @@ que se nombrabab como */dev/ptypX*, siendo X un número.
 Todo esto en sorprendente, ¿verdad?
 **Para poder ejecutar una shell en nuestros portátiles de última generación,
 tenemos que emular hardware que lleva décadas obsoleto**.
-Nuestros teléfonos móviles llevan dentro todo este código
-y nos podemos conectar a ellos por un USB serie ¡como si nuestro portátil
-fuera un *teletipo*!
-
-Plan 9, el sistema sucesor de UNIX que, por desgracia, no
-triunfó (esa es otra historia), limpió todo esto hace más de 30 años:
-el sistema estaba diseñado para ejecutar en una máquina con teclado, ratón
-y pantalla gráfica. El concepto de *teletipo*, o TTY, había desaparecido [4]...
-pero no por mucho tiempo.
 
 <center>
 <figure class="image">
@@ -481,8 +472,13 @@ pero no por mucho tiempo.
 </figure>
 </center>
 
-Aquí seguimos, emulando terminales de la familia VT de DEC en 2023.
-
+Plan 9, el sistema sucesor de UNIX que, por desgracia, no
+triunfó (esa es otra historia), limpió todo esto hace más de 30 años:
+el sistema estaba diseñado para ejecutar en una máquina con teclado, ratón
+y pantalla gráfica.
+El concepto de *teletipo*, o TTY, había desaparecido [4]...
+pero no por mucho tiempo:
+aquí seguimos, emulando terminales de la familia VT de DEC en 2023.
 
 <center>
 <figure class="image">
