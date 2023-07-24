@@ -163,8 +163,8 @@ el  *read* se queda bloqueado hasta que haya una línea lista
 para ser leída o se haya llegado al máximo de bytes que se han solicitado.
 ¿Qué significa que haya una línea? Significa que se haya encontrado un _carácter_
 terminador de línea: una nueva línea, el final del fichero, un final de línea, etc.
-Por tanto, hay _"caracteres"_ que tienen un significado especial en la entrada
-cocinada. POSIX.1 espeficia 11 caracteres especiales [6].
+Por tanto, hay _"caracteres"_ que tienen un significado especial.
+POSIX.1 espeficia 11 caracteres especiales [6].
 Ten en cuenta, además, que todo esto está totalmente relacionado
 con el _session control_, esto es, la gestión de sesiones y procesos en el terminal.
 
