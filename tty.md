@@ -354,11 +354,11 @@ En este caso, el driver del terminal funciona igual que con un terminal serie,
 pero sin *hablar* con un terminal físico o una UART: se _habla_ con terminal de
 video emulado por software, que se visualiza en nuestra pantalla.
 
-De nuevo, esto no es lo que usamos habitualmente cuando queremos trabajar
+Per esto no es lo que usamos habitualmente cuando queremos trabajar
 con una shell en nuestro PC con Linux.
 
-En mi portátil,  tengo la interfaz gráfica con X Window y el escritorio
-gnome. Normalmente, para trabajar con la shell
+En mi portátil, tengo una interfaz gráfica con X11 y el escritorio
+Gnome. Normalmente, para trabajar con la shell,
 uso una aplicación gráfica llamada *terminator*.
 
 Si miramos los descriptores de fichero de la shell que se ejecuta en
