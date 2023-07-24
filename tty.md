@@ -198,7 +198,7 @@ ciertos caracteres de control.
 Siendo precisos, al final lo que tenemos en Linux
 es un conjunto de parámetros
 de configuración para el terminal (entre los que se
-encuentra la flag `ICANON`). Los modos _cocinado_ y _crudo_
+encuentra una flag `icanon`). Los modos _cocinado_ y _crudo_
 son combinaciones diferentes de esos parámetros.
 
 Las funciones de _termios(3)_ nos permiten controlar los parámetros
@@ -224,7 +224,7 @@ echoctl echoke -flusho -extproc
 Como se puede ver en su salida, este terminal va a 38400 baudios, tiene 42
 filas y 75 columnas de texto. Los caracteres que entiende son Ctrl+C
 para interrumpir, Ctrl+U para _matar_ la línea (no confundas esto con
-una señal SIGKILL), etc. También tiene activo el modo canónico (`icanon`).
+una señal SIGKILL), etc. También tiene activo la flag (`icanon`).
 
 Podemos ponerlo en modo crudo y después ver si podemos interrumpir
 al proceso en primer plano con Ctrl+C:
