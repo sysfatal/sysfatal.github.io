@@ -239,7 +239,7 @@ Como dice la página de manual _stty(1)_, el modo _raw_ (_crudo_) es lo mismo qu
 conjunto de parámetros: `-ignbrk -brkint -ignpar -parmrk  -inpck  -istrip  -inlcr
  -igncr  -icrnl  -ixon  -ixoff -icanon -opost -isig -iuclc -ixany
  -imaxbel -xcase min 1 time 0`. Como se puede observar, entre otras cosas,
-desactiva el modo canónico (`-icanon`).
+desactiva `icanon`.
 
 Si lo ponemos en modo _cooked_ (_cocinado_) y hacemos la misma prueba
 
@@ -255,7 +255,7 @@ veremos que ahora sí se interrumpe el proceso que ejecuta el comando *sleep*.
 El modo _cooked_ es este conjunto de parámetros:
 `brkint ignpar istrip icrnl ixon opost isig icanon` y los caracteres
 EOL y EOF puestos a su valor por omisión. Como se puede ver, activa
-el modo canónico (`icanon`), entre otras cosas.
+la flag `icanon`.
 
 En otros sistemas de tipo Unix el comando *stty* es diferente (p. ej. [esta](https://man.freebsd.org/cgi/man.cgi?query=stty&apropos=0&sektion=0&manpath=FreeBSD+13.2-RELEASE+and+Ports&arch=default&format=html)
 es la página de manual en BSD).
