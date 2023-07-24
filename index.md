@@ -10,6 +10,13 @@ En este blog iré metiendo entradas sobre las cosas que me interesan, como la se
 
 ---
 
+## [TTY: teletype terminals](tty.html)
+_Mon Jul 24 12:46:07 CEST 2023_
+
+Como decía Lions en su libro "A Comentary on the UNIX Operating System" ... [(continúa)](tty.html)
+
+---
+
 ## [ChatGPT aprueba el examen](examchatgpt.html)
 _Fri Jan 13 06:55:33 PM CET 2023_
 
