@@ -297,8 +297,9 @@ Por ejemplo, si queremos poner la letras amarillas:
 $ echo $'\x1b[1;33m'
 ```
 
-¿Qué hace esto? Estamos escribiendo el byte 0x1b (el carácter de escape,`esc`)
-seguido de un código ANSI, que el terminal de video interpreta como la orden
+¿Qué hace esto? Estamos escribiendo en el terminal
+el byte 0x1b (el carácter de escape,`esc`)
+seguido de un código ANSI. El terminal interpreta eso como la orden
 para cambiar el color del texto a amarillo.
 De la misma forma podemos cambiar el fondo de la letra, si está en negrita,
 etc.
