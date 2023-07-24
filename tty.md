@@ -407,6 +407,7 @@ con él. Los programas que emulan un terminal, como *xterm*,
 tendrán que abrir el _master_ para hacer lo que corresponda (p. ej. _pintar_
 cosas en esa ventana de la interfaz gráfica como si fuera una pantalla o
 una impresora de los antiguos teletipos).
+Si tienes valor, lee la página de manual _xterm(1)_.
 
 En Linux, todo esto lo proporciona el sistema de ficheros *devpts*, incluído
 en 1997, que implementa lo que se conoce como pseudoterminales Unix98.
@@ -466,15 +467,6 @@ tenemos que emular hardware que lleva décadas obsoleto**.
 Nuestros teléfonos móviles llevan dentro todo este código
 y nos podemos conectar a ellos por un USB serie ¡como si nuestro portátil
 fuera un *teletipo*!
-Si tienes valor, lee la página de manual _xterm(1)_.
-
-<center>
-<figure class="image">
-  <img src="figs/plan9term.png">
-  <figcaption> Terminal de Plan 9, nada de teletipos </figcaption>
-</figure>
-</center>
-
 
 Plan 9, el sistema sucesor de UNIX que, por desgracia, no
 triunfó (esa es otra historia), limpió todo esto hace más de 30 años:
@@ -484,12 +476,21 @@ pero no por mucho tiempo.
 
 <center>
 <figure class="image">
+  <img src="figs/plan9term.png">
+  <figcaption> Terminal de Plan 9, nada de teletipos </figcaption>
+</figure>
+</center>
+
+Aquí seguimos, emulando terminales de la familia VT de DEC en 2023.
+
+
+<center>
+<figure class="image">
   <img src="figs/vt220.jpg">
   <figcaption> DEC VT220 </figcaption>
 </figure>
 </center>
 
-Aquí seguimos, emulando terminales de la familia VT de DEC en 2023.
 
 # Referencias
 
