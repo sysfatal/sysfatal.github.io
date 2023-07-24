@@ -2,7 +2,7 @@
 <br>
 <a href="https://twitter.com/e__soriano?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow me on Twitter (@e__soriano)</a>
 <br>
-about me: <a href="https://gsyc.urjc.es/~esoriano/">website</a>
+About me: <a href="https://gsyc.urjc.es/~esoriano/">personal website</a>
 
 # sysfatal(blog)
 
