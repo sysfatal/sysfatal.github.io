@@ -526,7 +526,7 @@ el sistema estaba diseñado para ejecutar en una máquina con teclado, ratón
 y pantalla gráfica.
 El concepto de *teletipo*, o TTY, había desaparecido [4]...
 pero no por mucho tiempo:
-aquí seguimos, emulando terminales de la familia VT de DEC en 2023.
+**aquí estamos, emulando terminales de la familia VT de DEC en 2023**.
 
 
 <center>
