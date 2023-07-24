@@ -35,9 +35,9 @@ conectados a un ordenador. Sus características principales eran:
 
 * Velocidad de transmisión. Por ejemplo, un teletipo ASR33 era de 100 baudios
 o un Visual Display Unit (VDU) de 9600 baudios. ¿Baudios? Como dice la wikipedia,
-**el baudio (Bd) es una unidad de transmisión de datos que se usa para referirse
+el baudio (Bd) es una _unidad de transmisión de datos que se usa para referirse
 a la velocidad de las señales, específicamente, representa la cantidad de veces
-que una señal cambia por segundo**.
+que una señal cambia por segundo_.
 
 * Paridad de transmisión, que puede ser odd, even, none, o inoperative.  ¿Qué
 es eso? Es un bit de redundancia para detectar errores. Si has visto el ASR33, te puedes
@@ -449,8 +449,8 @@ Antes de *devpts*, Linux seguía el estilo antiguo de BSD para los pseudotermina
 que se nombrabab como */dev/ptypX*, siendo X un número.
 
 Todo esto en sorprendente, ¿verdad?
-*Para poder ejecutar una shell en nuestros portátiles de última generación,
-tenemos que emular hardware que lleva décadas obsoleto*.
+**Para poder ejecutar una shell en nuestros portátiles de última generación,
+tenemos que emular hardware que lleva décadas obsoleto**.
 Nuestros teléfonos móviles llevan dentro todo este código
 y nos podemos conectar a ellos por un USB serie ¡como si nuestro portátil
 fuera un *teletipo*!
