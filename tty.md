@@ -36,9 +36,7 @@ conectados a un ordenador. Sus características principales eran:
 
 * Velocidad de transmisión. Por ejemplo, un teletipo ASR33 era de 100 baudios
 o un Visual Display Unit (VDU) de 9600 baudios. ¿Baudios? Como dice la wikipedia,
-el baudio (Bd) es una _unidad de transmisión de datos que se usa para referirse
-a la velocidad de las señales, específicamente, representa la cantidad de veces
-que una señal cambia por segundo_.
+el baudio (Bd) es una _unidad de medida utilizada en telecomunicaciones que representa el número de símbolos por segundo en un medio de transmisión_.
 
 * Paridad de transmisión, que puede ser _odd_, _even_, _none_, o _inoperative_.  ¿Qué
 es eso? Es un bit de redundancia para detectar errores. Si has visto el ASR33, te puedes
@@ -380,8 +378,7 @@ $ ls -l /dev/pts/0
 crw--w---- 1 esoriano tty 136, 0 jul 19 13:38 /dev/pts/0
 ```
 
-¿Qué es eso? PTS significa *pseudoterminal slave*. Estamos usando pseudoterminales.
-Los terminales que estamos usando son terminales emulados.
+¿Qué es eso? PTS significa *pseudoterminal slave*. Estamos usando pseudoterminales, con _terminales emulados_.
 
 Un emulador de terminal es un programa gráfico de área de usuario
 que simula un terminal hardware de los que se usaban hace décadas.
