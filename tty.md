@@ -166,7 +166,7 @@ terminador de línea: una nueva línea, el final del fichero, un final de línea
 Por tanto, hay _"caracteres"_ que tienen un significado especial.
 POSIX.1 espeficia 11 caracteres especiales [6].
 Ten en cuenta, además, que todo esto está totalmente relacionado
-con el control de trabajos y sesiones (_job control_).
+con el control de trabajos y sesiones.
 
 Por ejemplo, cuando pulsamos Ctrl+D se completa la lectura actual: si hay
 datos en el buffer, se entregan (aunque no sea una línea),
