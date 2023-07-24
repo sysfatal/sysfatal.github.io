@@ -74,7 +74,7 @@ El los años 1970s se empezaron a usar terminales de video como el VT100 de DEC 
 
 Desde hace varias décadas no usamos dispositivos hardware de este tipo: lo que tenemos
 es un ordenador con su teclado y pantalla.
-Sin embargo, en los sistemas de tipo Unix, como Linux o OSX, todo esto
+Sin embargo, en los sistemas de tipo Unix, como Linux y OSX, todo esto
 está metido en las profundidades del sistema.
 Usamos terminales _virtuales_
 que no están conectados por un par de cables a un teclado y una impresora o pantalla.
