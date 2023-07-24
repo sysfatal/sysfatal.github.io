@@ -250,7 +250,7 @@ $ sleep 10
 $
 ```
 
-veremos cómo se interrumpe el proceso que ejecuta el comando *sleep*.
+veremos que ahora sí se interrumpe el proceso que ejecuta el comando *sleep*.
 
 El modo _cooked_ es este conjunto de parámetros:
 `brkint ignpar istrip icrnl ixon opost isig icanon` y los caracteres
