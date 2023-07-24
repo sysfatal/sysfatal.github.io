@@ -182,19 +182,22 @@ retorno de carro; Ctrl+S para la entrada, la deja congelada; Ctrl+Q inicia
 la entrada (la descongela); Ctrl+H borra un carácter de la línea; Ctrl+W
 borra una palabra de la línea, etc.
 
-Como es habitual en los sistemas de tipo Unix, hay bastante lío con los nombres.
+Como es habitual en los sistemas de tipo Unix, hay bastante lío con los nombres
+y
 Se suele usar el término modo _cocinado_ cuando nos referimos al
-modo canónico y el término _crudo_ cuando nos referimos al modo no canónico.
-Algunos autores los usan como sinónimos (p. ej. Tanembaum [8]).
-Existe otro modo, _cbreak_,
-que es algo intermedio: se lee carácter a carácter, pero sí se interpretan
+modo canónico (i.e. uso interactivo del terminal)
+y el término _crudo_ cuando nos referimos al modo no
+canónico (i.e. sin ningún tipo de preprocesado).
+Algunos autores usan esos términos como sinónimos (p. ej. Tanembaum [8]).
+Existen otros modos. Por ejemplo, _cbreak_
+es algo intermedio: se lee carácter a carácter, pero sí se interpretan
 ciertos caracteres de control.
 
-En realidad, no son sinónimos, al menos en Linux.
-Siendo precisos, lo que tenemos es una serie de parámetros
-de configuración para el terminal. Los modos _cocinado_ y _crudo_
-son dos combinaciones diferentes de parámetros (entre los que se
-encuentra `ICANON`).
+Siendo precisos, al final lo que tenemos en Linux
+es un conjunto de parámetros
+de configuración para el terminal (entre los que se
+encuentra la flag `ICANON`). Los modos _cocinado_ y _crudo_
+son combinaciones diferentes de esos parámetros.
 
 El comando _stty(1)_ nos permite consultar y cambiar la configuración del
 terminal. Con el argumento `-a` nos da toda la información sobre el terminal:
@@ -254,7 +257,10 @@ El modo _cooked_ es este conjunto de parámetros:
 EOL y EOF puestos a su valor por omisión. Como se puede ver, activa
 el modo canónico (`icanon`), entre otras cosas.
 
-En Linux, muchos programas cambian su comportamiento dependiendo si tienen
+En otros sistemas de tipo Unix el comando *stty* es diferente (p. ej. [esta](https://man.freebsd.org/cgi/man.cgi?query=stty&apropos=0&sektion=0&manpath=FreeBSD+13.2-RELEASE+and+Ports&arch=default&format=html)
+es la página de manual en BSD).
+
+Muchos programas cambian su comportamiento dependiendo si tienen
 su entrada o en su salida un terminal. Pueden comprobarlo llamando a la
 función _isatty(3)_.
 Por eso estas dos ejecuciones de *ls* no provocan la misma salida:
