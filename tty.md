@@ -24,7 +24,7 @@ tags:
 <center>
 <figure class="image">
   <img src="figs/teletype.jpg">
-  <figcaption> ASR33 </figcaption>
+  <figcaption> Teletipo ASR33 </figcaption>
 </figure>
 </center>
 
