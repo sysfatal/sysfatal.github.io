@@ -78,8 +78,8 @@ Sin embargo, en los sistemas de tipo Unix, como Linux y OSX, todo esto
 está metido en las profundidades del sistema.
 Usamos terminales _virtuales_
 que no están conectados por un par de cables a un teclado y una impresora o pantalla.
-¿Nunca te has preguntado por qué se habla de TTY cuando hacemos referencia a
-la *consola*? TTY significa **teletype terminal**.
+¿Nunca te has preguntado por qué se habla de TTY cuando hacemos referencia al terminal?
+TTY significa **teletype terminal**.
 
 Todos sabemos (o deberíamos saber) que unas de las ideas originales de Unix es que
 (casi) todo se representa como un fichero, que no tiene por qué ser una serie
@@ -350,8 +350,8 @@ Si en ese terminal ejecutamos
 $ cat /dev/tty
 ```
 
-el programa *cat* leerá de ese fichero */dev/tty*. Ese fichero representa la consola
-para el proceso que está ejecutando *cat*.
+el programa *cat* leerá de ese fichero */dev/tty*. Ese fichero
+representa la consola para el proceso que está ejecutando *cat*.
 
 Si en otro terminal escribimos en el fichero */dev/pts/0*
 
