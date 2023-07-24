@@ -448,11 +448,9 @@ $ sshd -p 1234
 Antes de *devpts*, Linux seguía el estilo antiguo de BSD para los pseudoterminales,
 que se nombrabab como */dev/ptypX*, siendo X un número.
 
-# Conclusiones
-
-Es sorprendente, ¿verdad?
-Para poder ejecutar una shell en nuestros portátiles de última generación,
-tenemos que emular hardware que lleva décadas obsoleto.
+Todo esto en sorprendente, ¿verdad?
+*Para poder ejecutar una shell en nuestros portátiles de última generación,
+tenemos que emular hardware que lleva décadas obsoleto*.
 Nuestros teléfonos móviles llevan dentro todo este código
 y nos podemos conectar a ellos por un USB serie ¡como si nuestro portátil
 fuera un *teletipo*!
