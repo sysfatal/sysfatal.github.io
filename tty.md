@@ -381,10 +381,10 @@ crw--w---- 1 esoriano tty 136, 0 jul 19 13:38 /dev/pts/0
 ```
 
 ¿Qué es eso? PTS significa *pseudoterminal slave*. Estamos usando pseudoterminales.
-Los terminales que estamos usando son **terminales emulados**.
+Los terminales que estamos usando son terminales emulados.
 
-Un emulador de terminal es un programa con una
-interfaz gráfica que simula un terminal hardware de los que se usaban hace décadas.
+Un emulador de terminal es un programa gráfico de área de usuario
+que simula un terminal hardware de los que se usaban hace décadas.
 Hay muchos programas de este tipo:  *xterm*, *gnome-terminal*, *terminator*,
 *konsole*, etc.
 Por ejemplo, cuando se escribe un código ANSI para cambiar el color de los
