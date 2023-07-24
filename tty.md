@@ -181,6 +181,15 @@ retorno de carro; Ctrl+S para la entrada, la deja congelada; Ctrl+Q inicia
 la entrada (la descongela); Ctrl+H borra un carácter de la línea; Ctrl+W
 borra una palabra de la línea, etc.
 
+Hay caracteres no imprimibles, esto es, no escriben ningún símbolo en la pantall.
+Por ejemplo, si escribimos un carácter _campana_ (bell, 0x07 ASCII), el
+terminal toca una campana:
+
+
+```
+$ echo $'\07'
+```
+
 Como es habitual en los sistemas de tipo Unix,
 hay bastante lío con los nombres y se mezclan conceptos de diferentes
 implementaciones y familias.
@@ -345,12 +354,15 @@ En este caso, el driver del terminal funciona igual que con un terminal serie,
 pero sin *hablar* con un terminal físico o una UART: se _habla_ con terminal de
 video emulado por software, que se visualiza en nuestra pantalla.
 
-De nuevo, esto no es lo que solemos usar cuando queremos trabajar
-con una shell en nuestro PC.
+De nuevo, esto no es lo que usamos habitualmente cuando queremos trabajar
+con una shell en nuestro PC con Linux.
 
-En mi portátil, con Ubuntu 22.04 y Gnome, normalmente uso
-un *terminator*. Si miramos los descriptores de fichero de la shell que
-se ejecuta en ese *terminator*
+En mi portátil, con Ubuntu 22.04, tengo la interfaz gráfica con Gnome.
+Normalmente, uso un terminal *terminator*.
+
+Si miramos los descriptores de fichero de la shell que se ejecuta en
+mi *terminator*
+
 
 ```
 $ ls -l /proc/$$/fd
