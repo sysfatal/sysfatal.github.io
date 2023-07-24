@@ -304,8 +304,9 @@ para cambiar el color del texto a amarillo.
 De la misma forma podemos cambiar el fondo de la letra, si está en negrita,
 etc.
 
-Los códigos no son sólo para los colores. Se puede mover el cursor,
-etc. Por ejemplo, `\x1b[2J` borra toda la pantalla.
+Los códigos no sirven sólo para  cambiar los colores de las letras.
+Se puede mover el cursor, etc.
+Por ejemplo, el código `\x1b[2J` borra toda la pantalla.
 
 Por eso, cuando no tenemos cuidado con lo que escribimos en el terminal, podemos
 destrozar su configuración. Eso suele pasar cuando, sin querer, volcamos
