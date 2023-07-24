@@ -182,12 +182,14 @@ retorno de carro; Ctrl+S para la entrada, la deja congelada; Ctrl+Q inicia
 la entrada (la descongela); Ctrl+H borra un carácter de la línea; Ctrl+W
 borra una palabra de la línea, etc.
 
-Como es habitual en los sistemas de tipo Unix, hay bastante lío con los nombres
-y
+Como es habitual en los sistemas de tipo Unix,
+hay bastante lío con los nombres y se mezclan conceptos de diferentes
+implementaciones y familias.
 Se suele usar el término modo _cocinado_ cuando nos referimos al
 modo canónico (i.e. uso interactivo del terminal)
 y el término _crudo_ cuando nos referimos al modo no
 canónico (i.e. sin ningún tipo de preprocesado).
+En UNIX Version 7 se usaban esos nombres.
 Algunos autores usan esos términos como sinónimos (p. ej. Tanembaum [8]).
 Existen otros modos. Por ejemplo, _cbreak_
 es algo intermedio: se lee carácter a carácter, pero sí se interpretan
@@ -199,6 +201,8 @@ de configuración para el terminal (entre los que se
 encuentra la flag `ICANON`). Los modos _cocinado_ y _crudo_
 son combinaciones diferentes de esos parámetros.
 
+Las funciones de _termios(3)_ nos permiten controlar los parámetros
+del terminal.
 El comando _stty(1)_ nos permite consultar y cambiar la configuración del
 terminal. Con el argumento `-a` nos da toda la información sobre el terminal:
 
@@ -258,7 +262,7 @@ EOL y EOF puestos a su valor por omisión. Como se puede ver, activa
 la flag `icanon`.
 
 En otros sistemas de tipo Unix el comando *stty* es diferente (p. ej. [esta](https://man.freebsd.org/cgi/man.cgi?query=stty&apropos=0&sektion=0&manpath=FreeBSD+13.2-RELEASE+and+Ports&arch=default&format=html)
-es la página de manual en BSD).
+es la página de manual en FreeBSD).
 
 Muchos programas cambian su comportamiento dependiendo si tienen
 su entrada o en su salida un terminal. Pueden comprobarlo llamando a la
