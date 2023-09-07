@@ -116,6 +116,11 @@ los terminales eran la interfaz del usuario con el sistema.
 El driver puede manejar la entrada en dos
 modos: canónico y no canónico.  El modo se indica en la
 flag `ICANON` de la configuración del terminal.
+Hay muchas otras flags para configurar diferentes características
+del terminal
+Por ejemplo, se puede activar el 
+eco del terminal: lo que escribes con el teclado
+también se escribe en la salida (p. ej. pantalla).
 
 En modo no canónico, la entrada del terminal se procesa
 carácter a carácter.
@@ -145,16 +150,11 @@ el sistema ofrece un buffer de edición y algunos comandos básicos para poder
 cambiar las líneas antes de ser entregadas a la aplicación.
 En este modo, la entrada del terminal
 se trata línea a línea.
-También se hace eco del terminal: lo que escribes con el teclado
-también se escribe en la salida (p. ej. pantalla).
 La *disciplina de línea* es la parte del driver que
 implementa todo ese procesado (es como lo implementaban la mayoría de
 los sistemas UNIX).
-Lo puedes ver como lo que hay
-entre las llamadas al sistema *read*/*write* manejadas por el driver del terminal,
-que se realizan para leer/escribir desde área de usuario, y el driver del
-dispositivo de entrada/salida que se esté usando.
 
+El modo canónico lee línea a línea. 
 Cuando se lee del terminal en modo canónico,
 el  *read* se queda bloqueado hasta que haya una línea lista
 para ser leída o se haya llegado al máximo de bytes que se han solicitado.
@@ -162,14 +162,14 @@ para ser leída o se haya llegado al máximo de bytes que se han solicitado.
 terminador de línea: una nueva línea, el final del fichero, un final de línea, etc.
 Por tanto, hay _"caracteres"_ que tienen un significado especial.
 POSIX.1 espeficia 11 caracteres especiales [6].
-Ten en cuenta, además, que todo esto está totalmente relacionado
-con el control de trabajos y sesiones.
-
 Por ejemplo, cuando pulsamos Ctrl+D se completa la lectura actual: si hay
 datos en el buffer, se entregan (aunque no sea una línea),
 en otro caso se provoca un *read* de 0 bytes, que en Unix
 se debe interpretar como final de fichero.
-Cuando pulsamos Ctrl+C, se interpreta un "carácter de interrupción"
+
+Otros ejemplos de caractéres especiales interpretados por el terminal
+(dependiendo de su configuración):
+cuando pulsamos Ctrl+C, se interpreta un "carácter de interrupción"
 (que se traduce en una señal SIGINT para el proceso que está en primer plano);
 Ctrl+Z se interpreta como una "caracter de suspensión", enviando la señal
 SIGTSTP que hace que se pare el proceso que está en primer plano; Ctrl+U
@@ -179,7 +179,8 @@ retorno de carro; Ctrl+S para la entrada, la deja congelada; Ctrl+Q inicia
 la entrada (la descongela); Ctrl+H borra un carácter de la línea; Ctrl+W
 borra una palabra de la línea, etc.
 
-Hay caracteres no imprimibles, esto es, no escriben ningún símbolo en la pantall.
+Hay caracteres no imprimibles, esto es, no escriben ningún símbolo en 
+la pantalla.
 Por ejemplo, si escribimos un carácter _campana_ (bell, 0x07 ASCII), el
 terminal toca una campana:
 
@@ -201,10 +202,10 @@ Existen otros modos. Por ejemplo, _cbreak_
 es algo intermedio: se lee carácter a carácter, pero sí se interpretan
 ciertos caracteres de control.
 
-Siendo precisos, al final lo que tenemos en Linux
+Siendo precisos, al final lo que tenemos 
 es un conjunto de parámetros
-de configuración para el terminal (entre los que se
-encuentra una flag `icanon`). Los modos _cocinado_ y _crudo_
+de configuración para el terminal. 
+Los modos _cocinado_ y _crudo_
 son combinaciones diferentes de esos parámetros.
 
 Las funciones de _termios(3)_ nos permiten controlar los parámetros
@@ -378,7 +379,8 @@ $ ls -l /dev/pts/0
 crw--w---- 1 esoriano tty 136, 0 jul 19 13:38 /dev/pts/0
 ```
 
-¿Qué es eso? PTS significa *pseudoterminal slave*. Estamos usando pseudoterminales, con _terminales emulados_.
+¿Qué es eso? PTS significa *pseudoterminal slave*. Estamos usando pseudoterminales.
+Los terminales que estamos usando son terminales emulados.
 
 Un emulador de terminal es un programa gráfico de área de usuario
 que simula un terminal hardware de los que se usaban hace décadas.
