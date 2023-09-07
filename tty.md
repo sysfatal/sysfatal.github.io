@@ -154,8 +154,8 @@ La *disciplina de línea* es la parte del driver que
 implementa todo ese procesado (es como lo implementaban la mayoría de
 los sistemas UNIX).
 
-El modo canónico lee línea a línea. 
-Cuando se lee del terminal en modo canónico,
+En modo canónico, la entrada se procesa línea a línea. 
+Cuando se lee del terminal,
 el  *read* se queda bloqueado hasta que haya una línea lista
 para ser leída o se haya llegado al máximo de bytes que se han solicitado.
 ¿Qué significa que haya una línea? Significa que se haya encontrado un _carácter_
