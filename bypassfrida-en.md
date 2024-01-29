@@ -30,4 +30,4 @@ This post has been converted into an [article](https://link.springer.com/article
 
 **Detecting and bypassing frida dynamic function call tracing: exploitation and mitigation**. Journal of Computer Virology and Hacking Techniques. DOI: [10.1007/s11416-022-00458-7](https://link.springer.com/article/10.1007/s11416-022-00458-7)
 
-Open version: PDF available [here] (https://burjcdigital.urjc.es/bitstream/handle/10115/25911/2023-frida-bypass-repositorio.pdf)
+Open version: PDF available [here](https://burjcdigital.urjc.es/bitstream/handle/10115/25911/2023-frida-bypass-repositorio.pdf)
