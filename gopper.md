@@ -55,3 +55,13 @@ Gopper git:
 ## Comments
 
 You can comment this post in [twitter](https://twitter.com/e__soriano/status/1486817363802607616)
+
+
+
+<sub><sup>
+    <b>(cc) Enrique Soriano-Salvador</b>
+    Algunos derechos reservados. Este trabajo se entrega bajo la licencia
+    Creative Commons Reconocimiento - NoComercial - SinObraDerivada (by-nc-nd).
+    Creative Commons, 559 Nathan Abbott Way, Stanford,
+    California 94305, USA.
+</sup></sub>
