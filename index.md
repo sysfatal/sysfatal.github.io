@@ -9,6 +9,12 @@ About me: <a href="https://gsyc.urjc.es/~esoriano/">personal website</a>
 In this blog I'll write about stuff I like: security, operating systems, the internet, crypto, robotics, and so on, in Spanish and/or English, whatever I please :)
 
 En este blog iré metiendo entradas sobre las cosas que me interesan, como la seguridad, sistemas operativos, internet, criptografía, etc. Algunas cosas estarán en castellano y otras en inglés, según me dé  :)
+---
+
+## [Empty Capabilities (not really](cap.html)
+_Mon Jul 24 12:46:07 CEST 2023_
+
+It's said that a file with empty capabilities runs as a setuid exectuable... [(continue)](cap.html)
 
 ---
 
