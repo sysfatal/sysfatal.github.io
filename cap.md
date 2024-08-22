@@ -25,8 +25,17 @@ tags:
 </figure>
 </center>
 
-It's said that a file with empty capabilies runs as a root setuid executable.
-For example, [hacktricks states](https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities):
+Processes have five different sets of capabilities:
+permitted, inherited, effective, bounding and ambient.
+Read the
+manual page, *capabilities(7)*, to understand how they work.
+Executable files may have some capabilities
+attached (*file capabilities*).
+File capabilities can modify the process capabilities when the
+_exec_ syscall is executed.
+
+It's said that a file with *empty capabilities* runs as a root setuid executable.
+For example, [the hacktricks website says](https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities):
 
 ```
 The special case of "empty" capabilities
@@ -47,6 +56,7 @@ if you have a binary that:
 
 then that binary will run as root.
 ```
+
 
 Let's try it. The *setcap* command can change the
 capabilities of a file.  
