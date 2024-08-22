@@ -29,23 +29,23 @@ It's said that a file with empty capabilies runs as a root setuid executable.
 For example, [hacktricks states](https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities):
 
 ```
-	The special case of "empty" capabilities
+The special case of "empty" capabilities
 
-	From the docs: Note that one can assign empty capability
-	sets to a program file, and thus it is possible to create a
-	set-user-ID-root program that changes the effective and saved
-	set-user-ID of the process that executes the program to 0,
-	but confers no capabilities to that process. Or, simply put,
-	if you have a binary that:
+From the docs: Note that one can assign empty capability
+sets to a program file, and thus it is possible to create a
+set-user-ID-root program that changes the effective and saved
+set-user-ID of the process that executes the program to 0,
+but confers no capabilities to that process. Or, simply put,
+if you have a binary that:
 
-	    is not owned by root
+    is not owned by root
 
-	    has no SUID/SGID bits set
+    has no SUID/SGID bits set
 
-	    has empty capabilities set (e.g.: getcap myelf returns
-	    myelf =ep)
+    has empty capabilities set (e.g.: getcap myelf returns
+    myelf =ep)
 
-	then that binary will run as root.
+then that binary will run as root.
 ```
 
 Let's try it. The *setcap* command can change the
@@ -349,7 +349,7 @@ Yes, it's true:
 _"all"_ and the empty string are equivalent in this syntax. Why? **¯\\\_(ツ)_/¯**
 
 In my opinion, that was an unfortunate decision. It leads
-to confusion. 
+to confusion.
 
 Capabilities in Linux are obscure and too complex. Remember, complexity is the enemy of security.
 
