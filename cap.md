@@ -1,5 +1,5 @@
 ---
-title:      Empty Capabilities (not really]
+title:      Empty Capabilities (not really)
 summary:    capabilities
 categories: blog
 date:       Thu Aug 22 13:35:04 CEST 2024
