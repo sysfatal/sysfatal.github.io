@@ -64,7 +64,7 @@ This document describes why this seemingly unusual solution works.
 
 VLC checks the effective UID credential: if it is 0 (the UID of root), it aborts the execution. The trick here is to replace this call. Instead of calling the `geteuid` function, the program will call the `getppid` function. Both functions belong to the C standard library. Both have seven-character names. Both take no parameters. Both return an integer value. The key point is that getppid will never return 0. This function returns the PID of the parent process (which will not be 0). Therefore, VLC will assume that the user running the program is not root (0).
 
-Is it calling `getppid`?
+Is it calling the `getppid` function?
 
 ```
 # strace ./vlc 2>&1 | grep getppid
@@ -78,13 +78,13 @@ If we try with another function:
 # sed -i 's/geteuid/getpid/g' vlc
 # ./vlc
 Segmentation fault (core dumped)
-# 
+#
 ```
 Why? The lenght of the name is not 7 chars :)
 
 But how can that sed command achieve this simply by replacing one string with another? Why doesn’t it break the binary? Why it is now calling `getppid` instead of `geteuid`?
 
-VLC is a stripped (no symbols table) dynamically linked binary with full RELRO:
+VLC is a stripped dynamically linked binary with full RELRO:
 
 ```
 # cp $(which vlc) vlc
@@ -95,18 +95,19 @@ nm: vlc: no symbols
 # checksec --file=./vlc
 RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH	Symbols		FORTIFY	Fortified	Fortifiable	FILE
 Full RELRO      Canary found      NX enabled    PIE enabled     No RPATH   No RUNPATH   No Symbols	  Yes	2		3		./vlc
-# 
+#
 ```
 
-This means that, before running, all the relocations for dynamic libraries are resolved. If we dump the dynamic symbols table:
+This means that, before running, all the relocations for dynamic libraries are resolved. 
+If we dump the dynamic symbols table, we can see the `geteuid` symbol:
 
 ```
 # objdump -T vlc | grep geteuid
 0000000000000000      DF *UND*	0000000000000000 (GLIBC_2.2.5) geteuid
-# 
+#
 ```
 
-Where is the `"geteuid"` string? Lets use radare2:
+But, where is the `"geteuid"` string? Lets use `radare2`:
 
 ```
 [0x000018e0]> / geteuid
@@ -142,12 +143,12 @@ nth paddr        size vaddr       vsize perm name
 0   0x00000798  0x271 0x00000798  0x271 -r-- .dynstr
 
 
-[0x00000892]> 
+[0x00000892]>
 
 ```
 
 Here it is, together with other library function names, in the `.dynstr` section
-of the ELF file. 
+of the ELF file.
 
 What's this? According to the manual page `elf(5)`:
 
@@ -158,7 +159,8 @@ What's this? According to the manual page `elf(5)`:
 	 with symbol table entries.  This section is of type
 	 SHT_STRTAB.  The attribute type used is SHF_ALLOC.
 ```
-There are the strings used by the `.dynsym` table:
+
+Those strings are used by the `.dynsym` table:
 
 ```
 .dynsym
@@ -167,17 +169,20 @@ There are the strings used by the `.dynsym` table:
        SHF_ALLOC.
 ```
 
-How is this table used? When a function is imported, the linker:
+When a function is imported, the linker:
 
 - stores its name as a string in the  `.dynstr` section
 - creates a corresponding symbol in `.dynsym`. The offset for the corresponding
 string is stored in the `st_name` field.
 - adds a relocation entry in `.rel.plt` that refers to that symbol
 
-The relocation specifies the destination through the `r_offset` field, which points to an entry in the GOT (Global Offset Table). This table, located in `.got.plt`, will be initialized by the dynamic loader as it resolves the relocations. The loader 
-will map the code of the libraries in the process memory and 
+The relocation specifies the destination through the `r_offset` field, 
+which points to an entry in the GOT (Global Offset Table). 
+This table, located in `.got.plt`, will be initialized 
+by the dynamic loader as it resolves the relocations. The loader
+will map the code of the libraries in the process memory and
 patch the table with the corresponding addresses.     
-        
+
 As said before, with full RERLO, all imported symbols are resolved at
 startup time. When the program starts, the .got.plt section is completely
 initialized with the final addresses of the functions and the corresponding
@@ -186,13 +191,13 @@ Later, when the program calls the function, the trampolines will do the job
 and the flow will be redirected to the corresponding function code (located
 in the library's text pages).
 
-The point is that the loader will use the name of the function 
-(`getppid` in this case) to resolve the symbol (that is, to search 
+The point is that the loader will use the name of the function
+(`getppid` in this case) to resolve the symbol (that is, to search
 the dynamic libraries used by the binary).
 Thus, if the string is `getppid`, the code pointed by the
-GOT will be the code of the `getppid` funcion of the libc. This code 
-is in fact the stub code for the `getppid` system call, which returns 
-the PID of the parent of the process; it will never be 0 (the UID for root). 
+GOT will be the code of the `getppid` funcion of the libc. This code
+is in fact the stub code for the `getppid` system call, which returns
+the PID of the parent of the process; it will never be 0 (the UID for root).
 This way, VLC is cheated.
 
 Remember: don't run VLC as root.
@@ -204,5 +209,4 @@ Remember: don't run VLC as root.
     Creative Commons, 559 Nathan Abbott Way, Stanford,
     California 94305, USA.
 </sup></sub>
-
 
