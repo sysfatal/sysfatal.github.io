@@ -60,8 +60,6 @@ QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
 
 Well, it works! But, how? We are dealing with a typical case that surprises neither a novice (someone who does not know what an executable binary is, who has never heard of ELF or thinks that a binary is like a python program) nor an expert in systems and binary analysis, but rather those who fall somewhere in between these two extremes.
 
-This document describes why this seemingly unusual solution works.
-
 VLC checks the effective UID credential: if it is 0 (the UID of root), it aborts the execution. The trick here is to replace this call. Instead of calling the `geteuid` function, the program will call the `getppid` function. Both functions belong to the C standard library. Both have seven-character names. Both take no parameters. Both return an integer value. The key point is that getppid will never return 0. This function returns the PID of the parent process (which will not be 0). Therefore, VLC will assume that the user running the program is not root (0).
 
 Is it calling the `getppid` function?
