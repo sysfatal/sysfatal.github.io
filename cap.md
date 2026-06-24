@@ -187,7 +187,7 @@ security.capability=0x01000002ffffffff00000000ff01000000000000
 $
 ```
 
-As showed above, the attribute exists and it is not empty.  
+As shown above, the attribute exists and it is not empty.  
 How are the capabilities encoded in this hexadecimal value?
 
 There are 3 different versions of capabilities (the last is *VFS_CAP_REVISION_3*)
