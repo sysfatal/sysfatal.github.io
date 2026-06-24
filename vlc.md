@@ -133,7 +133,7 @@ hits: 0
 0x000008f2  745f 7665 7273 696f 6e00 6d65 6d63 7079  t_version.memcpy
 0x00000902  006c 6962 766c 635f 6e65 7700 6c69 6276  .libvlc_new.libv
 [0x000018e0]> 0x00000892
-[[0x00000892]> iS.
+[0x00000892]> iS.
 Current section
 
 nth paddr        size vaddr       vsize perm name
