@@ -10,6 +10,13 @@ In this blog I'll write about stuff I like: security, operating systems, the int
 
 En este blog iré metiendo entradas sobre las cosas que me interesan, como la seguridad, sistemas operativos, internet, criptografía, etc. Algunas cosas estarán en castellano y otras en inglés, según me dé  :)
 
+
+
+## [Running VLC as root and the magic sed](vlc.html)
+_Wed Jun 24 05:17:00 PM CEST 2026_
+
+Recently, a student told me that it wasn’t possible to run VLC as root… it seemed strange to me, so I tried it...  [(continue)](vlc.html)
+
 ---
 
 ## [Empty Capabilities (not really)](cap.html)
@@ -119,3 +126,4 @@ Comencemos con una demostración. El siguiente video muestra cómo un programa e
 _Mon Nov 25 11:55:38 CET 2019_
 
 En los últimos años se han estado aplicando distintas técnicas de inteligencia artificial con distintos fines y en múltiples contextos. Una de sus aplicaciones es la creación de vídeos y voces sintéticas... [(continúa)](deepfakes.html)
+
