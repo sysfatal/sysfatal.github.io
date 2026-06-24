@@ -62,17 +62,17 @@ Well, it works! But, how? We are dealing with a typical case that surprises neit
 
 VLC checks the effective UID credential: if it is 0 (the UID of root), it aborts the execution. The trick here is to replace this call. Instead of calling the `geteuid` function, the program will call the `getppid` function. Both functions belong to the C standard library. Both have seven-character names. Both take no parameters. Both return an integer value. The key point is that getppid will never return 0. This function returns the PID of the parent process (which will not be 0). Therefore, VLC will assume that the user running the program is not root (0).
 
-Is it calling the `getppid` function?
+Is it calling the `getppid` function after the modification?
 
 ```
 # strace ./vlc 2>&1 | grep getppid
 getppid()                               = 99697
 ```
-Yes, there is a `getppid` system call.
 
-If we try with another function:
+Yes, there is a `getppid` system call. If we try with another function:
 
 ```
+# cp $(which vlc) vlc
 # sed -i 's/geteuid/getpid/g' vlc
 # ./vlc
 Segmentation fault (core dumped)
