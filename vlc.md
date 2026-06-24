@@ -181,7 +181,7 @@ by the dynamic loader as it resolves the relocations. The loader
 will map the code of the libraries in the process memory and
 patch the table with the corresponding addresses.     
 
-As said before, with full RERLO, all imported symbols are resolved at
+As said before, with full RELRO, all imported symbols are resolved at
 startup time. When the program starts, the .got.plt section is completely
 initialized with the final addresses of the functions and the corresponding
 memory pages will be marked as read only (it is an exploiting mitigation).
