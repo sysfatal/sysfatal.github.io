@@ -170,8 +170,8 @@ Those strings are used by the `.dynsym` section:
 When a function is imported, the linker:
 
 - stores its name as a string in the  `.dynstr` section
-- creates a corresponding symbol in `.dynsym`. The offset for the corresponding
-string is stored in the `st_name` field.
+- creates the corresponding entry for the symbol in `.dynsym`. The offset for the corresponding
+string in the `.dynstr` section is stored in the `st_name` field of the entry.
 - adds a relocation entry in `.rel.plt` that refers to that symbol
 
 The relocation specifies the destination through the `r_offset` field, 
