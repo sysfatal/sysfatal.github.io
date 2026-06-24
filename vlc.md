@@ -158,7 +158,7 @@ What's this? According to the manual page `elf(5)`:
 	 SHT_STRTAB.  The attribute type used is SHF_ALLOC.
 ```
 
-Those strings are used by the `.dynsym` table:
+Those strings are used by the `.dynsym` section:
 
 ```
 .dynsym
