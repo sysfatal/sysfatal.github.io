@@ -26,7 +26,7 @@ tags:
 </figure>
 </center>
 
-Recently, a student told me that it wasn’t possible to run VLC as root… it seemed strange to me, so I tried it:
+Recently, a student told me that it wasn’t possible to run VLC as root… it seemed strange to me, so I tried:
 
 ```
 # id
