@@ -78,7 +78,7 @@ Yes, there is a `getppid` system call. If we try with another function:
 Segmentation fault (core dumped)
 #
 ```
-Why? The length of the name is not 7 chars :) (it fails because the final string is `getpidd`; we should put a null char '\0' to overwrite the last 'd'). 
+Why? The length of the name is not 7 chars :) (it fails because the final string is `getpidd`; we should put a null char '\0' to overwrite the last 'd').
 
 But how can that sed command achieve this simply by replacing one string with another? Why doesn’t it break the binary? Why it is now calling `getppid` instead of `geteuid`?
 
@@ -96,7 +96,7 @@ Full RELRO      Canary found      NX enabled    PIE enabled     No RPATH   No RU
 #
 ```
 
-This means that, before running, all the relocations for dynamic libraries are resolved. 
+This means that, before running, all the relocations for dynamic libraries are resolved.
 If we dump the dynamic symbols table, we can see the `geteuid` symbol:
 
 ```
@@ -174,9 +174,9 @@ When a function is imported, the linker:
 string in the `.dynstr` section is stored in the `st_name` field of the entry.
 - adds a relocation entry in `.rel.plt` that refers to that symbol
 
-The relocation specifies the destination through the `r_offset` field, 
-which points to an entry in the GOT (Global Offset Table). 
-This table, located in `.got.plt`, will be initialized 
+The relocation specifies the destination through the `r_offset` field,
+which points to an entry in the GOT (Global Offset Table).
+This table, located in `.got.plt`, will be initialized
 by the dynamic loader as it resolves the relocations. The loader
 will map the code of the libraries in the process memory and
 patch the table with the corresponding addresses.     
@@ -188,6 +188,17 @@ memory pages will be marked as read only (it is an exploiting mitigation).
 Later, when the program calls the function, the trampolines will do the job
 and the flow will be redirected to the corresponding function code (located
 in the library's text pages).
+
+We can debug the loader and see the lookups:
+
+```
+# LD_DEBUG=bindings,symbols ./vlc
+...
+112741:     symbol=getppid;  lookup in file=./vlc [0]
+112741:     symbol=getppid;  lookup in file=/lib/x86_64-linux-gnu/libvlc.so.5 [0]
+112741:     symbol=getppid;  lookup in file=/lib/x86_64-linux-gnu/libc.so.6 [0]
+...
+```
 
 The point is that the loader will use the name of the function
 (`getppid` in this case) to resolve the symbol (that is, to search
@@ -207,4 +218,3 @@ Remember: don't run VLC as root.
     Creative Commons, 559 Nathan Abbott Way, Stanford,
     California 94305, USA.
 </sup></sub>
-
