@@ -78,7 +78,7 @@ Yes, there is a `getppid` system call. If we try with another function:
 Segmentation fault (core dumped)
 #
 ```
-Why? The lenght of the name is not 7 chars :) (it fails because the final string is `getpidd`; we should put a null char '\0' to overwrite the last 'd'). 
+Why? The length of the name is not 7 chars :) (it fails because the final string is `getpidd`; we should put a null char '\0' to overwrite the last 'd'). 
 
 But how can that sed command achieve this simply by replacing one string with another? Why doesn’t it break the binary? Why it is now calling `getppid` instead of `geteuid`?
 
