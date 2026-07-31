@@ -177,7 +177,7 @@ string in the `.dynstr` section is stored in the `st_name` field of the entry.
 The relocation specifies the destination through the `r_offset` field,
 which points to an entry in the GOT (Global Offset Table).
 This table, located in `.got.plt`, will be initialized
-by the dynamic loader as it resolves the relocations. The loader
+by the dynamic linker as it resolves the relocations. The dynamic linker
 will map the code of the libraries in the process memory and
 patch the table with the corresponding addresses.     
 
@@ -189,7 +189,7 @@ Later, when the program calls the function, the trampolines will do the job
 and the flow will be redirected to the corresponding function code (located
 in the library's text pages).
 
-We can debug the loader and see the lookups:
+We can debug the dynamic linker and see the lookups:
 
 ```
 # LD_DEBUG=bindings,symbols ./vlc
@@ -200,7 +200,7 @@ We can debug the loader and see the lookups:
 ...
 ```
 
-The point is that the loader will use the name of the function
+The point is that the dynamic linker will use the name of the function
 (`getppid` in this case) to resolve the symbol (that is, to search
 the dynamic libraries used by the binary).
 Thus, if the string is `getppid`, the code pointed by the
