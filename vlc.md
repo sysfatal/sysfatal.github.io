@@ -193,7 +193,7 @@ The point is that the loader will use the name of the function
 (`getppid` in this case) to resolve the symbol (that is, to search
 the dynamic libraries used by the binary).
 Thus, if the string is `getppid`, the code pointed by the
-GOT will be the code of the `getppid` funcion of the libc. This code
+GOT will be the code of the `getppid` function of the libc. This code
 is in fact the stub code for the `getppid` system call, which returns
 the PID of the parent of the process; it will never be 0 (the UID for root).
 This way, VLC is cheated.
