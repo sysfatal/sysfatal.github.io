@@ -25,7 +25,7 @@ tags:
 </figure>
 </center>
 
-# THIS ENTRY HAS BEEN PUBLISHED IN PAGED OUT! ISSUE 9, PAGE 40:
+# UPDATE: this entry has been published in PAGED OUT! ISSUE 9, PAGE 40:
 [https://pagedout.institute/](https://pagedout.institute/)
 
 Processes have five different sets of capabilities:
